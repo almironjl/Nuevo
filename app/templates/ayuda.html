@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div id="principal">
+
+
+<section>
+<span style="padding:10px"><img src="{% static 'app/images/icon_noticias_kunfood.png'%}"><span id="ayudaIcon">Ayuda:</span></span>
+<p><span class="subt">Respuesta y guias para la comunidad kunfood</span></p>
+<p><span class="pink">..........................................................................................................................................</span></p>
+</section>
+<ul>
+{% for type in app_type_set.all %}
+    <li>{{ type.name }} </li>
+{% endfor %}
+</ul>
+
+<section id="container">
+
+
+
+<article>
+
+<h2><span class="green">Preguntas Frecuentes:</span></h2>
+
+</article>
+
+
+
+
+			<article>
+			<div id="pregunta"><h1>¿Cómo  me registro y creo una cuenta en kunfood?</h1></div>
+			<div id="respuesta"><p>La forma más fácil de inscribirse es conectarse a <strong>Facebook</strong>. Esto llenará automáticamente parte de su perfil, y obtendrá una verificación adicional para su cuenta. Tenga la seguridad de que no vinculamos a nadie a su cuenta de Facebook, y también puede controlar la información que se proporciona a <strong>KUNFOOD.COM</strong> configurando sus preferencias de privacidad en Facebook.</p>
+
+<p>También puedes registrarte con tu dirección de correo electrónico para crear una cuenta. Si usted no ve la opción de suscribirse usando sólo su dirección de correo electrónico, basta con acceder a su cuenta de Facebook en el equipo, vuelva a cargar la página de registro, y la opción debe estar disponible para que al hacer clic en el enlace.
+</p></div>
+			</article>
+			
+			<article>
+			<div id="pregunta"><h1>¿Qué tipo de cuenta puedo crear en Kufood?</h1></div>
+			<div id="respuesta"><p>KUNFOOD Comunidad Gastronómica, permite a sus usuarios elegir el tipo de cuenta que mas se adecúe a su perfil en este mundo gastronómico. Permitiendo a todos los actores de la gastronomía reunirse en un mismo punto.</p>
+<p>reúne a todos los agentes de la gastronomía, haciendo de esta plataforma una comunidad interactiva y el punto de encuentro entre todos los actores de la gastronomía mundial. Aquí podrás encontrar un espacio en el que todos tendrán un espacio de difusión. Es con esta finalidad que cada usuario tiene la opción de elegir la categoría que más se ajuste a su perfil dentro de este maravilloso mundo gastronómico.</p>
+
+<p>Si te registras con tu cuenta de correo, luego de llenar tus datos te aparecerá la siguiente opción (ver figura), elige la opción que más se ajuste a tu perfil.
+</p>
+
+<p>Si te registraste por Facebook, por defecto tu cuenta tendrá la categoría comensal. Si deseas modificarlo, haz click en editar perfil y allí podrás hacer el cambio.</p>
+
+<p>Comensal </p>
+<p>Chef</p>
+<p>Mozo</p>
+<p>Productor/distribuidor</p>
+<p>Trabajo en un restaurante</p>
+<p>Otro: Si las opciones anteriores no se ajustan a tu perfil, indicanos </p></div>
+			</article>
+			
+			<article>
+			<div id="pregunta"><h1>¿Cómo  encuentro un restaurant?</h1></div>
+			<div id="respuesta"><p>Para ubicar un restaurante, puedes colocar el nombre del restaurante que prefieras, tipo de comida, o nombre del plato. De esta forma práctica podrás encontrar la información que necesites y más.
+</p></div>
+			</article>
+			
+<article style="display: none">
+
+<p><span class="pinkey">Otras preguntas frecuentes</span></p>
+
+<!-- -->
+
+</article>
+
+<article style="display: none">
+
+    <div id="pregunta"><h1>LOren aout bollybood </h1></div>
+
+    <div id="respuesta">orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies diam sit amet nibh vestibulum tincidunt. Etiam rutrum augue vel lorem aliquam, eget feugiat sapien dignissim. Curabitur in nulla eget lacus porttitor volutpat vel quis sapien. Morbi tempor malesuada quam rutrum porta. Sed eu posuere libero. </div>
+
+</article>
+
+<article style="display: none">
+
+    <div id="pregunta"><h1>LOren aout bollybood </h1></div>
+
+    <div id="respuesta">orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies diam sit amet nibh vestibulum tincidunt. Etiam rutrum augue vel lorem aliquam, eget feugiat sapien dignissim. Curabitur in nulla eget lacus porttitor volutpat vel quis sapien. Morbi tempor malesuada quam rutrum porta. Sed eu posuere libero. </div>
+
+</article>
+
+<article style="display: none">
+
+    <div id="pregunta"><h1>LOren aout bollybood </h1></div>
+
+    <div id="respuesta">orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies diam sit amet nibh vestibulum tincidunt. Etiam rutrum augue vel lorem aliquam, eget feugiat sapien dignissim. Curabitur in nulla eget lacus porttitor volutpat vel quis sapien. Morbi tempor malesuada quam rutrum porta. Sed eu posuere libero. </div>
+
+</article>
+
+<br>
+
+<br>
+
+<!-- -->
+
+
+
+</section>
+
+<section id="menu">
+
+<p><a href="{% url 'ayuda' %}">Preguntas Frecuentes</a></p>
+
+<p><a href="{% url 'guia' %}">Guia para empezar</a></p><a href="{% url 'guia' %}">
+
+<section>
+
+
+
+</section></a></section></div>
+
+{% endblock %}

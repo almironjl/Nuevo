@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load url from future %}
+
+{% block content %}
+    <section class="contenidoPrincipal">
+        <ul id="sliderContent">
+            <li class="sliderImage banImg x1">
+                <span class="bottom">
+                <img src="{% static 'app/images/logos/pescados_capitales.png' %}" class="logo" alt="Img">
+                    <strong>Pescados Capitales</strong><br/>
+                    Av. La Mar 1337
+                </span>
+            </li>
+            <li class="sliderImage banImg x2">
+                <span class="bottom">
+                <img src="{% static 'app/images/logos/Maido.png' %}" class="logo" alt="Img">
+                <strong>Maido</strong><br/>
+                calle San Martín 399
+                </span>
+            </li>
+            <li class="sliderImage banImg x3">
+                <span class="bottom">
+                <img src="{% static 'app/images/logos/Bravo_restobar.png' %}" class="logo" alt="Img">
+                <strong>Bravo Restobar</strong><br/>
+                Conquistadores 1005
+                </span>
+            </li>
+            <li class="sliderImage banImg x4">
+                <span class="bottom">
+                <img src="{% static 'app/images/logos/pescados_capitales.png' %}" class="logo" alt="Img">
+                    <strong>Pescados Capitales</strong><br/>
+                    Av. La Mar 1337
+                </span>
+            </li>
+            <li class="sliderImage banImg x5">
+                <span class="bottom">
+                <img src="{% static 'app/images/logos/maido.png' %}" class="logo" alt="Img">
+                <strong>Maido</strong><br/>
+                calle San Martín 399
+                </span>
+            </li>
+            <li class="sliderImage banImg x6">
+                <span class="bottom">
+                <img src="{% static 'app/images/logos/Bravo_restobar.png' %}" class="logo" alt="Img">
+                <strong>Bravo Restobar</strong><br/>
+                Conquistadores 1005
+                </span>
+            </li>
+            <li class="sliderImage banImg x7">
+                 <span class="bottom">
+                <img src="{% static 'app/images/logos/pescados_capitales.png' %}" class="logo" alt="Img">
+                    <strong>Pescados Capitales</strong><br/>
+                    Av. La Mar 1337
+                </span>
+            </li>
+            <div class="clear sliderImage"></div>
+        </ul>
+        <div id="slider">
+            <div class="formularioBusqueda">
+                <div id="content-wrapper">
+                    <div id="content">
+                        <div id="area-selection">
+                            <div id="area-selection-fields">
+                                <form action="" id="buscarRestaurante" method="post">
+                                    <p>¿Que se te antoja hoy?</p>
+
+                                    <p>¿Donde estas?</p>
+                                    <input type="text" placeholder="Restaurante, tipo de comida" name="keyword"
+                                           id="keyword" tabindex="1"/>
+                                    <input type="text" placeholder="Lugar" class="TxtLugar" name="area-selector"
+                                           id="area-selector" tabindex="2"/>
+                                    <input type="button" value="Buscar" onClick="busqueda.busca()"/>
+                                    <!--                                    <p id="select-from-map" onclick="cambiarTextMapa()">
+                                                                            <span class="open-map">Seleccionar del mapa</span>
+                                                                            <span class="open-map hide">Ocultar mapa</span>
+                                                                        </p>
+                                    --> <span id="AlertaBusqueda">Por favor, ingrese datos de busqueda.</span>
+                                </form>
+                            </div>
+                            <div id="google-map" class="google-maps hide" style="margin:50px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: right;">
+            <p>You are logged in as {{ user.username }}!</p>
+
+            <p>Associated:</p>
+            <ul>
+                {% for assoc in backends.associated %}
+                    <li>
+                        {{ assoc.provider }} (<a href="{% url 'social:disconnect_individual' assoc.provider assoc.id %}"
+                                                 class="disconnect">Disconnect</a> or <a href="/logout/">logout</a>)
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+    <script type="text/javascript" src="{% static 'app/js/jquery.elastislide.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/js/s3Slider.js' %}"></script
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initialize"></script>
+    <script type="text/javascript">
+        busqueda = {
+            inicializa_mapa: function () {
+                mapa = new google.maps.Map(document.getElementById('google-map'), {
+                    zoom: 12,
+                    center: new google.maps.LatLng(-12.047816, -77.062203),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+
+                var input = document.getElementById('area-selector');
+                var options = {
+                    componentRestrictions: {country: 'pe'}
+                };
+                autocomplete = new google.maps.places.Autocomplete(input, options);
+            },
+            busca: function () {
+                var key = $("#keyword").val();
+                var lugar = $("#area-selector").val();
+
+                if (key.length == 0 && lugar.length == 0) {
+                    $("#AlertaBusqueda").css("display", "inline");
+                }
+                else {
+                    window.location.href = "/busqueda/" + key + "/" + lugar;
+                }
+                return false;
+            }
+        };
+
+        $("#keyword").autocomplete({
+            source: function (request, response) {
+                $.ajax({ url: "/obten_tags/"+$("#keyword").val(),
+                    dataType: "json",
+                    type: "GET",
+                    success: function (data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 1
+        });
+
+        $(document).ready(function () {
+            $('#slider').s3Slider({ timeOut: 3000 });
+            $('#carousel').elastislide();
+            busqueda.inicializa_mapa();
+        });
+    </script>
+
+{% endblock %}

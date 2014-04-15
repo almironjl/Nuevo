@@ -1,0 +1,175 @@
+<script>
+    $(function () {
+        $("#formregistro").LeValidate({
+            /*notifyBox : "le-notification-orange"*/
+        });
+    });
+
+    $(function () {
+        $("#formlogin").LeValidate({
+            /*notifyBox : "le-notification-orange"*/
+        });
+    });
+
+</script>
+
+
+<div id="ModalRegistroUsuario">
+
+    <h2>Registrate en Kunfood</h2>
+
+
+    <form id="formregistro" name="formregistro" action="#" method="post">
+
+        <a id="frm_facebook" href="{% url 'social:begin' 'facebook' %}">Reg&iacute;strate con Facebook</a>
+
+
+        <p>o ingresa tus datos:</p>
+
+        <input type="text" id="nombre" name="nombre" value="" placeholder="Nombre" class="require"/>
+
+        <input type="text" id="apellidos" name="apellidos" value="" placeholder="Apellidos" class="require"/>
+
+        <input type="text" id="correo" name="correo" placeholder="Correo Electronico" class="require email"/>
+
+        <input type="password" id="password" name="password" placeholder="Contraseña"
+               class="require password minLength-5"/>
+
+        <input type="password" id="repit_password" name="repit_password" placeholder="Repetir Contraseña"
+               class="require passwordAgain"/>
+
+
+        <p class="condicion_registro">
+
+            <input type="checkbox" id="ckb_condicion" name="ckb_condicion">
+
+            <span class="condition">Al enviar esta informacion esta de acuerdo con las condiciones de uso y la politica de Privacidad de Kunfood.</span>
+
+        </p>
+
+
+        <input type="submit" value="REGISTRATE" class="btnregistro" id="btnregistro" name="btnregistro">
+
+        Ó <a href="#ModalInicioSession" class="modalbox">INICIA SESIÓN</a>
+
+        <p><span class="condition">Al hacer clic en <strong>"Regístrate con Facebook"</strong>
+
+            confirmas que aceptas las <span style="color: #06f">Condiciones del servicio</span>
+
+            y la <span style="color: #06f">Política de privacidad.</span> </span></p>
+
+</div>
+
+
+<!--<button id="send">Send E-mail</button>-->
+
+</form>
+
+</div>
+
+
+<div id="ModalInicioSession">
+
+    <h2>Iniciar Sesi&oacute;n en Kunfood</h2>
+
+
+    <form id="formlogin" name="formlogin" action="#" method="post">
+
+
+        <a id="frm_facebook" href="{% url 'social:begin' 'facebook' %}">Inicia sesi&oacute;n con Facebook</a>
+
+        <p>o ingresa tus Usuario:</p>
+
+
+        <input type="text" id="correol" name="correol" placeholder="Correo Electronico" class="require email"
+               onKeyDown="if(event.keyCode == 13) {document.frm_facebook.password.focus();}"/>
+
+        <input type="password" id="passwordl" name="passwordl" placeholder="Contraseña"
+               class="require password minLength-5"
+               onKeyDown="if(event.keyCode == 13) {  document.frm_facebook.btnlogin.focus(); }"/>
+
+
+        <p class="condicion_registro">
+
+       <span class="condition">
+
+       
+
+	   <input type="checkbox" id="ckb_recordar" name="ckb_recordar"/>
+
+	   <label for="ckb_recordar"><span></span>Recordarme</label>
+
+	   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+       <span style="color: #06f"><a href="#" onclick="olvidar()">Olvidastes tu contrase&ntilde;a?<a></span>                            
+
+
+
+   	   </span>
+
+
+        </p>
+
+        <p id='btnprocesar'></p>
+
+        <input type="submit" value="Iniciar Sesi&oacute;n" class="btnlogin" id="btnlogin" name="btnlogin">
+
+
+        <!--<button id="send">Send E-mail</button>-->
+
+    </form>
+
+    <a href="#ModalRegistroUsuario" class="modalbox">REGISTRATE</a>
+
+</div>
+<script>
+    function submit_form() {
+        document.formlogin.submit();
+    }
+</script>
+<div id="ModalUbicacion">
+    <div class="filthid">
+        <span class="space"></span>
+        <div id="filters-columns">
+
+
+{#            <?php #}
+{##}
+{#									#}
+{##}
+{#									 include_once("protected/ADO/ADO.php");#}
+{##}
+{#									#}
+{##}
+{#									 $ADO = new ADO; #}
+{##}
+{#									 #}
+{##}
+{#									 $Sqlx = "SELECT id,nombre FROM distrito ORDER BY id ASC LIMIT 4,40";#}
+{##}
+{#									 #}
+{##}
+{#									 $Rs = $ADO->ejecuta_procedure($Sqlx,$ADO->conexion());#}
+{##}
+{#            $Y = 3;#}
+{##}
+{#            while($Row = mysqli_fetch_array($Rs)){#}
+{##}
+{#            $Y++;#}
+{##}
+{#            ?>#}
+
+            <div class="check">
+
+{#                <input type="checkbox" onClick="Cargar_restaurantesBuscarFiltro()" id="ckd<?php echo $Row['id']; ?>"#}
+{#                       name="ckdlugar" value="ckd<?php echo $Row['id']; ?>"/>#}
+{##}
+{#                <label for="ckd<?php echo $Row['id']; ?>"><span></span><?php echo utf8_encode($Row['nombre']); ?>#}
+{#                </label>#}
+
+            </div>
+{#            <?php } ?>#}
+        </div>
+    </div>
+</div>
+

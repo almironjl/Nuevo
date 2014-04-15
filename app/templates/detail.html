@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="contenidoPrincipal">
+<section id="ContainerGeneral">
+
+	<article class="TituloPrinc">
+        <div>
+	        <span>{{ point.address }}</span> <span class="rating"><p class="fontstars">{{ point.city }}</p></span>
+        </div>
+	</article>
+    <article class="ContainerCompartir">
+        <div id="contcomp">
+            <script src="http://platform.twitter.com/widgets.js" type="text/javascript"> </script>
+            <div class="fb-share-button fb_iframe_widget" data-href="http://kunfood.com/VersionK/2.1/Restaurant_general.php?id=43&amp;name=Pescados Capitales" data-type="button" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=338384736288835&amp;href=http%3A%2F%2Fkunfood.com%2FVersionK%2F2.1%2FRestaurant_general.php%3Fid%3D43%26name%3DPescados%2520Capitales&amp;locale=en_US&amp;sdk=joey&amp;type=button">
+                <span style="vertical-align: bottom; width: 57px; height: 20px;">
+                <iframe name="ff22c39ec" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:share_button Facebook Social Plugin" src="http://www.facebook.com/plugins/share_button.php?app_id=338384736288835&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F63KoCqPoniC.js%3Fversion%3D40%23cb%3Df1d3b5001%26domain%3Dwww.kunfood.com%26origin%3Dhttp%253A%252F%252Fwww.kunfood.com%252Ff1668dda%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fkunfood.com%2FVersionK%2F2.1%2FRestaurant_general.php%3Fid%3D43%26name%3DPescados%2520Capitales&amp;locale=en_US&amp;sdk=joey&amp;type=button" class="" style="border: none; visibility: visible; width: 57px; height: 20px;">
+                </iframe>
+                </span>
+            </div>
+            <div>
+                <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/tweet_button.1393899192.html#_=1394248080051&amp;count=none&amp;dnt=true&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Fwww.kunfood.com%2FRestaurant_general.php%3Fid%3D43%26name%3DPescados%2520Capitales%26code%3D3303%26dish%3D1%2F2%2520tiradito%2520de%2520lenguado%2520con%25201%2F2%2520crema%2520de%2520aj%25C3%25AD%2520amar%26type%3Ddish&amp;size=m&amp;text=%C2%A1Me%20encanta!%20Pescados%20Capitales%20en%20%40kunfoodapp&amp;url=http%3A%2F%2Fkunfood.com%2FVersionK%2F2.1%2FRestaurant_general.php&amp;via=twitterapi" class="twitter-share-button twitter-tweet-button twitter-count-none" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 56px; height: 20px;">
+                </iframe>
+            </div>
+
+        </div>
+    </article>
+
+	<article id="ContainerPrinc">
+        <div class="menuprincipal">
+            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                <li class="active"><a href="#red" data-toggle="tab"><span>Mapa</span></a></li>
+                <li><a href="#orange" data-toggle="tab"><span>Galeria de Fotos</span></a></li>
+            </ul>
+        </div>
+
+        <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane active" id="red">
+                <div id="map_canvas"  style="width: 100%; height: 450px">
+                </div>
+            </div>
+            <div class="tab-pane" id="orange">
+                <div class="rest_image">
+                    <img width="" height="" class="coverimage" src="{{ point.id }}">
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article id="ContainerDescCont">
+        <div class="menuDescCont">
+            <ul id="tabs_description" class="nav nav-tabs" data-tabs="tabs">
+                <li class="active"><a href="#yellow" data-toggle="tab"><span>Contacto</span></a></li>
+                <li><a href="#green" data-toggle="tab"><span>Descripcion</span></a></li>
+            </ul>
+        </div>
+        <div id="tab-content-description" class="tab-content">
+            <div class="tab-pane active" id="yellow">
+                <div class="contentDescCont">
+                    <div>
+                        <span>Ubicación: </span>
+                        <label> {{ point.address }} </label>
+                    </div>
+                    <div>
+                        <span>Contacto: </span>
+                        <label> {{ point.state }} </label>
+                    </div>
+                    <div>
+                        <span>Correo: </span>
+                        <label> {{ point.provider }} </label>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="green">
+                <div class="contentDescCont">
+                    <span>NOSOTROS: </span>
+                    <p>
+                        {{ point.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+	</article>
+
+    <article class="ContainerRestSim">
+        <div>
+            <span class="titResSim">Restaurantes Similares</span>
+        </div>
+        
+        <div id="results">
+        </div>
+
+        <div class="list_dish_restaurant_box" style="display: none">
+            <a class="wishlist_icon icon_wish modalbox" href="#ModalWishList"
+               onclick="load_wish('',this.getAttribute('data-value'), this.getAttribute('data-dish'), this.getAttribute('data-rest'), '', this.getAttribute('data-comment'), this.getAttribute('data-selected'), '2')"
+               id="dish280" title="Agrega a tu wish list" data-value="" data-dish="" data-rest="280" data-selected=""
+               data-comment="">
+            </a>
+            <a class="goto" id="280" name="Pappas Pollos y Parrillas"
+               title="Ver los detalles del Restaurante">
+                <div class="listing-outer">
+                    <div class="margen-img">
+                        <div class="margen-img-center" style="background: '{{ local.imageurl }})'"></div>
+                    </div>
+                    <div class="marg-tit-rest">
+
+                    </div>
+                    <div class="place-marg">
+                        &nbsp;
+
+                    </div>
+                    <div class="phone-marg">
+                        &nbsp;
+
+                    </div>
+                    <div class="list-deseado" style="display:none" id="list-des-1" title="Wish List"></div>
+                    <div class="pt-calif">
+                        <div class="pt-calif-star">
+                            4
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+	</article>
+
+    <article id="ContainerCartServ">
+        <div class="MenuCarSer">
+            <ul>
+                <li class="current"><span>Carta</span></li>
+            </ul>
+        </div>
+        <div class="contentCarSer">
+            <div id="productslist">
+            </div>
+
+            <div id="result_box_model">
+                <a onclick="redirec_detalles_rest(this.id,this.name, this.getAttribute('data-code'), this.getAttribute('data-dish'), 'dish')" data-code="3303" data-dish="1/2 tiradito de lenguado con 1/2 crema de ají amar" id="43" name="Pescados Capitales">
+                    <div class="itemscarta">
+                        <div class="photo-plato">
+                            <div class="margen-img-center" style="background-image:url('')"></div>
+                        </div>
+                        <div class="precio-plat">
+                            <div class="product_price"></div>
+                        </div>
+                        <div class="name-plato">
+                            <div class="product_name"></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+	</article>
+
+
+</section>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'app/tmp_css/restaurantdetail.css' %}?2634655235"/>
+    <link rel="stylesheet" href="{% static 'app/tmp_css/principal.css' %}?2634655235"/>
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC4UrcnTFCmOixZfXq4CcJsn1zEPrHDRVI&sensor=true"></script>
+
+    <script>
+
+        $(function () { // AFTER HTML RENDERED
+            set_map_location('{{ local.name }}', '{{ local.lat }}','{{ local.lng }}' );
+            get_products({{ local.id }});
+            search_simproduct_restaurants({{ local.id }});
+            $('#tabs').tab();
+            $('#tabs_description').tab();
+        });
+
+        function redirec_detalles_rest(id,name, code, dish, type){
+            location.href = "Restaurant_general.php?id="+id+"&name="+name+"&code="+code+"&dish="+dish+"&type="+type;
+        }
+
+        function get_products(localid) {
+            $.post('{% url 'get_products' %}', {localid: localid}, function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var div = $('#result_box_model').clone();
+                    $(div).find( ".product_name").text(data[i].name);
+                    $(div).find( ".product_price").text('S/. ' + data[i].price);
+                    $(div).addClass("result_box");
+                    $(div).removeAttr('id');
+                    $(div).find('.margen-img-center').css({
+                        'background-image': 'url(\'' + data[i].imageurl + '\')'
+                    });
+                    $('#productslist').append(div);
+                }
+                $("#result_box_model").remove();
+            });
+        }
+
+        function search_simproduct_restaurants(localid) {
+            $.post('{% url 'search_simproduct_restaurants' %}', {localid: localid}, function (data) {
+                $('#results').html('');
+                for (var i = 0; i < data.length; i++) {
+                    var div = $('.list_dish_restaurant_box').clone();
+                    $(div).removeClass('list_dish_restaurant_box');
+                    $(div).addClass('list_dish_restaurant');
+                    $(div).find('.marg-tit-rest').text(data[i].name);
+                    $(div).find('.place-marg').text(data[i].address);
+                    $(div).find('.phone-marg').text(data[i].phone);
+                    $(div).find('.goto').attr('href','/detail/'+data[i].id);
+                    $(div).find('.margen-img-center').css({
+                        'background-image': 'url(' + data[i].imageurl + ')'
+                    });
+                    $(div).show();
+                    $('#results').append(div);
+                }
+            });
+        }
+
+        function set_map_location(name, lat, lng){
+            var pos = new google.maps.LatLng(lat, lng);
+            var mapOptions = {
+                zoom: 15,
+                center: pos,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var mapa = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+            var marker = new google.maps.Marker({
+                position: pos,
+                title: name
+            });
+            marker.setMap(mapa);
+        }
+
+    </script>
+{% endblock %}

@@ -1,0 +1,1455 @@
+@font-face {
+    font-family: 'Raleway-Light';
+    src: url('fonts/Raleway-Light.eot');
+    src: local('☺'), url('fonts/Raleway-Light.woff') format('woff'), url('fonts/Raleway-Light.ttf') format('truetype'), url('fonts/Raleway-Light.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway-Regular';
+    src: url('fonts/Raleway-Regular.eot');
+    src: local('☺'), url('fonts/Raleway-Regular.woff') format('woff'), url('fonts/Raleway-Regular.ttf') format('truetype'), url('fonts/Raleway-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway-Bold';
+    src: url('fonts/Raleway-Bold.eot');
+    src: local('☺'), url('fonts/Raleway-Bold.woff') format('woff'), url('fonts/Raleway-Bold.ttf') format('truetype'), url('fonts/Raleway-Bold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LobsterTwo-Bold';
+    src: url('fonts/LobsterTwo-Bold.eot');
+    src: local('☺'), url('fonts/LobsterTwo-Bold.woff') format('woff'), url('fonts/LobsterTwo-Bold.ttf') format('truetype'), url('fonts/LobsterTwo-Bold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LobsterTwo-Italic';
+    src: url('fonts/LobsterTwo-Italic.eot');
+    src: local('☺'), url('fonts/LobsterTwo-Italic.woff') format('woff'), url('fonts/LobsterTwo-Italic.ttf') format('truetype'), url('fonts/LobsterTwo-Italic.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LobsterTwo-Regular';
+    src: url('fonts/LobsterTwo-Regular.eot');
+    src: local('☺'), url('fonts/LobsterTwo-Regular.woff') format('woff'), url('fonts/LobsterTwo-Regular.ttf') format('truetype'), url('fonts/LobsterTwo-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'shruti';
+    src: url('fonts/shruti.eot');
+    src: local('☺'), url('fonts/shruti.woff') format('woff'), url('fonts/shruti.ttf') format('truetype'), url('fonts/shruti.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Tahoma, Geneva, sans-serif;
+    font: 12px;
+    min-width: 320px;
+    background: rgba(255, 255, 255, 1) !important;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container header {
+    width: 100%;
+    min-height: 58px;
+    padding-bottom: 11px;
+    background: url(../images/bg_cabecera.jpg) no-repeat, url(../images/bg_cabecera_continuo.png) repeat-x 0px bottom;
+    position: relative;
+    z-index: 5;
+}
+
+.container header .menuPrincipal {
+    width: 100%;
+    margin: 0px auto 0px auto;
+    position: relative;
+    z-index: 2;
+}
+
+.container header .menuPrincipal a.logo {
+    float: left;
+    margin-left: 4%;
+}
+
+.container header .menuPrincipal a.logo h1 {
+    text-indent: -9999px;
+    width: 106px;
+    height: 51px;
+    margin: 3px;
+    padding: 0px;
+    font-size: 100px;
+    background-image: url(../images/logo-kunfood.png);
+}
+
+.container header .menuPrincipal nav {
+
+    position: absolute;
+    width: 40%;
+    min-width: 500px;
+    max-width: 700px;
+    right: 0px;
+}
+
+.container header .menuPrincipal .botonMostrar {
+    display: none;
+}
+
+.container header .menuPrincipal nav ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.container header .menuPrincipal nav ul li {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    background-image: url(../images/menu_division.png);
+    background-repeat: no-repeat;
+    background-position: 0px center;
+    height: 58px;
+    width: 18%; /*14*/
+    min-width: 100px;
+    padding: 0px 1% 0px 1%;
+    vertical-align: text-top;
+}
+
+.container header .menuPrincipal nav ul li.registro {
+    width: 25%;
+}
+
+.container header .menuPrincipal nav ul li.registro table td {
+    font-size: 13px;
+}
+
+.container header .menuPrincipal nav ul li.registro table td a {
+    display: block;
+    line-height: 2em;
+    text-align: center;
+}
+
+.container header .menuPrincipal nav ul li.registro table td a:hover {
+    color: #f778ae
+}
+
+.container header .menuPrincipal nav ul a:hover li table td {
+    color: #f778ae;
+}
+
+.container header .menuPrincipal nav ul li table {
+    width: 100%;
+    height: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.container header .menuPrincipal nav ul li table td {
+    vertical-align: middle;
+    text-align: center;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.registraTuRestaurante {
+    clear: both;
+    position: relative;
+    width: 860px;
+    margin-right: 13px;
+    margin-left: auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    z-index: 1;
+}
+
+.registraTuRestaurante a {
+    display: block;
+    position: relative;
+    right: 0px;
+    top: 1px;
+    padding: 16px 16px 16px 58px;
+    background-image: url(../images/icon_registra_Tu_Restaurant.png), url(../images/Rectangulo-redondeado-verde.png);
+    background-repeat: no-repeat, repeat;
+    background-position: 10px center, 0px 0px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: Raleway-Bold, Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    float: right;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+#slider {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+#sliderContent {
+    padding: 0px !important;
+    margin: 0px !important;
+    margin-top: 40px !important
+}
+
+#slider .formularioBusqueda {
+    position: relative;
+    top: 160px;
+    width: 45%;
+    height: 140px;
+    z-index: 2;
+    /*margin-left:26%; */
+    margin: 0 auto;
+
+}
+
+#slider .formularioBusqueda .titulo {
+    font-size: 45px;
+    color: #ffffff;
+    font-family: LobsterTwo-Bold, Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px auto 0px auto;
+    text-shadow: -1px 1px 4px #000000, -1px 1px 2px #000000;
+    display: none;
+}
+
+#slider .formularioBusqueda #area-selection {
+    /*margin:20px 6% 0px 6%;*/
+    height: 100px;
+    min-height: 100px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 7px 8px 7px 8px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    position: relative;
+    box-shadow: none;
+    border: none;
+    width: 700px;
+    margin: 0 auto;
+
+    margin: 0px;
+
+}
+
+#slider .formularioBusqueda form p {
+    display: inline;
+    font-family: LobsterTwo-Bold;
+    color: #fff;
+    font-size: 23px;
+    padding: 0px;
+    margin-right: 75px;
+    margin-left: 7px;
+}
+
+#slider .formularioBusqueda form #select-from-map {
+    display: block;
+    margin-top: 49px !important;
+    font-family: Raleway-Regular;
+    font-size: 16px;
+    /*margin-left: 10px;*/
+    /*position: absolute;*/
+    float: right;
+    margin-right: 215px;
+}
+
+#slider .formularioBusqueda form p.titmap:hover {
+    cursor: pointer;
+}
+
+#slider .formularioBusqueda #google-map {
+    margin-top: 70px !important;
+    width: 100%;
+    padding: 0 !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+#slider .formularioBusqueda form input[type=text] {
+    color: #221f1d;
+    font-size: 18px;
+    margin: 0px 3px 0px 7px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    border: none;
+    background-color: #ffffff;
+    background-repeat: repeat-x;
+    background-position: 0px 0px;
+    box-shadow: inset 0 0 2px #000000;
+    outline: none;
+    padding: 5px;
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    width: 30%;
+    right: 23%;
+}
+
+.TxtLugar {
+    left: 41% !important;
+    width: 30% !important;
+    right: 13% !important;
+}
+
+#slider .formularioBusqueda form input[type=text]:focus {
+    box-shadow: 0px 0px 15px #e4337e, 0px 0px 15px #e4337e;
+}
+
+#slider .formularioBusqueda form input[type=submit] {
+    background: none;
+    background-image: url(../images/bucador_home.png);
+    border: none;
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    top: 40px;
+    right: 7px;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px 0px 0px 28px;
+    cursor: pointer;
+}
+
+.formularioBusqueda form input[type=submit]:hover {
+    background-image: url(../images/bucador_home-hover.png) !important;
+}
+
+#slider .descargaApp {
+    width: 240px;
+    height: 94px;
+    padding: 14px 0px 0px 50px;
+    background-image: url(../images/bg_descarga_la_aplicacion.png);
+    color: #ffffff;
+    font-family: Raleway-Regular, Tahoma, Geneva, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    left: 40px;
+    bottom: 70px;
+    z-index: 1;
+}
+
+.experiencia {
+    position: relative;
+    width: 100%;
+    background: url(../images/bg_textura_noticias_kunfood.png);
+    top: -52px;
+    z-index: 3;
+}
+
+.experiencia .sliderExperiencia {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.1)
+}
+
+.experiencia .dientes {
+    position: absolute;
+    width: 100%;
+    background: url(../images/borde_dentado.png);
+    top: -133px;
+    height: 133px;
+    z-index: 1;
+}
+
+.experiencia .contenido {
+    width: 1220px;
+    margin: 0px auto 0px auto;
+    padding: 0px 20px 20px 20px;
+    position: relative;
+    z-index: 3;
+    top: -50px;
+    font-family: Raleway-Regular;
+}
+
+.container .experiencia header {
+    background: none;
+    background-image: none;
+    width: 75%;
+    margin-left: 12%;
+}
+
+.container .experiencia h2 {
+    padding: 0px 0px 0px 65px;
+    margin: 0px 0px 0px 0px;
+    font-size: 28px;
+    color: #e4337e;
+    background-image: url(../images/icon_noticias_kunfood.png);
+    background-position: 0px center;
+    background-repeat: no-repeat;
+    font-weight: normal;
+    position: relative;
+    top: -20px;
+    height: 50px;
+}
+
+.container .experiencia h2 strong {
+    color: #363636;
+    font-weight: normal;
+    font-size: 32px;
+}
+
+.container .experiencia h3 {
+    color: rgba(0, 0, 0, 0.7);
+    padding: 0px 0px 30px 60px;
+    margin: -20px 0px 0px 0px;
+    font-weight: normal;
+    font-size: 18px;
+    /*background-image:url(../images/division_noticias.png);*/
+    background-position: 0px bottom;
+    background-repeat: repeat-x;
+}
+
+.container .experiencia h3 span {
+    color: blue;
+}
+
+.container .experiencia h3 span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.container .experiencia .sliderExperiencia {
+    /*width:109%;
+    margin-top:20px;
+    margin-left: -50px;*/
+    /*width: 128%;/*163*/
+    /*margin-left: -15%;
+    /*border: 1px solid red;*/
+
+}
+
+.vacio {
+    padding: 50px 0px;
+}
+
+.vacioX {
+    padding: 00px 0px;
+}
+
+.container .descargaAplicacion {
+    clear: both;
+    position: relative;
+    background: url(../images/bg_bordeSuperiorFooter.png) repeat-x left top;
+    margin-top: -50px;
+    /*z-index: 3;*/
+}
+
+.container .descargaAplicacion .fondoMadera {
+    background: url(../images/bg_madera.jpg) no-repeat 50% 0px;
+    padding-bottom: 50px;
+    position: relative;
+    top: 14px;
+    background-color: #0c0807;
+}
+
+.container .descargaAplicacion .contenido {
+    width: 1200px;
+    margin: 0px auto 0px auto;
+    position: relative;
+}
+
+.container .descargaAplicacion .contenido hgroup {
+    width: 38%;
+    padding: 9px 5% 0px 5%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.container .descargaAplicacion .contenido hgroup h1 {
+    font-size: 34px;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: LobsterTwo-Bold, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.container .descargaAplicacion .contenido p {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container .descargaAplicacion .contenido .botonesDescarga {
+    width: 45%;
+    padding: 9px 8% 0px 8%;
+    text-align: center;
+    margin: 0 auto;
+    display: none;
+}
+
+.container .descargaAplicacion .contenido .botonesDescarga a {
+    display: inline-block;
+    margin: 10px;
+    width: 113px;
+    height: 112px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container .descargaAplicacion .contenido .botonesDescarga a:hover {
+    background-position: 0px -112px;
+}
+
+.container .descargaAplicacion .contenido .botonesDescarga a.mac {
+    background-image: url(../images/icon_mac_descarga-la-aplicacion.png);
+}
+
+.container .descargaAplicacion .contenido .botonesDescarga a.android {
+    background-image: url(../images/icon_android_descarga-la-aplicacion.png);
+}
+
+.container .descargaAplicacion .imagen {
+    position: absolute;
+    background: url(../images/qr_android.png);
+    width: 209px;
+    height: 267px;
+    right: 100px;
+    top: 20px;
+    cursor: pointer;
+
+}
+
+.container .descargaAplicacion .imagen1 {
+    position: absolute;
+    background: url(../images/qr_iphone.png);
+    width: 209px;
+    height: 267px;
+    left: 100px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.container .descargaAplicacion .contenido .imagen img {
+    width: 100%;
+}
+
+.container .descargaAplicacion .contenido hgroup h2 {
+    font-size: 18px;
+    color: #ffae00;
+    font-weight: normal;
+}
+
+.container .descargaAplicacion .contenido hgroup h2 a {
+    font-size: 14px;
+    color: #85bd00;
+    text-decoration: underline;
+}
+
+.container .descargaAplicacion .contenido p {
+    font-size: 15px;
+    color: #ffffff;
+    width: 45%;
+    padding: 9px 8% 0px 8%;
+    text-align: left;
+}
+
+.ContenedorRestaurant {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    background: rgba(255, 255, 255, 1);
+    margin-top: -540px;
+    overflow: auto;
+}
+
+.ContenedorRestaurant article {
+    display: inline-block
+}
+
+.ContenedorRestaurant .ContenidoMapa {
+    position: relative;
+    width: 55%;
+    height: 95%;
+    background: rgba(102, 102, 204, 1);
+}
+
+.ContenedorRestaurant .ContenidoListaRestaurant {
+    position: relative;
+    width: 44.6%;
+    height: 95%;
+    background: rgba(153, 255, 51, 1)
+}
+
+#AlertaBusqueda {
+    background: rgba(255, 255, 255, 0.8) !important;
+    /*background:url(../images/datos-de-busqueda.png) no-repeat !important;*/
+    padding: 6px;
+    position: absolute;
+    width: 270px;
+    text-align: center;
+    /*margin-left: -300px !important;
+    margin-top: 70px !important;*/
+    margin-left: -300px !important;
+    margin-top: -35px !important;
+    list-style: none !important;
+    border: none !important;
+    border-radius: 5px 5px 0px 0px;
+    display: none;
+    font-family: sans-serif;
+    color: rgba(51, 51, 51, 1);
+    font-size: 14px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+#AlertaBusqueda:hover {
+    list-style: none !important;
+    border: none !important
+}
+
+#AlertaBusqueda:active {
+    list-style: none !important;
+    border: none !important
+}
+
+/***************/
+/***************/
+/***************/
+
+#slider {
+    width: 100%; /* important to be same as image width */
+    height: 600px; /* important to be same as image height */
+    position: relative; /* important */
+    overflow: hidden; /* important */
+    top: -85px;
+    margin: 0px auto 0px auto;
+    z-index: 1;
+    /*border:1px solid #F00;*/
+}
+
+#sliderContent {
+    width: 100%; /* important to be same as image width or wider */
+    position: absolute;
+    top: 0px;
+    padding-left: 0px !important;
+}
+
+.sliderImage {
+    float: left;
+    width: 100%;
+    height: 500px;
+    position: relative;
+    display: none;
+    margin: 0 auto !important;
+}
+
+.banImg {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat, repeat-x;
+    z-index: 1;
+}
+
+.x1 {
+    background-image: url(../images/banners/slider1x.jpg), url(../images/negro.jpg);
+}
+
+.x2 {
+    background-image: url(../images/banners/slider2x.jpg), url(../images/negro.jpg);
+}
+
+.x3 {
+    background-image: url(../images/banners/slider3x.jpg), url(../images/negro.jpg);
+}
+
+.x4 {
+    background-image: url(../images/banners/slider4x.jpg), url(../images/negro.jpg);
+}
+
+.x5 {
+    background-image: url(../images/banners/slider5x.jpg), url(../images/negro.jpg);
+}
+
+.x6 {
+    background-image: url(../images/banners/slider6x.jpg), url(../images/negro.jpg);
+}
+
+.x7 {
+    background-image: url(../images/banners/slider7x.jpg), url(../images/negro.jpg);
+}
+
+.sliderImage span {
+    background-image: url(../images/fondo_promocion_pc.png);
+    position: absolute;
+    font-family: Arial;
+    font-size: 13px;
+    padding: 3px 5px;
+    width: 180px;
+    /*background-color: #000;
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;*/
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    display: none;
+    text-align: center;
+    border-radius: 4px 4px 4px 4px;
+    margin-left: 78%;
+    margin-bottom: 50px;
+}
+
+.sliderImage span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.sliderImage span strong {
+    font-size: 15px !important;
+    font-family: LobsterTwo-Bold, Helvetica, sans-serif;
+}
+
+.sliderImage .logo {
+    width: 51px;
+    height: 45px;
+    float: left;
+    border-radius: 4px;
+}
+
+.sliderImage .img {
+    width: 50px;
+    height: 50px;
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.top {
+    top: 0;
+    left: 0;
+}
+
+.bottom {
+    bottom: 0;
+    left: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.errorBuscar {
+    color: #393c3d;
+    font-size: 18px;
+    font-fbodyweight: bolder;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 80px 30px;
+}
+
+.fontstars{
+    margin: 3px 9px;
+    font-size: 15px;
+}
+/***************/
+/***************/
+/***************/
+@media all and (max-width: 1400px), all and (max-device-width: 1400px) {
+
+    #slider .formularioBusqueda form {
+        width: 90%;
+    }
+
+    #slider .formularioBusqueda form input[type=text] {
+        font-size: 17px;
+        right: 28%;
+        -webkit-transition-duration: .5s;
+        width: 39%;
+    }
+
+}
+
+@media all and (max-width: 1200px), all and (max-device-width: 1200px) {
+    .container .descargaAplicacion .contenido {
+        width: auto;
+    }
+}
+
+@media all and (max-width: 960px), all and (max-device-width: 960px) {
+
+    #slider .formularioBusqueda .titulo {
+        font-size: 40px;
+        -webkit-transition-duration: .5s;
+    }
+
+    #slider .formularioBusqueda form {
+        width: 100%;
+    }
+
+    #slider .formularioBusqueda form input[type=text] {
+        right: 40%;
+        -webkit-transition-duration: .5s;
+        width: 62%;
+    }
+
+    #slider .formularioBusqueda form input[type=button] {
+        background-image: url(../images/bucador_homexy.png);
+        width: 148px;
+        height: 38px;
+        -webkit-transition-duration: .5s;
+        top: 1px;
+    }
+
+    .container footer div {
+        width: 100%;
+    }
+
+    .container .descargaAplicacion .contenido {
+        width: 100%;
+    }
+
+    .container .experiencia .sociales .linkFacebook {
+        background-image: url(../images/icon_facebook.gif);
+        background-color: #3b5998;
+        -webkit-border-bottom-right-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -moz-border-radius-bottomright: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .container .experiencia .sociales .socialPluginFacebook {
+        display: none;
+    }
+
+    .container .experiencia .sociales a {
+        font-size: 18px;
+    }
+
+    .experiencia .contenido {
+        width: auto;
+    }
+
+    .container header {
+        background: url(../images/bg_cabecera.jpg) no-repeat -80px 0px, url(../images/bg_cabecera_continuo.png) repeat-x 0px bottom;
+    }
+
+    .container .banners {
+        height: 490px;
+        background-size: cover;
+        width: 100%;
+    }
+
+    .container .banners .descargaApp {
+        left: 0px;
+    }
+
+    .registraTuRestaurante {
+        width: 100%;
+        margin-right: 13px;
+    }
+
+    .container .descargaAplicacion hgroup h1 {
+        font-size: 25px !important;
+        width: 75%;
+        margin-left: 20px !important;
+
+    }
+
+    .container .descargaAplicacion hgroup h2 {
+        font-size: 16px !important;
+        width: 75%;
+        margin-left: 20px !important;
+
+    }
+
+    .container .descargaAplicacion .contenido p {
+        margin: 0 auto;
+        text-align: center;
+        width: 30%;
+        font-size: 12px !important;
+
+    }
+
+    .container .descargaAplicacion .imagen {
+        position: absolute;
+        background: url(../images/mobile_descarga_androidxy.png);
+        width: 260px;
+        height: 479px;
+        right: 20px;
+        top: -85px;
+        cursor: pointer;
+        -webkit-transition-duration: .5s;
+        -moz-transition-duration: .5s;
+        transition-duration: .5s;
+
+    }
+
+    .vacioX {
+        padding: 0px 0px !important;
+    }
+
+    .container .descargaAplicacion .imagen1 {
+        position: absolute;
+        background: url(../images/mobile_descargaxy.png);
+        width: 230px;
+        height: 467px;
+        left: 20px;
+        top: -85px;
+        cursor: pointer;
+        -webkit-transition-duration: .5s;
+        -moz-transition-duration: .5s;
+        transition-duration: .5s;
+    }
+}
+
+/***************/
+/***************/
+/***************/
+@media all and (max-width: 880px), all and (max-device-width: 880px) {
+
+    .sliderImage span {
+        margin-left: 70%;
+        margin-bottom: 50px;
+        font-size: 11px;
+        width: 150px;
+    }
+
+    .sliderImage span strong {
+        font-size: 13px;
+    }
+
+    #slider .formularioBusqueda form {
+        width: 110%;
+        margin-left: -5%;
+
+    }
+
+    #slider .formularioBusqueda form input[type=text] {
+        width: 60%;
+    }
+
+    .container .descargaAplicacion .imagen {
+        position: absolute;
+        background: url(../images/mobile_descarga_androidx.png);
+        width: 240px;
+        height: 442px;
+        right: 20px;
+        top: -85px;
+        cursor: pointer;
+        -webkit-transition-duration: .5s;
+        -moz-transition-duration: .5s;
+        transition-duration: .5s;
+
+    }
+
+    .vacioX {
+        padding: 0px 0px !important;
+    }
+
+    .container .descargaAplicacion .imagen1 {
+        position: absolute;
+        background: url(../images/mobile_descargax.png);
+        width: 210px;
+        height: 426px;
+        left: 20px;
+        top: -85px;
+        cursor: pointer;
+        -webkit-transition-duration: .5s;
+        -moz-transition-duration: .5s;
+        transition-duration: .5s;
+    }
+
+}
+
+@media all and (max-width: 810px), all and (max-device-width: 810px) {
+    .sliderImage span {
+        margin-left: 65%;
+        margin-bottom: 50px;
+        font-size: 10px;
+        width: 150px;
+    }
+
+    .sliderImage span strong {
+        font-size: 12px;
+    }
+
+    .container .experiencia .sociales a {
+        font-size: 16px;
+    }
+
+    #slider .formularioBusqueda form input[type=text] {
+        font-size: 17px;
+        -webkit-transition-duration: .5s;
+    }
+
+    .container header .menuPrincipal nav {
+        right: 0px;
+    }
+
+    #slider .formularioBusqueda .titulo {
+        font-size: 35px;
+        -webkit-transition-duration: .5s;
+    }
+
+}
+
+/***************/
+/***************/
+/***************/
+
+@media all and (max-width: 770px), all and (max-device-width: 770px) {
+
+    #slider .formularioBusqueda {
+        top: 200px;
+    }
+
+    #slider .formularioBusqueda .titulo {
+        font-size: 30px;
+        -webkit-transition-duration: .5s;
+    }
+
+    .sliderImage span {
+        margin-left: 64%;
+        margin-bottom: 50px;
+        font-size: 11px;
+        width: 150px;
+    }
+
+    .sliderImage span strong {
+        font-size: 13px;
+    }
+
+    #slider .formularioBusqueda form {
+        min-height: 25px;
+        min-width: 200px;
+        margin-left: 20px;
+
+    }
+
+    #slider .formularioBusqueda form input[type=text] {
+        margin: 0px 7px 0px 7px;
+        right: 0px;
+        font-size: 14px;
+        -webkit-transition-duration: .5s;
+        width: 80%;
+    }
+
+    #slider .formularioBusqueda form input[type=button] {
+        background-image: url(../images/bucador_homex.png);
+        width: 145px;
+        height: 35px;
+        -webkit-transition-duration: .5s;
+    }
+
+    .container .experiencia .sociales a {
+        font-size: 24px;
+        width: 49%;
+        margin-right: 1%;
+        display: inline-block;
+    }
+
+    .container .experiencia .sociales .linkFacebook {
+        margin-right: 0px;
+    }
+
+    .container .experiencia .sociales .mensaje {
+        display: none;
+    }
+
+    .container .experiencia h3 {
+        font-size: 15px;
+        -webkit-transition-duration: .5s;
+        -moz-transition-duration: .5s;
+        transition-duration: .5s;
+    }
+
+    .container .experiencia .listadoNoticias .noticia {
+        width: 49%;
+        float: left;
+        overflow: hidden;
+        margin-right: 2%;
+    }
+
+    .container .experiencia .listadoNoticias .noticia:nth-child(3n+0) {
+        margin-right: 2%;
+    }
+
+    .container .experiencia .listadoNoticias .noticia:nth-child(2n+0) {
+        margin-right: 0px;
+    }
+
+    .container .experiencia .listadoNoticias {
+        width: auto;
+        float: none;
+        margin: 0px;
+        margin-top: 10px;
+    }
+
+    .container .experiencia .sociales input[type=text] {
+        margin: 0px 0px 20px 0px;
+        width: 180px;
+    }
+
+    .container .experiencia .sociales {
+        width: auto;
+        float: none;
+        clear: both;
+        margin: 0px;
+        padding-top: 30px;
+    }
+
+    .container .experiencia h2 {
+        font-size: 26px;
+        -webkit-transition-duration: .5s;
+        -moz-transition-duration: .5s;
+        transition-duration: .5s;
+    }
+
+    .container .experiencia h2 strong {
+        font-size: 30px;
+        -webkit-transition-duration: .5s;
+        -moz-transition-duration: .5s;
+        transition-duration: .5s;
+    }
+
+    #slider .descargaApp {
+        width: 58px;
+        height: 53px;
+        background-image: url(../images/bg_descarga_la_aplicacion_480.png);
+        text-indent: -9999px;
+        padding: 0px;
+        left: 0px;
+        bottom: 120px;
+        -webkit-transition-duration: .5s;
+        -moz-transition-duration: .5s;
+        transition-duration: .5s;
+    }
+
+    .backform {
+        background-image: url(../images/corregidos/mdpi/Local_platos/btn_back.png);
+        background-repeat: no-repeat;
+        text-indent: -9999px;
+        padding: 25px;
+        padding-left: 40px !important;
+        bottom: 40px;
+    }
+
+    .backform:hover {
+        background-image: url(../images/corregidos/mdpi/Local_platos/btn_back_press.png);
+        cursor: pointer;
+    }
+
+    .menuplatos {
+        background-image:;
+        background-repeat: no-repeat;
+        text-indent: -9999px;
+        padding: 25px;
+        padding-left: 40px !important;
+        bottom: 40px;
+    }
+
+    .menuplatos:hover {
+        background-image: url(../images/corregidos/mdpi/Local_platos/btn_back.png);
+        background-repeat: no-repeat;
+        text-indent: -9999px;
+        padding: 25px;
+        padding-left: 40px !important;
+        bottom: 40px;
+    }
+
+    .container header {
+        height: auto;
+        background: url(../images/bg_cabecera.jpg) no-repeat -90px 0px, url(../images/bg_cabecera_continuo.png) repeat-x 0px bottom;
+    }
+
+    .container header .menuPrincipal .botonMostrar {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        width: 37px;
+        height: 36px;
+        background: url(../images/boton_mostrar_menu.png) no-repeat;
+        cursor: pointer;
+    }
+
+    .container header .menuPrincipal a.logo {
+        margin-left: 30px;
+    }
+
+    .container header .menuPrincipal nav {
+        position: static;
+        width: 100%;
+        clear: both;
+        min-width: 100%;
+        margin-bottom: -4px;
+        display: none;
+    }
+
+    .container header .menuPrincipal nav.visible {
+        display: block;
+    }
+
+    .container header .menuPrincipal nav ul {
+        padding: 0px;
+        margin: 0px;
+        font-size: 0px;
+        background-image: url(../images/bg_menu_vertical.jpg);
+    }
+
+    .container header .menuPrincipal nav ul li {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        display: block;
+        background-image: url(../images/menu_division_horizontal.png);
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        height: auto;
+        width: auto;
+        min-width: auto;
+        padding: 10px 30px 10px 30px;
+    }
+
+    .container header .menuPrincipal nav ul li.registro {
+        background-image: none;
+        width: auto;
+        padding: 0px;
+    }
+
+    .container header .menuPrincipal nav ul li.registro table {
+        width: 100%;
+    }
+
+    .container header .menuPrincipal nav ul li.registro table td {
+        font-size: 12px;
+        text-align: left;
+    }
+
+    .container header .menuPrincipal nav ul li.registro table td.tdimg {
+        max-width: 50px !important;
+        padding: 0px !important;
+
+    }
+
+    .container header .menuPrincipal nav ul li.registro table td img.img {
+        margin: 0 auto !important;
+        text-align: center !important;
+        margin-left: 25px !important;
+        margin-right: -42px !important;
+    }
+
+    .container > header .menuPrincipal nav ul li.registro table td a {
+        display: block;
+        background-image: url(../images/menu_division_horizontal.png);
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        height: auto;
+        width: auto;
+        min-width: auto;
+        height: 18px;
+        padding: 10px 30px 10px 30px;
+        text-align: left;
+        line-height: normal;
+    }
+
+    .container header .menuPrincipal nav ul li table {
+        width: auto;
+        height: auto;
+    }
+
+    .container header .menuPrincipal nav ul li table td {
+        text-align: left;
+    }
+
+    .registraTuRestaurante a {
+        padding: 0px;
+        width: 50px;
+        text-indent: -9999px;
+        height: 40px;
+        margin-right: 25px;
+    }
+
+}
+
+/***************/
+/***************/
+/***************/
+
+@media all and (max-width: 720px), all and (max-device-width: 720px) {
+
+    .container footer .logoFooter {
+        display: none;
+    }
+
+    .container footer nav {
+        left: 20px;
+        text-align: center;
+    }
+
+    #slider .formularioBusqueda {
+
+        margin-left: 20%;
+
+    }
+
+    .vacioX {
+        padding: 0px 0px;
+    }
+
+    #slider .formularioBusqueda form {
+        margin-top: 15px;
+        margin-left: 2%;
+        width: 100%;
+    }
+
+    .sliderImage span {
+        margin-left: 70%;
+        margin-bottom: 50px;
+        font-size: 11px;
+        width: 150px;
+    }
+
+    .sliderImage span strong {
+        font-size: 13px;
+    }
+
+    #slider .formularioBusqueda form input[type=button] {
+        top: 4px;
+        background-image: url(../images/buscador_home_chico.png);
+        width: 33px;
+        height: 30px;
+        text-indent: 200px;
+        border-radius: 4px;
+    }
+
+    .container .descargaAplicacion .imagen {
+        display: none;
+    }
+
+    .container .descargaAplicacion .imagen1 {
+        display: none;
+    }
+
+    .container .descargaAplicacion .contenido hgroup {
+        width: 90%;
+        padding: 9px 5% 0px 5%;
+        text-align: center;
+    }
+
+    .container .descargaAplicacion .contenido .botonesDescarga {
+        width: 90%;
+        padding: 9px 5% 0px 5%;
+        text-align: center;
+    }
+
+    .container .descargaAplicacion .contenido p {
+        width: 90%;
+        padding: 9px 5% 0px 5%;
+        text-align: left;
+    }
+
+    .container .descargaAplicacion {
+        margin-top: -100px;
+    }
+}
+
+
+/***************/
+/***************/
+/***************/
+
+@media all and (max-width: 530px), all and (max-device-width: 530px) {
+
+    #slider .formularioBusqueda form {
+        margin-top: 15px;
+        margin-left: -5%;
+        width: 100%;
+    }
+
+    .sliderImage span {
+        margin-left: 45%;
+        margin-bottom: 50px;
+        font-size: 11px;
+        width: 150px;
+    }
+
+    .sliderImage span strong {
+        font-size: 13px;
+    }
+
+    #slider .formularioBusqueda form input[type=text] {
+        right: 18%;
+        width: 72%;
+    }
+
+    #slider .formularioBusqueda form input[type=button] {
+        background-image: url(../images/buscador_home_chico.png);
+        border-radius: 4px;
+        width: 33px;
+        top: 2px;
+        margin-top: 2px;
+        height: 30px;
+        overflow: hidden;
+        text-indent: 200px;
+    }
+
+    .container .experiencia .sociales a {
+        font-size: 24px;
+        width: 100%;
+        display: block;
+    }
+}
+
+/***************/
+/***************/
+/***************/
+
+@media all and (max-width: 450px), all and (max-device-width: 450px) {
+    .container .descargaAplicacion .contenido .imagen {
+        display: none;
+    }
+
+    .container .descargaAplicacion .contenido hgroup {
+        width: 84%;
+        padding: 9px 8% 0px 8%;
+        text-align: center;
+    }
+
+    .container .descargaAplicacion .contenido hgroup h1 {
+        text-align: center;
+    }
+
+    .container .descargaAplicacion .contenido hgroup h2 {
+        display: block;
+    }
+
+    .container .experiencia h3 {
+        display: none;
+    }
+
+    .container .experiencia .listadoNoticias .noticia {
+        width: 100%;
+        float: none;
+        overflow: hidden;
+    }
+}

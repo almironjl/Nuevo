@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load url from future %}
+
+{% block content %}
+    <div id="slider">
+        <div class="formularioBusqueda">
+            <div id="content-wrapper">
+                <div id="content">
+                    <div id="area-selection">
+                        <div id="area-selection-fields">
+                            <form id="search_form" action="/busqueda/" method="post">
+                                <p> ¿Tipo de anuncio preferido?</p>
+
+                                <p>¿Donde estas?</p>
+                                  <p> </p>
+                               <select type="text" placeholder="Tipo de anuncio" name="type" id="type"
+                                   tabindex="1" class="ui-autocomplete-input" autocomplete="off" value="{{type.name|default_if_none:''}}">
+                                    {% for type in type_objects %}
+                                        <option value="{{ type.name }}">{{ type.name }}</option>
+                                    {% endfor %}
+                                </select>
+
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                <input type="text" placeholder="Lugar" class="TxtLugar" name="city" id="city"
+                                       tabindex="2" autocomplete="off" value="{{ city|default_if_none:'' }}">
+                                <input type="hidden" id="hid" value="1">
+                                <input type="submit" value="Buscar">
+
+                                <p id="select-from-map" onclick="cambiarTextMapa()">
+                                    <span class="open-map">Seleccionar del mapa</span>
+                                    <span class="open-map hide">Ocultar mapa</span>
+                                </p>
+                                <span id="AlertaBusqueda">Por favor, ingrese datos de busqueda.</span>
+                            </form>
+                        </div>
+                        {# TODO insert google maps #}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-xs-7">
+            <div id="map_canvas" class="map"></div>
+        </div>
+        <div class="col-xs-5">
+            <div id="results"></div>
+        </div>
+    </div>
+
+
+    <div class="point_box" style="display: none">
+        <a class="wishlist_icon icon_wish modalbox" href="#ModalWishList"
+           onclick="load_wish('',this.getAttribute('data-value'), this.getAttribute('data-dish'), this.getAttribute('data-rest'), '', this.getAttribute('data-comment'), this.getAttribute('data-selected'), '2')"
+           id="dish280" title="Agrega a tu wish list" data-value="" data-dish="" data-rest="280" data-selected=""
+           data-comment=" ">
+        </a>
+
+        <a class="goto" method="post" id="280" name="Puntos, tipos"
+           title="Ver los detalles de la compañia">
+            <div class="listing-outer">
+                <div class="margen-img">
+                    <div class="margen-img-center" style="background-image:url('')"></div>
+                </div>
+                <div class="marg-tit-rest">
+                    TITLE
+                </div>
+                <div class="place-marg">
+                    &nbsp;
+                    ADDRESS
+                </div>
+                <div class="phone-marg">
+                    &nbsp;
+                    PHONE
+                </div>
+                <div class="id" name="company" style="visibility: hidden">
+                    &nbsp;
+                    PHONE
+                </div>
+                <div class="list-deseado" style="display:none" id="list-des-1" title="Wish List"></div>
+                <div class="pt-calif">
+                    <div class="pt-calif-star">
+                        4
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'app/tmp_css/principal.css' %}?2634655235"/>
+    <link rel="stylesheet" href="{% static 'app/tmp_css/map.css' %}?2634655235"/>
+    <style>
+        body {
+            background-image: url(http://kunfood.com/images/bg.jpg) !important;
+        }
+
+        #slider {
+            height: 90px;
+            top: 0;
+        }
+
+        #slider .formularioBusqueda {
+            top: 0;
+        }
+
+    </style>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="{% static 'app/tmp_js/maps.js' %}"></script>
+
+    <script>
+        var map;
+        var latmap = 0, lngmap = 0;
+        $(function () {
+            map = new google.maps.Map(document.getElementById("map_canvas"));
+            search_points('{{ type }}', '{{ city }}');
+        });
+
+        $('#search_form').submit(function () {
+            search_points($('#type').val(), $('#city').val());
+            return false;
+        });
+
+        function search_points(type, city) {
+            if(type != '' || city != ''){
+                $.post('{% url 'search_points' %}', {type: type, city: city, page: 1}, function (data) {
+                    // mostrar los resultados encontrados en el div results
+                    $('#results').html('');
+                    map.clearMarkers();
+                    for (var i = 0; i < data.length; i++) {
+                        var div = $('.point_box').clone();
+                        $(div).removeClass('point_box');
+                        $(div).addClass('list_dish_restaurant');
+                        $(div).find('.marg-tit-rest').text(data[i].address);
+                        $(div).find('.place-marg').text(data[i].city);
+                        $(div).find('.phone-marg').text(data[i].city);
+                        $(div).find('.id').text(data[i].id);
+                        $(div).find('.margen-img-center').css({
+                            'background-image': 'url(' + data[i].imageurl + ')'
+                        });
+
+                        $(div).show();
+                        $('#results').append(div);
+                        putmarker(data[i].address, data[i].lat, data[i].lng, data[i].point);
+                    }
+                    latmap = data[i-1].lat;
+                    lngmap = data[i-1].lng;
+                    updateCenter(latmap, lngmap);
+
+                });
+
+            }
+            else{
+                $('#results').html('No hemos obtenido ningún resultado que se ajuste a tus criterios de búsqueda. Si los modificas, puede que mejore la búsqueda.');
+                $('#results').addClass('errorBuscar');
+                latmap = 0;
+                lngmap = 0;
+                updateCenter(latmap, lngmap);
+            }
+        }
+
+        function putmarker(name, lat, lng, point) {
+            var myLatlng = new google.maps.LatLng(lat, lng);
+            // To add the marker to the map, use the 'map' property
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                title: name
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                map.setCenter(marker.getPosition());
+
+                 $.post('{% url 'search_companies' %}', {point: point, page: 1 }, function (data) {
+                    // mostrar los resultados encontrados en el div results
+                    $('#results').html('');
+                    for (var i = 0; i < data.length; i++) {
+                        var company = data[i];
+                        var div = $('.point_box').clone();
+                        $(div).removeClass('point_box');
+                        $(div).addClass('list_dish_restaurant');
+                        $(div).find('.marg-tit-rest').text(company.name);
+                        $(div).find('.phone-marg').text(company.type);
+                        $(div).find('.goto').attr('href','/company_details/'+data[i].id);
+                        $(div).show();
+                        $('#results').append(div);
+                    }
+
+                });
+            });
+            marker.setMap(map);
+        }
+
+        function updateCenter(lat, lng) {
+            var mapOptions = {
+                center: new google.maps.LatLng(lat, lng),
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map.setOptions(mapOptions);
+        }
+
+    </script>
+
+
+{% endblock %}

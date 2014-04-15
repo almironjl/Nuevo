@@ -1,0 +1,27 @@
+.form_delivery {
+    background: url(../tmp_images/borde_dentado_cont.png);
+    padding: 30px;
+    text-align: center;
+}
+
+.form_delivery h1 {
+    color: rgba(51, 51, 51, 1);
+    font-size: 34px;
+    display: block;
+
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+.form_delivery .form-group {
+    padding: 12px;
+}
+
+.form_delivery label {
+    font-family: Georgia, serif;
+    color: #646464;
+    font-size: 1.2em;
+}

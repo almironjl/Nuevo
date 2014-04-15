@@ -1,0 +1,1509 @@
+body{
+
+	background:rgba(255,255,255,1) !important;
+
+}
+
+
+
+#ContainerGeneral{
+
+
+
+    border: 1px solid rgba(0,0,0,0.1);
+
+	width: 990px;/*SIZE DE CONTENEDOR 960*/ 
+
+	margin:0 auto;
+
+	height:auto;
+
+	position:relative;
+
+	border-radius:6px 4px 4px 4px; 
+
+	margin-top:-10px;
+
+}
+
+
+
+.TituloPrinc{
+
+	color:rgba(102,102,102,0.8);
+
+	font-family:LobsterTwo-Regular;
+
+	font-size:20px;
+
+	padding:14px;
+
+	padding-left:30px !important;
+
+}
+.TituloPrinc span {
+	color: black;
+	font-size:30px;
+}
+
+.TituloPrinc span.rating {
+	background: url(../images/list-restaurant/estrella2.png) no-repeat;
+	display: inline-block;
+	vertical-align: middle;
+	height: 35px;
+	width: 35px;
+}
+
+
+
+
+#ContainerPrinc{
+
+	background-color:rgba(204,204,204,0.2);
+
+	border: 1px solid rgba(0,0,0,0.1);
+
+	border-radius:4px;
+
+	height:500px;/*580*/
+
+	position:absolute;
+
+	width:640px;
+
+	left:14px;
+
+}
+
+
+
+.ContainerRestSim{
+
+	background-image:url(../images/fondo-mapa_entero_trasp.png);
+
+	border: 1px solid rgba(0,0,0,0.1);
+
+	border-radius:4px;
+
+	height:600px;
+
+	position:absolute;
+
+	right: 14px;
+
+	width:300px;
+
+	top:490px;
+
+}
+
+
+
+.ContainerRestSim .titResSim{
+
+	color:rgba(102,102,102,1);
+
+	font-family:LobsterTwo-Regular;
+
+	font-size:20px;
+
+	position:absolute;
+
+	width:100%;
+
+	padding:10px 20px;
+
+}
+
+
+
+.ContainerRestSim .listRes{
+
+	background:rgba(255,255,255,1);
+
+	border: 1px solid rgba(0,0,0,0.1);
+
+	border-radius:4px;
+
+	position:absolute;
+
+	padding:7px;
+
+	height:500px;
+
+	width:270px;
+
+	margin-top:65px;
+
+	margin-left:6px;
+	overflow-y: auto
+
+}
+
+
+
+
+
+.ContainerRestSim .listRes .restaurante{
+
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+
+	width:100%;
+
+	height:100px;
+padding: 5px 0 ;
+}
+
+.ContainerRestSim .listRes .restaurante:hover {
+	background: #fafafa;
+	cursor: pointer;
+}
+
+.ContainerRestSim .listRes .restaurante img {
+	border: 4px solid #ccc;
+ 	display: inline-block;
+ 	width: 86px;
+ 	vertical-align: middle;
+}
+
+.ContainerRestSim .listRes .restaurante .desc {
+	display: inline-block;
+	width: auto;
+	vertical-align: middle;
+}
+.ContainerRestSim .listRes .restaurante h3 {
+	font-size: 1em;
+	color: #ccc;
+	font-family: LobsterTwo-Regular;
+	margin: 4px;
+	width: 142px;
+	display: block;
+}
+
+.ContainerRestSim .listRes .restaurante span {
+	font-size: .9em;
+	color: #888;
+	margin-left: 6px
+}
+#other_restaurants {
+	margin-top: 20px;
+	font-family: LobsterTwo-Regular;
+	font-size: 1.1em;
+	color: #888;
+}
+
+<!---------- TAB ----------->
+
+<!-------------------------->
+
+
+
+.menuprincipal{
+
+	width:800px;
+
+	height:34px;
+
+}
+
+
+
+.menuprincipal ul{
+
+	list-style:none;
+
+	width:720px;
+
+	height:34px;
+
+	margin:0 auto;
+
+}
+
+
+
+.menuprincipal li{
+
+	background:url(images/header_tabs.png) repeat-x;
+
+	background-position:214px 0;
+
+	display:block;
+
+	float:left;
+
+	width:215px;
+
+	height:34px;
+
+	cursor:pointer;
+
+
+
+}
+
+
+
+.menuprincipal li.current{
+
+	background-position:0 0;
+
+
+
+}
+
+
+
+.menuprincipal span{
+
+	font-family:LobsterTwo-Regular;
+
+	font-size:17px;
+
+	color:#FFE;
+
+	display:block;
+
+	line-height:34px;
+
+	text-align:center;
+
+	letter-spacing:4px;
+
+	background:url(../images/fondo-mapa_entero_oscuro.png);
+
+	position:relative;
+
+	margin-top: 10px;
+
+	margin-left:10px;
+
+	margin-right:10px;
+
+	border-radius:4px 4px 0 0;
+
+	border: 1px solid rgba(0,0,0,0.05);
+
+	border-bottom: none;
+
+}
+
+.menuprincipal span img{
+
+position:static;
+
+margin-left:-35px;
+
+margin-bottom:-6px;
+
+}
+
+
+
+.current span{
+
+	color:rgba(51,51,51,1);
+
+	background:url(../images/fondo-mapa_entero_trasp.png) !important;
+
+}
+
+
+
+
+
+.content{
+
+	background:url(../images/fondo-mapa_entero_trasp.png);
+
+	margin-top:6px !important;
+
+	width:639px;
+
+	height:91%;
+
+	border-radius:4px 4px 4px 4px ;	
+
+	position:absolute;
+
+	border: 1px solid rgba(0,0,0,0.05);
+
+	border-top: none !important;
+
+	top:39px;
+
+}
+
+
+
+.content ul{
+
+	width:598px;
+
+	height:100%;
+
+	list-style:none;
+
+
+
+	position:absolute;
+
+
+
+
+
+}
+
+
+
+.content li{
+
+	float:left;
+
+	margin-top:30px;
+
+	width:595px;
+
+	height:390px;
+
+	display:block;
+
+	/*border: 1px solid rgba(0,0,153,1);/*azul*/
+
+	position:absolute;
+
+	margin-left:-20px;
+
+	border: 1px solid rgba(0,0,0,0.05);
+
+	border-radius:4px !important;
+
+}
+
+.content li .img-dish {
+	z-index:9; 
+	position:relative;
+}
+
+
+
+.info{
+
+	float:left;
+
+	width:300px;
+
+	margin:20px 0;
+
+	height:auto;
+
+	
+
+}
+
+
+
+.info p{
+
+	font:bold 24px Verdana, Geneva, sans-serif;
+
+	color:#999;
+
+	display:block;
+
+	line-height:34px;
+
+	text-align:center;
+
+}
+
+	
+
+.clear{
+
+	clear:both;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ContainerDescCont{
+
+
+
+	background-color:rgba(204,204,204,0.2);
+
+	border: 1px solid rgba(0,0,0,0.1);
+
+	border-radius:4px;
+
+	height:400px;
+
+	position:absolute;
+
+	right: 14px;
+
+	width:300px;
+
+
+
+}
+
+
+
+.menuDescCont{
+
+	width:250px;
+
+	height:34px;
+
+}
+
+
+
+.menuDescCont ul{
+
+	list-style:none;
+
+	width:258px;
+
+	height:34px;
+
+	margin:0;
+
+
+
+}
+
+
+
+.menuDescCont li{
+
+	background:url(images/header_tabs.png) repeat-x;
+
+	background-position:214px 0;
+
+	display:block;
+
+	float:left;
+
+	width:130px;
+
+	height:34px;
+
+	cursor:pointer;
+
+	margin-left:-10px;
+
+}
+
+
+
+.menuDescCont li.current{
+
+	background-position:0 0;
+
+
+
+}
+
+
+
+.menuDescCont span{
+
+	font-family:LobsterTwo-Regular;
+
+	font-size:14px;
+
+	color:#FFE;
+
+	display:block;
+
+	line-height:34px;
+
+	text-align:center;
+
+	letter-spacing:4px;
+
+	background:url(../images/fondo-mapa_entero_oscuro.png);
+
+	position:relative;
+
+	margin-top: 10px;
+
+	margin-left:10px;
+
+	margin-right:10px;
+
+	border-radius:4px 4px 0 0;
+
+	border: 1px solid rgba(0,0,0,0.05);
+
+	border-bottom: none;
+
+}
+
+.menuDescCont span img{
+
+position:static;
+
+margin-left:-35px;
+
+margin-bottom:-6px;
+
+}
+
+
+
+.current span{
+
+	color:rgba(51,51,51,1);
+
+	background:url(../images/fondo-mapa_entero_trasp.png) !important;
+
+}
+
+
+
+
+
+.contentDescCont{
+
+	background:url(../images/fondo-mapa_entero_trasp.png);
+
+	margin-top:6px !important;
+
+	width:299px;
+
+	height:89%;
+
+	border-radius:4px 4px 4px 4px ;	
+
+	position:absolute;
+
+	border: 1px solid rgba(0,0,0,0.05);
+
+	border-top: none !important;
+
+	top:39px;
+
+	
+
+}
+
+
+
+.contentDescCont ul{
+
+	width:258px;
+
+	height:100%;
+
+	list-style:none;
+
+	position:absolute;
+
+	top:-16px;
+
+}
+
+
+
+.contentDescCont li{
+
+	float:left;
+
+	margin-top:7px;
+
+	width:287px;
+
+	height:337px;
+
+	display:block;
+
+	/*border: 1px solid rgba(0,0,153,1);/*azul*/
+
+	position:absolute;
+
+	margin-left:-35px;
+
+	border: 1px solid rgba(0,0,0,0.05);
+
+	border-radius:5px !important;
+
+	background:rgba(255,255,255,1);
+
+}
+
+
+.contentDescCont li .description_restaurant {
+	padding: 14px;
+}
+.contentDescCont span{
+	font-family: LobsterTwo-Regular;
+	margin-left: 12px;
+	font-weight: bold;
+	color: #888;
+}
+.contentDescCont label {
+	display: block;
+	font-size: 1em;
+	color: #888;
+	margin-left: 20px;
+}
+.contentDescCont hr {
+	border:  none;
+	border-top: 1px dashed #ccc;
+	background: none;
+	width: 90%;
+	margin: 10px auto;
+}
+.description_restaurant p {
+	text-align: justify;
+	font-size: 1em;
+	color: #888;
+	height: 240px;
+	overflow: auto;
+	overflow-x:hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ContainerCartServ{
+
+	background-color:rgba(204,204,204,0.2);
+
+	border: 1px solid rgba(0,0,0,0.1);
+
+	border-radius:4px;
+
+	height:500px;/*580*/
+
+	position:absolute;
+
+	width:640px;
+
+	left:14px;
+
+	top:600px;
+
+}
+
+
+
+
+
+.MenuCarSer{
+
+	width:800px;
+
+	height:34px;
+
+}
+
+
+
+.MenuCarSer ul{
+
+	list-style:none;
+
+	width:720px;
+
+	height:34px;
+
+	margin:0 auto;
+
+}
+
+
+
+.MenuCarSer li{
+
+	background:url(images/header_tabs.png) repeat-x;
+
+	background-position:214px 0;
+
+	display:block;
+
+	float:left;
+
+	width:215px;
+
+	height:34px;
+
+	cursor:pointer;
+
+
+
+}
+
+
+
+.MenuCarSer li.current{
+
+	background-position:0 0;
+
+
+
+}
+
+
+
+.MenuCarSer span{
+
+	font-family:LobsterTwo-Regular;
+
+	font-size:17px;
+
+	color:#FFE;
+
+	display:block;
+
+	line-height:34px;
+
+	text-align:center;
+
+	letter-spacing:4px;
+
+	background:url(../images/fondo-mapa_entero_oscuro.png);
+
+	position:relative;
+
+	margin-top: 10px;
+
+	margin-left:10px;
+
+	margin-right:10px;
+
+	border-radius:4px 4px 0 0;
+
+	border: 1px solid rgba(0,0,0,0.05);
+
+	border-bottom: none;
+
+}
+
+.MenuCarSer span img{
+
+position:static;
+
+margin-left:-35px;
+
+margin-bottom:-6px;
+
+}
+
+
+
+.current span{
+
+	color:rgba(51,51,51,1);
+
+	background:url(../images/fondo-mapa_entero_trasp.png) !important;
+
+}
+
+
+
+
+
+.contentCarSer{
+
+	background:url(../images/fondo-mapa_entero_trasp.png);
+
+	margin-top:6px !important;
+
+	width:639px;
+
+	height:91%;
+
+	border-radius:4px 4px 4px 4px ;	
+
+	position:absolute;
+
+	border: 1px solid rgba(0,0,0,0.05);
+
+	border-top: none !important;
+
+	top:39px;
+
+}
+
+
+
+.contentCarSer ul{
+
+	width:598px;
+
+	height:100%;
+
+	list-style:none;
+
+	position:absolute;
+
+	top: -15px;
+
+}
+
+
+
+.contentCarSer li.content_list{
+
+	float:left;
+
+	background-color:rgba(255,255,255,1);
+
+	margin-top:8px;
+
+	width:620px;
+
+	height:435px;
+
+	display:block;
+
+	/*border: 1px solid rgba(0,0,153,1);/*azul*/
+
+	position:absolute;
+
+	margin-left:-31px;
+
+	border: 1px solid rgba(0,0,0,0.05);
+
+	border-radius:4px !important;
+
+}
+
+.contentCarSer li.content_list .services {
+	margin: 35px 10px;
+	font-family: LobsterTwo-Regular;
+	font-size: 1em;
+	color: #888
+}
+
+.contentCarSer li.content_list .services li {
+	display: inline-block;
+	width: 49%;
+	vertical-align: middle;
+	margin: 5px;
+}
+
+.contentCarSer li.content_list .services li span {
+	display: inline-block;
+	vertical-align: middle;
+	width: 33px;
+	height: 33px;
+	background: url(../images/check_buena.png) no-repeat;
+}
+
+
+.listcarta{
+
+	background:rgba(255,255,255,1);
+
+	width:100%;
+
+	height:100%;
+
+	border-radius:4px;
+	overflow-y: hidden;
+
+}
+
+
+
+.itemscarta{
+
+	background:rgba(255,255,255,1);
+
+	height:86px;
+
+	width:100%;
+
+	float:left;
+
+	border-bottom:1px solid rgba(153,153,153,0.4);	
+
+	position:relative;
+
+}
+.listcarta a {
+	cursor: pointer;
+}
+
+.listcarta a:hover .itemscarta {
+	background: #efefef;
+}
+
+
+.photo-plato{
+
+	background:rgba(204,204,204,0.3);
+
+	height:72px;
+
+	width:72px;
+
+	margin:6px 7px;
+
+	border-radius:4px;
+
+	box-shadow:inset 0px 0px 2px #FFFFFF;
+
+	float:left;
+
+}
+
+.photo-plato img {
+	width: 100%;
+}
+
+.precio-plat{
+
+	border-left:1px solid rgba(204,204,204,03);
+
+	float:right;
+
+	font-size:20px;
+
+	width:95px;
+
+	height:65px;
+
+	text-align:center;
+
+	color:rgba(102,102,102,1);
+
+	font-family: LobsterTwo-Regular;
+
+	padding-top:5%;
+
+}
+
+
+
+
+
+.name-plato{
+
+	float:left;
+
+	font-size:1.2em;
+
+	text-align:left;
+
+	color:rgba(102,102,102,1);
+
+	font-family: LobsterTwo-Regular;
+
+	margin:10px;
+	width: 390px;
+	display: block;
+
+}
+
+
+
+
+
+.calif-plato{
+
+		position:relative;
+
+		margin-left:47%;
+
+		margin-top:58px;
+
+		color:rgba(153,153,153,1);
+
+		font-family:shruti;	
+
+		padding-left:30px;
+
+		font-size:13px;
+
+}
+
+	
+
+.calif-plato-star{
+
+		background:url(../images/list-restaurant/estrella2.png) no-repeat;
+
+		width:27px;
+
+		height:28px;
+
+		position:absolute;
+
+		margin-left:-30px;
+
+		margin-top:-13px;
+
+		padding-left:7px;
+
+		padding-top:4px;
+
+		font-size:12px;
+
+}
+
+	
+
+.comen-plato{
+
+		font-family:shruti;
+
+		position:relative;
+
+		margin-left:64%;
+
+		margin-top:-23px;
+
+		color:rgba(153,153,153,1);	
+
+		padding-left:40px;
+
+		font-size:13px;	
+
+}
+
+	
+
+.comen-plato-star{
+
+background:url(../images/list-restaurant/comentario-list.png) no-repeat;	
+
+		width:37px;
+
+		height:33px;	
+
+		position:absolute;
+
+		margin-left:-30px;
+
+		margin-top:5px;
+
+		padding-left:19px;
+
+		font-size:12px;
+
+		}
+
+		
+
+.btn-ver-mas-platos{
+
+	color:rgba(0,0,255,1);
+
+	margin:0 auto;
+
+	width:96%;
+
+	text-align:center;
+
+	float:right;
+
+	padding:10px;
+
+}
+
+
+
+.ContainerCompartir{
+
+
+
+	height:50px;/*580*/
+
+	position:absolute;
+
+	width:640px;
+
+	left:14px;
+
+	top:1120px;
+
+	color:rgba(102,102,102,1);
+
+}
+
+
+
+.flecha-compartir{
+
+	float:right;
+
+	right:10px;
+
+	
+
+}
+
+.ContainerCompartir hr{
+
+	color: rgba(153,153,153,1);
+
+	background-color: rgba(153,153,153,1);
+
+	height: 1px;
+
+	border:none;
+
+}
+
+
+
+#contcomp{
+
+	width:98%;
+
+	height:20px;
+
+	margin-right:20px;
+
+	height:70px;
+
+}
+
+
+
+#contcomp div{
+
+	float:right;
+
+	cursor:pointer;
+
+	padding:2px;
+
+}
+
+
+
+.comp-facebook{
+
+	background-image:url(../images/redes/facebook.png);
+
+	width:40px;
+
+	height:40px;
+
+	border:1px solid green;
+
+}
+
+
+
+.comp-twitter{
+
+	background-image:url(../images/redes/twitter.png);
+
+	width:40px;
+
+	height:40px;
+
+	border:1px solid blue;
+
+}
+
+
+
+.comp-youtube{
+
+	background-image:url(../images/redes/youtube.png);
+
+	width:40px;
+
+	height:40px;
+
+	border:1px solid yellow;
+
+}
+
+                
+
+				
+
+
+
+#ContainerComentarios{
+
+	background:url(../images/fondo-mapa_entero_trasp.png);
+
+	border: 1px solid rgba(0,0,0,0.1);
+
+	border-radius:4px;
+
+	position:absolute;
+
+	width:640px;
+
+	left:14px;
+
+	top:1230px;
+
+}
+
+
+
+.titcomen{
+
+	margin:10px;
+
+	font-family:LobsterTwo-Regular;
+
+	font-size:22px;
+
+	float:left;
+
+	color:rgba(102,102,102,1);
+
+}
+
+
+
+.btnComenta{
+
+	float:right;
+
+	margin:10px;
+
+	background:url(../images/bg_cuadriculaVerde.png);
+
+	color:rgba(255,255,255,1);
+
+	font-family:shruti;
+
+	font-weight:bold;
+
+	font-size:18px;
+
+	padding:0px 30px;
+
+	border-radius:4px;
+
+	box-shadow:5px 5px 10px rgba(0,0,0,0.5);
+
+	cursor:pointer;
+
+}
+
+
+
+.cont-env-coment{
+
+	background:rgba(255,255,255,1);
+
+	margin:0 auto;
+
+	width:96%;
+
+	height:280px;
+
+
+
+	margin-left:2%;
+
+	margin-right:2%;
+
+	border-radius:4px;
+
+	float:left;
+
+}
+
+
+
+.tit-vot-comen{
+
+	color:rgba(51,51,51,0.8);
+
+	font-family:LobsterTwo-Regular;
+
+	margin:12px;
+
+	float:left;
+
+	font-size:18px;
+
+}
+
+
+
+.start-coment{
+
+	position:relative;
+
+	clear: both;
+
+	padding:2px 20px;
+
+}
+
+
+
+.textarea-comentario{
+
+	border:1px dashed rgba(153,153,153,0.7);
+
+	border-radius:4px;
+
+	width:95%;
+
+	max-width:95%;
+
+	margin-left:2%;
+
+	margin-right:2%;
+
+	margin-top:0px;
+
+	height: 80px !important;
+
+	padding:5px;
+
+}
+.textarea-comentario.empty {
+	border: 1px dashed red;
+	background: #F8E0E0;
+}
+
+
+
+.btn-enviar-coment{
+
+	float:right;
+
+	margin:10px;
+
+	background:url(../images/bg_cuadriculaVerde.png);
+
+	color:rgba(255,255,255,1);
+
+	font-family:shruti;
+
+	font-weight:bold;
+
+	font-size:18px;
+
+	padding:0px;
+
+	border-radius:4px;
+
+	box-shadow:5px 5px 10px rgba(0,0,0,0.5);
+
+	cursor:pointer;	
+
+}
+
+.btn-enviar-coment button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: white;
+	font-weight: bold;
+	font-size: 1.2em;
+	height: 34px;
+	width: 170px;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	position: relative;
+}
+
+.item-coment{
+
+	width:96%;
+
+	float:left;
+
+	margin-left:2%;
+
+	margin-right:2%;
+
+	margin:2%;
+
+}
+
+
+
+.conten-coment{
+
+	background:rgba(255,255,255,1);
+
+	float:right;
+
+	width:83%;
+
+	border:1px solid rgba(153,153,153,0.3);
+
+	border-radius:4px;
+
+	height:auto;
+	padding: 1em;
+	font-style: italic;
+	color: #777;
+
+}
+.conten-coment b {
+	font-size: .8em;
+	font-style: normal;
+	color: black;
+}
+
+
+.photo-coment{
+
+	background:rgba(204,204,204,1);
+
+	float:left;
+
+	width:55px;
+
+	height:55px;
+
+	margin-right:10px;
+
+	border-radius:4px;
+	overflow: hidden;
+
+}
+
+.photo-coment img {
+	height: 55px;
+	width: 55px
+}

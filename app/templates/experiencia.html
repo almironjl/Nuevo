@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <section id="container">
+
+<article id="conteinervideo">
+<table width="950" height="500" border="0" cellpadding="0" cellspacing="0" style="box-shadow:5px 5px 10px rgba(0,0,0,0.5);border-radius:6px !important;">
+  <tbody><tr>
+      <td width="510" height="20" background="{% static 'app/images/pie-video.png'%}"><span class="kunfood">Kunfood</span> <span class="titexp">Vive la Experiencia</span></td>
+      <td width="184" background="{% static 'app/images/pie-video.png'%}"><span class="titlista">Lista:</span></td>
+  </tr>
+  <tr>
+    <td height="280" bgcolor="#333333">
+
+        <!-- ----------------- -->
+        <div id="ResultadoVideo" style="background: #000 !important; text-align: center !important">
+            <iframe width="100%" height="400px" src="//player.vimeo.com/video/73319422" frameborder="0" allowfullscreen=""></iframe>
+        </div>
+        <!-- ----------------- -->
+
+    </td>
+    <td width="270px" class="listVideo">
+
+        <!-- ----------------- -->
+        <table width="100%" height="100%" border="0">
+            <tbody><tr>
+              <td class="border-botton" onclick="cargar_video('1')">
+                  <img class="nav-thumb" height="50px" width="68px" src="http://img.youtube.com/vi/FgO1ZLweYyI/1.jpg">
+              </td>
+              <td class="border-botton" onclick="cargar_video('1')"><span class="titulo">Nguyen Chavez</span></td>
+            </tr>
+            <tr>
+              <td class="border-botton" onclick="cargar_video('2')">
+                  <img class="nav-thumb" height="50px" width="68px" src="http://img.youtube.com/vi/XvNNvaAgbZU/2.jpg">
+              </td>
+               <td class="border-botton" onclick="cargar_video('2')"><span class="titulo">Martin Morales</span></td>
+            </tr>
+            <tr>
+              <td class="border-botton" onclick="cargar_video('3')">
+                  <img class="nav-thumb" height="50px" width="68px" src="http://img.youtube.com/vi/y1ryZqZZlTs/3.jpg">
+              </td>
+               <td class="border-botton" onclick="cargar_video('3')"><span class="titulo">Jose Luis Cordeiro</span></td>
+            </tr>
+            <tr>
+              <td class="border-botton" onclick="cargar_video('4')">
+                  <img class="nav-thumb" height="50px" width="68px" src="http://img.youtube.com/vi/6V9aDf992gs/1.jpg">
+              </td>
+               <td class="border-botton" onclick="cargar_video('4')"><span class="titulo">Martin Morales</span></td>
+            </tr>
+          </tbody></table>
+        <!-- ----------------- -->
+
+    </td>
+  </tr>
+  <tr>
+    <td height="20" background="{% static 'app/images/pie-video.png'%}">&nbsp;</td>
+    <td height="20" background="{% static 'app/images/pie-video.png'%}">&nbsp;</td>
+    </tr>
+</tbody></table>
+<article>
+
+</article></article></section>
+
+
+<!-- FORM -->
+
+<section id="containerExperiencia">
+    <br><br>
+    <table width="805" border="0" align="center" class="tablaExperiencia" cellpadding="0" cellspacing="0" style="box-shadow:5px 5px 10px rgba(0,0,0,0.5);border-radius:6px !important;">
+  <tbody><tr>
+      <td colspan="4" class="titleExp">Y a ti dónde te Gustaria vivir la Experiencia Kunfood!!</td>
+  </tr>
+  <tr>
+      <td width="75"><span class="titexp2">Nombre de Restaurante</span></td>
+    <td width="144">
+
+      <input type="text" class="textexp" placeholder="Ingresar Nombre" name="textfield" id="textfield">
+
+    </td>
+    <td width="4">&nbsp;</td>
+    <td width="154" rowspan="2">
+        <input type="submit" name="button" class="btnexp" id="button" value="Enviar">
+    </td>
+  </tr>
+  <tr>
+    <td><span class="titexp2">Correo Electrónico</span> </td>
+    <td>
+        <input type="text" class="textexp" placeholder="Ingresar email" name="email" id="textfield2">
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+</tbody></table>
+
+<br>
+<br>
+<br>
+
+</section>
+
+{% endblock %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'app/tmp_css/video.css' %}"/>
+{% endblock %}

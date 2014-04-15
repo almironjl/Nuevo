@@ -1,0 +1,120 @@
+{% extends 'client_admin/../dashboard.html' %}
+{% load url from future %}
+{% block  content %}
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li>
+                <a href="{% url 'client_admin:rest_form' %}">
+                    <i class="icon-picture"></i>
+                    <span>Administrar Datos</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'client_admin:local_form' %}">
+                    <i class="icon-th-large"></i>
+                    <span>Administrar Locales</span>
+                </a>
+            </li>
+            <li class="active">
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+                <a href="{% url 'client_admin:product_form' %}">
+                    <i class="icon-code-fork"></i>
+                    <span>Administrar Cartas</span>
+                </a>
+            </li>
+            <li>
+                <a href="seguimiento-delivery.html">
+                    <i class="icon-cog"></i>
+                    <span>Seguimiento delivery</span>
+                </a>
+            </li>
+            <li>
+                <a href="seguimiento-delivery.html">
+                    <i class="icon-share-alt"></i>
+                    <span>Reportes</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+
+    <!-- main container -->
+    <div class="content">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="pad-wrapper" class="users-list">
+                    <h3>Products</h3>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="col-md-4 sortable">
+                                Nombre
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for local_t in products %}
+                            <tr class="first">
+                                <td>
+                                    {{ local_t }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="border-left: 1px dashed #333">
+                <div id="pad-wrapper" class="user-profile">
+                    <a href="new-user.html" class="btn-flat success pull-right"><span>+</span>Nuevo Producto</a>
+
+                    <div class="row header">
+                        <div class="col-md-8">
+                            <h3 class="name">Producto >> </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pad-wrapper" class="form-page">
+                    <div class="row form-wrapper">
+                        <!-- left column -->
+                        <div class="col-md-12 column">
+                            <form action="{% url 'client_admin:product_form' %}" method="post">
+                                <div class="field-box">
+                                    <label>Nombre:</label>
+
+                                    <div class="col-md-9">
+                                        <input class="form-control inline-input" type="text" name="name"
+                                               placeholder="Nombre del restaurant" value="{{ restaurant.name }}">
+                                    </div>
+                                </div>
+                                <div class="field-box">
+                                    <label>Categoria:</label>
+
+                                    <div class="col-md-9">
+                                        <select name="category">
+                                            {% for category in categories %}
+                                                <option value="{{ category.id }}">{{ category.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <input type="submit" class="btn-glow primary" value="Guardar">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}

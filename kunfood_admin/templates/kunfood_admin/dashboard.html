@@ -1,0 +1,55 @@
+{% load url from future %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+<table style="border: 1px solid #cccccc">
+    <thead>
+    <tr>
+        <th>Creado</th>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Resturant</th>
+        <th>WS</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>STATUS</th>
+        <th>Aprobar</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for rest in restaurant_request %}
+        <tr id="{{ rest.id }}">
+            <td>{{ rest.created }}</td>
+            <td>{{ rest.email }}</td>
+            <td>{{ rest.name }}</td>
+            <td>{{ rest.restaurant_name }}</td>
+            <td>{{ rest.website }}</td>
+            <td>{{ rest.phone }}</td>
+            <td>{{ rest.address }}</td>
+            <td class="_status">{{ rest.get_status_display }}</td>
+            <td class="_approve">
+                    <a href="#" class="for_approve">Aprobar</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<script>
+    $('.for_approve').click(function (event) {
+        event.preventDefault();
+        var td_approve = $(event.target).parent();
+        var tr = $(td_approve).parent();
+        $.post('{% url 'kunfood_admin:confirm_register' %}', {id: $(tr).attr('id')}, function (data) {
+            if ($(tr).find('._status').text() != data.display) {
+                $(tr).find('._status').text(data.display);
+                $(tr).find('._approve').html('');
+            }
+        });
+    })
+</script>
+</body>
+</html>

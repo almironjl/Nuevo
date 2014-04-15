@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block scripts %}
+    <script src="{% static 'app/js/registerrestaurant.js' %}?56856" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'app/css/alert.css'%}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <br/>
+    <script>
+function myFunction(){
+var n=document.getElementById('email').value;
+
+if(n==''){
+
+ document.getElementById("myDiv").innerHTML="";
+ document.getElementById("myDiv").style.border="0px";
+ document.getElementById("pers").innerHTML="";
+
+ return;
+}
+
+loadDoc("q="+n,"protected/extends/ExtendValidarEmail.php",function(){
+  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    document.getElementById("myDiv").style.border="1px solid #A5ACB2";
+    }else{ document.getElementById("myDiv").innerHTML='<img src="images/load.gif" width="20" height="20" />'; }
+
+
+  });
+
+}
+
+var xmlhttp;
+function loadDoc(string,url,cfunc)
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=cfunc;
+xmlhttp.open("POST",url,true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send(string);
+}
+    </script>
+    <script>
+function ValidaSoloNumeros() {
+ if ((event.keyCode < 48) || (event.keyCode > 57))
+  event.returnValue = false;
+}
+</script>
+<div class="alerta mensajes" id="alerta" style="display: none">El correo ya está registrado.</div>
+<div class="exito mensajes" id="exito" style="display: none">Exito al guardar!</div>
+<div class="info mensajes" id="info" style="display: none">Ingrese un correo electronico valido!</div>
+<div class="error mensajes" id="error" style="display: none">Ingrese los campos que son Obligatorios!</div>
+      <div class="formulario">
+        <h1 class="titregrest">    ¿Registra tu Restaurante? </h1>
+        <form method="post" action="">
+
+                            <p><label for="email">Correo: </label><input class="text" required="" type="email" name="emailWebSite" id="emailWebSite" placeholder="Ingrese Correo Electronico"><span title="Obligatorio" style="font-size: 40px !important; color: red;cursor: pointer">*</span></p>
+                <p><label for="telefono">Telefono: </label><input onkeypress="ValidaSoloNumeros()" maxlength="11" class="text" required="" type="text" name="telefono" id="telefono" placeholder="Ingrese Telefono"><span title="Obligatorio" style="font-size: 40px !important; color: red;cursor: pointer">*</span></p>
+                <p><label for="inic">Iniciales: </label><input maxlength="50" class="text" required="" type="text" name="inic" id="inic" placeholder="Iniciales Restaurante"><span title="Obligatorio" style="font-size: 40px !important; color: red;cursor: pointer">*</span></p>
+                <p><label for="name">Nombre: </label><input maxlength="80" class="text" required="" type="text" name="name" id="name" placeholder="Ingrese Nombre"><span title="Obligatorio" style="font-size: 40px !important; color: red;cursor: pointer">*</span></p>
+                <p><label for="address">Dirección: </label><input maxlength="50" class="text" required="" type="text" name="address" id="address" placeholder="Ingrese Direccion"><span title="Obligatorio" style="font-size: 40px !important; color: red;cursor: pointer">*</span></p>
+<p><label for="website">Pagina Web: </label><input class="text" value="http://" maxlength="90" type="text" name="website" id="website" placeholder="Ingrese Pagina web"></p>
+                {%csrf_token%}
+            <input type="hidden" id="confirmation_token" value=""/>
+                <p><input id="btn_register" type="button" onclick="RegistrarRestaurant()" class="btn" value="Registrar" id="btn_nuevo">
+                <input type="reset" class="btn" value="Limpiar" id="btn_limpiar"></p>
+
+            </form>
+
+        </div>
+
+    <br>
+
+</div>
+{% endblock %}

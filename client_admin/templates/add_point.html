@@ -1,0 +1,256 @@
+{% extends 'client_admin/../dashboard.html' %}
+{% load url from future %}
+
+{% block  content %}
+    <!-- sidebar -->
+       <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li >
+                <a href="{% url 'client_admin:manage_orders' %}">
+                    <i class="icon-picture"></i>
+                    <span>Administrar Solicitudes(Ordenes)</span>
+                </a>
+            </li>
+            <li class = "active">
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+                <a href="{% url 'client_admin:create_point' %}">
+                    <i class="icon-th-large"></i>
+                    <span>Crear Punto publicitario</span>
+                </a>
+            </li>
+            <li>
+
+                <a href="../add/Point" onclick="return SelectWithPopUp(this)">
+                    <i class="icon-code-fork"></i>
+                    <span>Agregar Punto publicitario</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+
+    <!-- main container -->
+  <div class="content">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="pad-wrapper" class="form-page">
+                    <div class="row form-wrapper">
+                        <!-- left column -->
+                        <div class="col-md-12 column">
+                            <form action="client_admin/local_form/" method="post">
+                                <input type="hidden" name="id" />
+                                <input type="hidden" name="restaurant" />
+
+                                <div class="field-box">
+                                    <label>Punto:</label>
+
+                                    <div class="col-md-9">
+                                        <select name= "points" id="points" class="form-control inline-input"
+                                                >
+                                        {% for point in points %}
+                                            <option value="{{ point.address }}" >{{ point.address }}</option>
+                                        {% endfor %}
+                                        </select>
+
+                                        <a href="javascript:popup('../add/Point',400,600)" class="add-another" id="add_id_point" onclick="return showAddAnotherPopup(this);"> <img src="/static/admin/img/icon_addlink.gif" width="10" height="10" alt="Add Another"/></a>
+                                    </div>
+                                </div>
+                                <div class="field-box">
+                                    <label>Empresa:</label>
+
+                                    <div class="col-md-9">
+                                        <select class="form-control inline-input"
+                                                >
+                                        {% for company in companies %}
+                                            <option value="{{ company.commercial_name }}">{{ company.commercial_name }}</option>
+                                        {% endfor %}
+                                        </select>
+                                    <a href="javascript:popup('../add/UserHasCompany',400,300)" class="add-another" id="add_id_point" onclick="return showAddAnotherPopup(this);"> <img src="/static/admin/img/icon_addlink.gif" width="10" height="10" alt="Add Another"/></a>
+
+                                    </div>
+                                </div>
+
+                                <div class="field-box">
+                                    <label>Tipo de anuncio:</label>
+
+                                    <div class="col-md-9">
+                                         <select class="form-control inline-input"
+                                                >
+                                        {% for type in types %}
+                                            <option value="{{ type.name }}">{{ type.name }}</option>
+                                        {% endfor %}
+                                        </select>
+
+
+                                    <a href="../add/Type" class="add-another" id="add_id_point" onclick="return showAddAnotherPopup(this);"> <img src="/static/admin/img/icon_addlink.gif" width="10" height="10" alt="Add Another"/></a>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div class="field-box">
+                                    <label>Precio:</label>
+
+                                    <div class="col-md-9">
+                                        <input class="form-control inline-input" placeholder="Cantidad en nuevos soles"
+                                               type="text" name="phone">
+                                    </div>
+                                </div>
+
+                                <div class="field-box">
+                                    <label>Estado:</label>
+
+                                    <div class="col-md-9">
+                                         <select class="form-control inline-input"
+                                                >
+                                            <option >Disponible</option>
+                                            <option >Ocupado</option>
+                                            <option >Construccion</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div id="map_canvas" style="width: 100%; height: 300px;"></div>
+
+                                <br/>
+                                <input type="submit" class="btn-glow primary"
+                                       value="{% if is_new %}
+                                        nuevo{% else %}Actualizar{% endif %}">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <a href="{% url 'client_admin:add_point' %}" class="btn-flat success pull-right"><span>+</span>
+                            Agregar Punto</a>
+            </div>
+
+            <div class="col-md-6" style="border-left: 1px dashed #333">
+
+                <div id="pad-wrapper" class="user-profile">
+                    {% if is_new == False or not is_new %}
+                        <a href="{% url 'client_admin:login' %}" class="btn-flat success pull-right"><span>+</span>
+                            Agregar Punto</a>
+                    {% endif %}
+                    <div class="row header">
+                        <div class="col-md-8">
+                            <h3 class="name">Nuevo Punto >> {{ form.address }}</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pad-wrapper" class="form-page">
+                    <div class="row form-wrapper">
+                        <!-- left column -->
+                        <div class="col-md-12 column">
+                            <form action="" method="post">
+                                <div id="map_canvas" style="width: 100%; height: 500px;"></div>
+                                <br/>
+                                <input type="submit" class="btn-glow primary"
+                                       value="{% if is_new %}Guardar nuevo{% else %}Actualizar{% endif %}">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id="form_aux" action="{% url 'client_admin:point_load' %}" method="post">
+        <input type="hidden" name="id" id="id"/>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="static/client_admin/js/jquery.dataTables.js"></script>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="{{ ADMIN_MEDIA_PREFIX }}js/admin/RelatedObjectLookups.js"></script>
+
+    <script type="text/javascript">
+    function popup(url,ancho,alto) {
+    var posicion_x;
+    var posicion_y;
+    posicion_x=(screen.width/2)-(ancho/2);
+    posicion_y=(screen.height/2)-(alto/2);
+    window.open(url, "leonpurpura.com", "width="+ancho+",height="+alto+",menubar=0,toolbar=0,directories=0,scrollbars=no,resizable=no,left="+posicion_x+",top="+posicion_y+"");
+    }
+    </script>
+
+    <script>
+
+        var geocoder;
+        var map;
+        $(document).ready(function() {
+            $('#points').change(function(event){
+            //alert("Click event on Select has occurred!");
+            $("option:selected", $(this)).each(function(){
+                var obj = document.getElementById('points').value;
+                var list=map.markers.getMarkers();
+                alert("selected value"+obj+list[0].title);
+                });
+            });
+
+        });
+        function renderonmap(title) {
+            var list = getMarkers();
+            var numMarkers = map.getMarkers().length;
+            for (var i=0; i< numMarkers; i++){
+                if (list[i].title == title)
+                    map.center(list[i].title);
+            }
+        }
+
+        $(function () {
+            map = new google.maps.Map(document.getElementById("map_canvas"));
+            $('#locals').dataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+
+        $('#locals tbody tr').click(function (e) {
+            id = $(e.target).parent().attr('id');
+            $('#form_aux #id').val(id);
+            $('#form_aux').submit();
+        });
+
+        function initialize() {
+            {% for m in points %}
+                putmarker('{{ m.address }}','{{ m.latitude }}','{{ m.length}}');
+                updateCenter('{{ m.latitude }}','{{ m.length}}');
+            {% endfor %}
+
+        }
+        function putmarker(name, lat, lng) {
+            var myLatlng = new google.maps.LatLng(lat, lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                title: name,
+                animation: google.maps.Animation.DROP
+            });
+            marker.setMap(map);
+        }
+        function updateCenter(lat, lng) {
+            var mapOptions = {
+                center: new google.maps.LatLng(lat, lng),
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map.setOptions(mapOptions);
+        }
+     google.maps.event.addDomListener(window, 'load', initialize);
+    google.maps.event.addListener(map, 'click', function(event) {
+                marker.setMap(null);
+                marker = new google.maps.Marker({
+                    map:       map,
+                    position:  event.latLng
+                });
+            });
+    </script>
+{% endblock %}

@@ -1,0 +1,164 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Kunfood</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/app/tmp_css/custom.css?6374574856" rel="stylesheet">
+    {% block styles %}
+    {% endblock %}
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top header_back" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand header_logo" href="/">kunfood</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="{% url 'ayuda' %}">Publicista</a></li>
+            <li><a href="{% url 'experiencia' %}">Experiencia</a></li>
+            <li><a href="{% url 'buyings' %}">Ver carrito</a></li>
+            <li><a href="{% url 'ayuda' %}">Ayuda</a></li>
+            {% if user.is_authenticated and user.is_superuser %}
+                <li>
+                    <div class="btn-group">
+                        <a data-toggle="dropdown">{{ user }}<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'client_admin:manage_orders' %}">Dashboard</a></li>
+                            <li><a href="{% url 'logout' %}">Salir</a></li>
+                        </ul>
+                    </div>
+                </li>
+            {% else %}
+                {% if user.is_authenticated and not user.is_superuser %}
+                <li>
+                    <div class="btn-group">
+                        <a data-toggle="dropdown">{{ user.email }}<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'orders_view' %}">Mis órdenes</a></li>
+                            <li><a href="{% url 'logout' %}">Salir</a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% else %}
+                    <li><a href="{% url 'client_admin:login' %}">Iniciar Sesion</a></li>
+                {% endif %}
+            {% endif %}
+
+            {#            <li class="dropdown">#}
+            {#                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>#}
+            {#                <ul class="dropdown-menu">#}
+            {#                    <li><a href="#">Action</a></li>#}
+            {#                    <li><a href="#">Another action</a></li>#}
+            {#                    <li><a href="#">Something else here</a></li>#}
+            {#                    <li class="divider"></li>#}
+            {#                    <li><a href="#">Separated link</a></li>#}
+            {#                </ul>#}
+            {#            </li>#}
+        </ul>
+    </div>
+</div>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+
+
+
+    <span class="fTab">
+        <img src="/static/app/tmp_images/ver.png" class="show" style="display: inline;">
+        <img src="/static/app/tmp_images/ocultar.png" class="hide" style="display: inline;">
+    </span>
+    <footer>
+        <div class="row">
+            <div class="col-xs-6 col-md-4">
+                <div class="row">
+                    <div class="col-xs-4 config">
+                        Configuración regional<br/>
+                        <select class="form-control">
+                            <option>English</option>
+                            <option>Portuguese</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-8">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <ul>
+                            <li class="TitPrinc">Descubre Kunfood:</li>
+                            <li><a href="#">Confianza y seguridad</a></li>
+                            <li><a href="#">Aplicación para móviles</a></li>
+                            <li><a href="#">Mapa del Sitio</a></li>
+                            <li>&nbsp;</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-3">
+                        <ul>
+                            <li class="TitPrinc">Ayuda:</li>
+                            <li><a href="#">¿Cómo me registro y creo una cuenta en Kunfood?</a></li>
+                            <li><a href="#">¿Que tipo de cuenta puedo crear en Kunfood?</a></li>
+                            <li><a href="#">¿Cómo encuentro un restaurante?</a></li>
+                            <li><a href="#">Preguntas frecuentes</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-3">
+                        <ul>
+                            <li class="TitPrinc">Siguenos en:</li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Youtube</a></li>
+                            <li>&nbsp;</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/static/app/tmp_js/kf.js"></script>
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

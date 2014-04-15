@@ -1,0 +1,77 @@
+{% for restaurant in restaurants %}
+{#    {% logo = "background: url('images/sin_foto.png')" %}#}
+{#    {% if restaurant.imagen %}#}
+{#        {% logo = "background: url('images/branchs/'imagne); background-size: 80px 80px;" %}#}
+{#    {% endif %}#}
+    {% if restaurant.ent == 'R' %}
+        <div class="list_dish_restaurant">
+            <a href="/restaurant_detalle/{{ restaurant.id }}">
+                <div class="listing-outer">
+                    <div class="margen-img">
+                        <div class="margen-img-center" style="{{ restaurant.imagen }}"></div>
+                    </div>
+                    <div class="marg-tit-rest">
+                        {{ restaurant.restaurante  }}
+                    </div>
+                    <div class="place-marg">
+                        &nbsp;
+                        {{ restaurant.direccion }}
+                    </div>
+                    <div class="phone-marg">
+                        &nbsp;
+                        {{ restaurant.phone }}
+                    </div>
+                    <div class="list-deseado" style="display:none" id="list-des-1" title="Wish List"></div>
+                    <div class="pt-calif">
+                        <div class="pt-calif-star">
+                            {{ restaurant.totalrating }}
+                        </div>
+                    </div>
+                    <div class="pt-coment">
+                        <div class="pt-coment-star">
+                            {{ restaurant.totalcoment }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% else %}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                alert('dfsdf');
+            });
+        </script>
+        <div class="list_dish_restaurant">
+            <a href="/restaurant/detalle/ENT_PLATO/id">
+                <div class="listing-outer">
+                    <div class="margen-img">
+                        <div class="margen-img-center" style="{{ logo }}"></div>
+                    </div>
+                    <div class="marg-tit-rest">
+                        <span class="marg-tit-neg">{{ restaurant.plato }}</span><br>
+                        <span class="name-restaurant">{{ restaurant.restaurante }}</span>
+                    </div>
+                    <div class="place-marg">
+                        &nbsp;
+                        {{ restaurant.direccion }}
+                    </div>
+                    <div class="phone-marg">
+                        &nbsp;
+                        {{ restaurant.telefono }}
+                    </div>
+                    <div class="list-deseado" style="display:none" id="list-des-1" title="Wish List"></div>
+                    <div class="pt-calif">
+                        <div class="pt-calif-star">
+                            {{ restaurant.totalrating }}
+                        </div>
+                    </div>
+                    <div class="pt-coment">
+                        <div class="pt-coment-star">
+                            {{ restaurant.totalcoment }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endif %}
+{% endfor %}

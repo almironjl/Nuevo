@@ -1,0 +1,1294 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block content %}
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+
+
+        var js, fjs = d.getElementsByTagName(s)[0];
+
+
+        if (d.getElementById(id)) return;
+
+
+        js = d.createElement(s);
+        js.id = id;
+
+
+        js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=338384736288835";
+
+
+        fjs.parentNode.insertBefore(js, fjs);
+
+
+    }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+
+
+    // Additional JS functions here
+
+
+    window.fbAsyncInit = function () {
+
+
+        FB.init({
+
+
+
+            appId: '338384736288835', // App ID
+
+
+            channelUrl: 'http://www.kunfood.com', // Channel File
+
+
+            status: true, // check login status
+
+
+            cookie: true, // enable cookies to allow the server to access the session
+
+
+            xfbml: true  // parse XFBML
+
+
+        });
+
+
+    };
+
+
+</script>
+
+
+ <div class="fnp-next">
+
+
+    <div id="ArrowRedes" class="fnp-box-left">
+
+        <div class="fnp-content-right">
+
+            <div class="fnp-content-border"></div>
+
+            <!--<div class="fnp-nav-title">Pr&oacute;ximo</div>-->
+
+            <div class="fnp-nav-link">
+
+                <a href="https://www.facebook.com/Kunfood" target="_blank"><img src="images/redes/facebook.png"
+                                                                                alt="FACEBOOK"></a>
+
+                <a href="https://twitter.com/kunfoodapp" target="_blank"><img src="images/redes/twitter.png"
+                                                                              alt="TWITTER"></a>
+
+                <!--<a href="http://www.youtube.com/user/kunfood" target="_blank"><img src="images/redes/youtube.png"  alt="YOUTUBE"></a>-->
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+<div class="contenidoPrincipal">
+
+
+<header>
+
+
+<div class="menuPrincipal">
+
+
+<a class="logo" href="{% url 'home' %}"><h1 title="Kunfood - Inicio">Kunfood</h1></a>
+
+
+<nav>
+
+
+<ul>
+
+
+<a href="{% url 'exp' %}" title="Vive la Experiencia Kunfood!">
+    <li>
+        <table>
+            <tr>
+                <td>
+
+
+                    <?php if ($idioma == "es") {
+                        echo "Experiencia";
+                    } else {
+                        echo "Experience";
+                    } ?>
+
+
+                </td>
+                <td><!--<img style="border-radius:4px;" src="images/isotipo.png" width="28" height="28">--></td>
+            </tr>
+        </table>
+    </li>
+</a>
+
+
+<!--<a href="#" title="Las ultimas Noticias!"><li><table><tr><td>
+
+
+
+                    <?php //if($idioma == "es"){ echo "Noticias"; }else { echo "Tidings"; } ?>
+
+
+
+                    </td></tr></table></li></a>-->
+
+
+<a href="#" id="showlogin" title="ayuda">
+    <li>
+        <table>
+            <tr>
+                <td>
+
+
+                    <?php if ($idioma == "es") {
+                        echo "Ayuda";
+                    } else {
+                        echo "Help";
+                    } ?>
+
+
+                </td>
+            </tr>
+        </table>
+    </li>
+</a>
+
+
+<!--MENU AYUDA -->
+
+
+<div id="loginpanel" style="display:none; position: absolute">
+
+
+    <a href="{% url 'guia' %}#container"><input type="text" readonly value="<?php if ($idioma == 'es') {
+            echo 'Guia para empezar';
+        } else {
+            echo 'Guide to start';
+        } ?>"/></a>
+    <hr>
+
+
+    <a href="{% url 'ayuda' %}"><input type="text" readonly value="<?php if ($idioma == 'es') {
+            echo '¿Cómo hago un pedido delivery?';
+        } else {
+            echo 'How do I order delivery?';
+        } ?>"/></a>
+    <hr>
+
+
+    <a href="{% url 'ayuda' %}#pregunta"><input type="text" readonly value="<?php if ($idioma == 'es') {
+            echo '¿Cómo encuentro un restaurante?';
+        } else {
+            echo 'How do I find a restaurant?';
+        } ?>"/></a>
+    <hr>
+
+
+</div>
+
+
+<!-- END MENU AYUDA -->
+
+
+
+
+
+
+
+<?php if ($activated != 'true') { ?>
+
+
+
+
+    <!-- Si no esta logueado -->
+
+
+
+    <li class="registro">
+
+
+        <table>
+
+
+            <tr>
+
+
+                <td>
+
+
+                    <!--<a href="#ModalRegistroUsuario" class="modalbox" title="Registrate al toque!">
+
+
+
+                            <?php //if($idioma == "es"){ echo "Registrate"; }else { echo "Sign Up"; } ?>
+
+
+
+                            </a>-->
+
+
+                    <a href="#ModalInicioSession" class="modalbox" title="Inicia sesion">
+
+
+                        <?php if ($idioma == "es") {
+                            echo "  Inicia Sesion";
+                        } else {
+                            echo "Login In";
+                        } ?>
+
+
+                    </a>
+
+
+                </td>
+
+
+            </tr>
+
+
+        </table>
+
+
+    </li>
+
+
+
+<?php } else { ?>
+
+
+
+    <!-- Si esta logueado -->
+
+
+
+
+
+
+
+    <li class="registro">
+
+
+        <table>
+
+
+            <tr>
+
+
+                <?php if ($sw_login == 'kunfood') {
+                    $id_login = '1';
+                } else {
+                    $id_login = $_SESSION['idFace'];
+                }
+
+                ?>
+
+
+
+                <td class="tdimg">
+
+
+                    <img src="http://graph.facebook.com/<?php echo $id_login; ?>/picture" width="30px" height="33px"
+                         style="border-radius:2px;">
+
+
+                </td>
+
+
+                <td>
+
+
+                    <div id="smoothmenu1" class="ddsmoothmenu">
+
+
+                        <ul>
+
+
+                            <li>
+
+
+                                <?php echo $_SESSION['nombre']; ?>
+
+
+
+                                <ul>
+
+
+                                    <li><a href="#"><?php if ($idioma == "es") {
+                                                echo "Mi Perfil";
+                                            } else {
+                                                echo "my Profile";
+                                            } ?>  </a></li>
+
+
+                                    <li><a href="#"><?php if ($idioma == "es") {
+                                                echo "Lista";
+                                            } else {
+                                                echo "List";
+                                            } ?></a></li>
+
+
+                                    <li><a href="#" onclick="Destroy_session()"><?php if ($idioma == "es") {
+                                                echo "Salir";
+                                            } else {
+                                                echo "Exit";
+                                            } ?></a></li>
+
+
+                                </ul>
+
+
+                            </li>
+
+
+                        </ul>
+
+
+                        <div>
+
+
+                </td>
+
+
+            </tr>
+
+
+        </table>
+
+
+    </li>
+
+
+
+<?php } ?>
+
+
+
+
+
+
+
+<div id="smoothmenu1" class="ddsmoothmenu">
+    <ul>
+
+
+        <li>
+
+
+            <ul>
+
+
+                <li></li>
+
+
+            </ul>
+
+
+        </li>
+
+
+    </ul>
+    <div>
+
+
+<div class="botonMostrar"></div>
+
+
+</div>
+
+
+<div class="registraTuRestaurante">
+
+
+    <a href="RegistraRestaurant.php"><?php if ($idioma == "es") {
+            echo "Registra tu Restaurante";
+        } else {
+            echo "Add a Restaurant";
+        } ?> </a>
+
+
+</div>
+
+
+</header>
+<!--END head -->
+
+
+<script type="text/javascript">
+
+
+    $(function () {
+
+
+
+
+
+
+
+        //autocomplete
+
+
+        //$("#keyword").autocomplete({
+
+
+        // source: "protected/extends/ExtendBuscarHome.php",
+
+
+        //   minLength: 1
+
+
+        // });
+
+
+    });
+
+
+</script>
+
+
+<div id="slider">
+
+
+<div class="formularioBusqueda">
+
+
+    <div id="content-wrapper">
+
+
+        <div id="content">
+
+
+            <div id="area-selection">
+
+
+                <div id="area-selection-fields">
+
+
+                    <form action="" id="buscarRestaurante" method="post">
+
+
+                        <p> <?php if ($idioma == "es") {
+                                echo "¿Que se te antoja hoy?";
+                            } else {
+                                echo "What do you fancy today?";
+                            } ?>  </p>
+
+                        <p><?php if ($idioma == "es") {
+                                echo "¿Donde estas?";
+                            } else {
+                                echo "Where are you?";
+                            } ?></p>
+
+                        <input type="text" placeholder="<?php if ($idioma == 'es') {
+                            echo 'Restaurante, tipo de comida';
+                        } else {
+                            echo 'Restaurant, food type';
+                        } ?>" name="keyword" id="keyword" tabindex="1"/>
+
+                        <input type="text" placeholder="<?php if ($idioma == 'es') {
+                            echo 'Lugar';
+                        } else {
+                            echo 'place';
+                        } ?>" class="TxtLugar" name="area-selector" id="area-selector" tabindex="2"/>
+
+                        <input type="hidden" id="hid" value="1">
+
+                        <input type="button" value="<?php if ($idioma == 'es') {
+                            echo 'Buscar';
+                        } else {
+                            echo 'Search';
+                        } ?>" onClick="Search_Lists_Restaurant()"/>
+
+                        <p id="select-from-map" onclick="cambiarTextMapa()">
+
+                            <span class="open-map"><img src="images/map_icon.png"
+                                                        style="margin-top: -10px"> <?php if ($idioma == "es") {
+                                    echo "Seleccionar del mapa";
+                                } else {
+                                    echo "Select map";
+                                } ?></span>
+
+                            <span class="open-map hide"><?php if ($idioma == "es") {
+                                    echo "Ocultar mapa";
+                                } else {
+                                    echo "Hide map";
+                                } ?></span>
+
+                        </p>
+
+                        <span id="AlertaBusqueda">Por favor, ingrese datos de busqueda.</span>
+
+                    </form>
+
+
+                </div>
+
+
+                <div id="google-map" class="google-maps hide" style="margin:50px"></div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript">
+
+
+    $(function () {
+
+
+
+
+
+
+
+        //autocomplete
+
+
+        $("#keyword").autocomplete({
+
+
+
+            source: "search.php",
+
+
+            minLength: 1
+
+
+
+        });
+
+
+    });
+
+
+</script>
+
+
+<script>
+
+
+    //$( ".titmap" ).click(function() {
+
+
+    //$( "#MapForm" ).toggle( "blind",500);
+
+
+    //$("p").css({'color':'red','font-size':'1.3em','background':'yellow'})
+
+
+    //});
+
+
+</script>
+
+
+<ul id="sliderContent">
+
+
+<li class="sliderImage banImg x1">
+
+
+    <a href="http://www.pescadoscapitales.com" target="_blank‎">
+                <span class="bottom">
+
+
+
+                <img src="images/logos/pescados_capitales.png" class="logo" alt="Img">
+
+
+
+                    <strong>Pescados Capitales</strong><br/>
+
+
+
+                    Av. La Mar 1337
+
+
+
+                </span>
+    </a>
+
+
+</li>
+
+
+<li class="sliderImage banImg x2">
+
+
+    <a href="http://www.maido.pe" target="_blank‎">
+                <span class="bottom">
+
+
+
+                <img src="images/logos/Maido.png" class="logo" alt="Img">
+
+
+
+                <strong>Maido</strong><br/>
+
+
+
+                calle San Martín 399
+
+
+
+                </span>
+    </a>
+
+
+</li>
+
+
+<li class="sliderImage banImg x3">
+
+
+    <a href="http://www.bravorestobar.com" target="_blank‎">
+                <span class="bottom">
+
+
+
+                <img src="images/logos/Bravo_restobar.png" class="logo" alt="Img">
+
+
+
+                <strong>Bravo Restobar</strong><br/>
+
+
+
+                Conquistadores 1005
+
+
+
+                </span>
+    </a>
+
+
+</li>
+
+
+<li class="sliderImage banImg x4">
+
+
+    <a href="http://www.pescadoscapitales.com" target="_blank‎">
+                <span class="bottom">
+
+
+
+                <img src="images/logos/pescados_capitales.png" class="logo" alt="Img">
+
+
+
+                    <strong>Pescados Capitales</strong><br/>
+
+
+
+                    Av. La Mar 1337
+
+
+
+                </span>
+    </a>
+
+
+</li>
+
+
+<li class="sliderImage banImg x5">
+
+
+    <a href="http://www.maido.pe" target="_blank‎">
+                <span class="bottom">
+
+
+
+                <img src="images/logos/Maido.png" class="logo" alt="Img">
+
+
+
+                <strong>Maido</strong><br/>
+
+
+
+                calle San Martín 399
+
+
+
+                </span>
+    </a>
+
+
+</li>
+
+
+<li class="sliderImage banImg x6">
+
+
+    <a href="http://www.bravorestobar.com" target="_blank‎">
+                <span class="bottom">
+
+
+
+                <img src="images/logos/Bravo_restobar.png" class="logo" alt="Img">
+
+
+
+                <strong>Bravo Restobar</strong><br/>
+
+
+
+                Conquistadores 1005
+
+
+
+                </span>
+    </a>
+
+
+</li>
+
+
+<li class="sliderImage banImg x7">
+
+
+    <a href="http://www.pescadoscapitales.com" target="_blank‎">
+                <span class="bottom">
+
+
+
+                <img src="images/logos/pescados_capitales.png" class="logo" alt="Img">
+
+
+
+                    <strong>Pescados Capitales</strong><br/>
+
+
+
+                    Av. La Mar 1337
+
+
+
+                </span>
+    </a>
+
+
+</li>
+
+
+<div class="clear sliderImage"></div>
+
+
+</ul>
+
+
+<a href="descargar.php" class="descargaApp" style="display:none">Descarga la App Gratis!</a>
+
+
+</div>
+
+
+<!-- // slider -->
+
+
+<div id="footer-wrapper">
+
+
+</div>
+
+
+<script>var config = {"Auth": {"isLoggedIn": true}, "AreaSelection": {"lat": null, "lng": null, "street": null, "cityId": null, "locationGroupType": "POLYGONS", "locationType": "GOOGLE_ADDRESS", "locationCountry": "PE", "locationGroupDefault": "AREAS", "separatedStreetNumber": "0", "cities": [
+        {"id": "2", "title": "Lima", "timezone": "PE", "vat": "18.00", "lat": "-12.04782", "lon": "-77.06220", "zoom": "0", "main": "1", "active": "1"}
+    ], "areas": [], "subAreaId": null, "areaId": null, "defaultZoom": "14", "areaMaps": [], "notRequired": "Not required"}, "Helper": {"controller": "site", "action": "index", "isLoggedIn": 1, "hasLocation": false, "locationGroupType": "POLYGONS", "showPopupOnRestaurantMenuPage": "1", "isOpen": true}};</script>
+
+
+<script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+
+
+<script src="js/main.min.js?e3b19883eccc473fd8de0c0a221eae8f"></script>
+
+
+<script type="text/javascript">
+
+
+    var _gaq = _gaq || [];
+
+
+    _gaq.push(['_setAccount', 'UA-36503250-1']);
+
+
+    _gaq.push(['_setDomainName', 'kunfood.com']);
+
+
+    _gaq.push(['_setCustomVar', 2, 'Coordinates', 'NA_NA+NA', 2]);
+
+
+    _gaq.push(['_trackEvent', 'Area', 'Get Area', 'NA_NA+NA', 1, true]);
+
+
+    _gaq.push(['_trackPageview']);
+
+
+    (function () {
+
+
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+
+
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+
+
+    })();
+
+
+</script>
+<!-- Google Code for Remarketing tag -->
+
+
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+
+
+<script type="text/javascript">
+
+
+    /* <![CDATA[ */
+
+
+    var google_conversion_id = 997858299;
+
+
+    var google_conversion_label = "GYmwCO2xywUQ-7fo2wM";
+
+
+    var google_custom_params = window.google_tag_params;
+
+
+    var google_remarketing_only = true;
+
+
+    /* ]]> */
+
+
+</script>
+
+
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+
+
+</script>
+
+
+<script type="text/javascript">if (!NREUMQ.f) {
+        NREUMQ.f = function () {
+            NREUMQ.push(["load", new Date().getTime()]);
+            var e = document.createElement("script");
+            e.type = "text/javascript";
+            e.src = (("http:" === document.location.protocol) ? "http:" : "https:") + "//" + "js-agent.newrelic.com/nr-100.js";
+            document.body.appendChild(e);
+            if (NREUMQ.a)NREUMQ.a();
+        };
+        NREUMQ.a = window.onload;
+        window.onload = NREUMQ.f;
+    }
+    ;
+    NREUMQ.push(["nrfj", "beacon-1.newrelic.com", "12027c1186", "1746524", "b1ABYkpQWUNUAENfWFYaIlVMWFheGjBeQlJ7Wg1CSl5bXFARGF9ZXFAb", 0, 52, new Date().getTime(), "", "", "", "", ""]);</script>
+
+
+<section class="experiencia">
+
+
+<div class="dientes"></div>
+<!--End dientes -->
+
+
+<div class="contenido">
+
+
+<header>
+
+
+    <hgroup>
+
+
+        <h2 style='margin-right:60%'>Experiencia</strong> Kunfood:</h2>
+
+
+        <!--<h3><?php //if($idioma == "es"){ //echo "¿Todavia no has probado la aplicación? Ven a <span>Pescados Capitales</span> y vive la experiencia Kunfood."; }else { echo "You still have not tried the app? Pescados Capitales Come and live the experience Kunfood."; } ?> </h3>-->
+
+
+    </hgroup>
+
+
+</header>
+
+
+<div class="sliderExperiencia">
+
+
+    <!-- Elastislide Carousel -->
+
+
+    <ul id="carousel" class="elastislide-list">
+
+
+        <!-- <li><a href="#"><img src="images/slider/r1.jpg" alt="image01" /></a></li>-->
+
+
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto1.jpg" alt=""/>
+
+
+            </a></li>
+
+
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto2.jpg" alt=""/>
+
+
+            </a></li>
+
+
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto3.jpg" alt=""/>
+
+
+            </a></li>
+
+
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto4.jpg" alt=""/>
+
+
+            </a></li>
+
+
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto5.jpg" alt=""/>
+
+
+            </a></li>
+
+
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto6.jpg" alt=""/>
+
+
+            </a></li>
+
+
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto7.jpg" alt=""/>
+
+
+            </a></li>
+
+
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto8.jpg" alt=""/>
+
+
+            </a></li>
+
+
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto9.jpg" alt=""/>
+
+
+            </a></li>
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto10.jpg" alt=""/>
+
+
+            </a></li>
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto11.jpg" alt=""/>
+
+
+            </a></li>
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto12.jpg" alt=""/>
+
+
+            </a></li>
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto13.jpg" alt=""/>
+
+
+            </a></li>
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto14.jpg" alt=""/>
+
+
+            </a></li>
+        <li><a class="fancybox" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+
+
+                <img src="images/large/foto15.jpg" alt=""/>
+
+
+            </a></li>
+
+
+    </ul>
+
+
+    <!-- End Elastislide Carousel -->
+
+
+</div>
+
+
+</div>
+<!--End contenido -->
+
+
+</section>
+<!--End Experiencia -->
+
+
+<section class="descargaAplicacion">
+    <div class="fondoMadera">
+        <div class="contenido">
+            <hgroup>
+                <h1>Descarga nuestra  aplicación para móviles.</h1>
+                <h2>
+                    Mejora tu experiencia gastronómica <a href='javascript:verVideo();'>Ver video</a>
+                </h2>
+
+
+            </hgroup>
+            <p>KUNFOOD permite ser atendido "Al-toque" en restaurantes, bares. Navega por fotos de la carta, mira información de tus pedidos desde tu celular, permite al mozo brindar atención personalizada.
+            </p>
+            <div class="botonesDescarga">
+
+
+                <a class="mac" href="#"></a>
+
+
+                <a class="android" href="#"></a>
+
+
+            </div>
+
+
+            <div class="imagen1" alt="Aplicacion Kunfood">
+
+
+                <!--<img src="images/mobile_descarga.png" alt="Aplicación Kunfood"/>-->
+
+
+            </div>
+
+
+            <div class="imagen" alt="Aplicacion Kunfood">
+
+
+                <!--<img src="images/mobile_descarga_android.png" alt="Aplicación Kunfood"/>-->
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="vacioX">
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!--BEGIN-->
+
+<div id="slideraumentar" style="width:100%; padding:0 0">
+
+</div>
+
+<!--END-->
+
+
+<section class="container_ver">
+
+
+<article class="ver_ocultar">
+
+
+    <div class="centrar2">
+
+
+        <a href="#" class="b_vo">
+
+
+            <img src="images/general/ocultar.png" alt="">
+
+
+            <img src="images/general/ver.png" alt="">
+
+
+            <!--                <img src="images/general/logo_descubre.png" alt="LOGO">-->
+
+
+        </a>
+
+
+        <div class="FooterConfig">
+
+
+            <span>Configuraci&oacute;n regional</span>
+
+
+            <select class="btnidiomas" id="idioma_web" name="" onchange="Cambiar_Idioma_Web()">
+                <option value="">Idioma</option>
+                <option value="es">Espa&ntilde;ol</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+        <div class="FooterContenido">
+            <ul>
+                <li class="TitPrinc">Descubre Kunfood:</li>
+                <li><a href="#">Confianza y seguridad</a></li>
+                <li><a href="#">Aplicaci&oacute;n para m&oacute;viles</a></li>
+                <li><a href="#">Mapa del Sitio</a></li>
+                <li>&nbsp;</li>
+            </ul>
+            <ul>
+                <li class="TitPrinc">Ayuda</li>
+                <li><a href="#">&iquest;C&oacute;mo me registro y creo una cuenta en Kunfood</a></li>
+                <li><a href="#">&iquest;Que tipo de cuenta puedo crear en Kunfood</a></li>
+                <li><a href="#">&iquest;C&oacute;mo encuentro un restaurante</a></li>
+                <li><a href="#">Preguntas frecuentes</a></li>
+            </ul>
+            <ul>
+                <li class="TitPrinc">Siguenos en</li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Youtube</a></li>
+                <li>&nbsp;</li>
+            </ul>
+        </div>
+    </div>
+</article>
+</section>
+<footer style="display:none">
+    <div>
+        <a class="logoFooter" href="index.php"></a>
+        <nav>
+            <a href="#">Ayuda</a>
+            <a href="#">Política y Privacidad</a>
+            <a href="#">Mapa del sitio</a>
+        </nav>
+    </div>
+</footer>
+
+
+</div>
+<script type="text/javascript" src="js/jquerypp.custom.js"></script>
+<script type="text/javascript" src="js/jquery.elastislide.js"></script>
+<script type="text/javascript">
+    $('#carousel').elastislide();
+</script>
+<!--MENU FLOTANTE-->
+<script type="text/javascript" src="js/global.js"></script>
+<!--END MENU FLOTANTE-->
+<a href="{% url 'social:begin' 'facebook' %}">Facebook OAuth2</a> <br />
+{% endblock %}
+{% block head_scripts %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script src="https://login.persona.org/include.js" type="text/javascript"></script>
+
+<!-- Mozilla Persona -->
+<script type="text/javascript">
+  $(function () {
+      $('#persona').on('click', function (e) {
+          e.preventDefault();
+          var self = $(this);
+
+          navigator.id.get(function (assertion) {
+              if (assertion) {
+                  self.parent('form')
+                          .find('input[type=hidden]')
+                          .attr('value', assertion)
+                          .end()
+                      .submit();
+              } else {
+                  alert('Some error occurred');
+              }
+          });
+      });
+  });
+</script>
+
+<!-- Google+ Sign In -->
+<script type="text/javascript">
+  (function () {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://plus.google.com/js/client:plusone.js?onload=start';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<script type="text/javascript">
+  var signInCallback = function (result) {
+      if (result['error']) {
+        alert('An error happened:', result['error']);
+      } else {
+        $('#code').attr('value', result['code']);
+        $('#at').attr('value', result['access_token']);
+        $('#google-plus').submit();
+      }
+  };
+</script>
+{% endblock %}

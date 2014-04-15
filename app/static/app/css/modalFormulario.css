@@ -1,0 +1,346 @@
+
+
+
+
+
+
+h2 { font-size: 2em; line-height: 1.9em; margin-bottom: 15px; text-align:center; text-shadow: 1px 1px 10px rgba(0,0,0,0.3);  }
+
+
+
+p { color: #656565; font-size: 1.2em; margin-bottom: 10px; text-align:center; padding:13px; }
+
+
+
+#wrapper { width: 840px; margin: 0 auto; padding: 30px 45px;  }
+
+
+
+ #ModalInicioSession ,  #ModalRegistroUsuario { font-size: 13px;  display: none; width: 380px; text-align:center; z-index:9999  }
+
+
+
+ #ModalUbicacion{
+
+		font-size: 13px;  display: none; width: 490px; z-index:9999 
+
+ }
+
+
+
+#frm_facebook{
+
+	padding: 12px 10%;
+
+	border-radius: 10px;
+
+	border:1px solid rgba(0,0,0,0.3);
+
+	width:60%;
+
+	margin: 0 auto !important;
+
+	background: url(../images/icon_facebook.gif) no-repeat, #fff ;
+
+	box-shadow:2px 2px 5px rgba(0,0,0,0.3);
+
+	font-weight:bolder;
+
+	font-size:15px;
+
+}
+
+
+
+#frm_facebook:hover{
+
+	background:url(../images/icon_facebook.gif) no-repeat , rgba(204,204,204,0.5);
+
+	cursor:pointer;
+
+}
+
+
+
+#formlogin input[type=text],#formregistro input[type=text]{
+
+	border-radius: 5px !important;
+
+    padding: 7px !important;
+
+    width: 70% !important;
+
+    border: 1px solid rgba(0,0,0,0.2) !important;
+
+    padding-left: 40px !important;
+
+    background: #fff url(../images/8bcLQqF.png) no-repeat;
+
+    background-position: 8px 8px !important;
+
+	font-weight:300 !important;
+
+	margin: 3px auto;
+
+}
+
+
+
+#formlogin input[type=text]:hover ,#formregistro input[type=text]:focus{
+
+    box-shadow: 0px 0px 5px red !important;
+
+}
+
+
+
+#formlogin input[type=password],#formregistro input[type=password]{
+
+   border-radius: 5px !important;
+
+   padding: 7px !important;
+
+   width: 70% !important;
+
+   border: 1px solid rgba(0,0,0,0.2) !important;
+
+   padding-left: 40px !important;
+
+   background: #fff url(../images/8bcLQqF.png) no-repeat !important;
+
+   background-position: 8px -55px !important;
+
+   font-weight:300 !important;
+
+   margin: 3px auto;
+
+}
+
+
+
+#formlogin input[type=password]:hover ,#formregistro input[type=password]:focus{
+
+   box-shadow: 0px 0px 5px red !important;
+
+}
+
+
+
+.condicion_registro{
+
+	font-size:12px
+
+}
+
+
+
+.condition{
+
+    font-size:12px;
+
+}
+
+
+
+
+
+label { margin-right: 12px; margin-bottom: 9px; font-family: Georgia, serif; color: #646464; font-size: 1.2em; }
+
+
+
+input.error { border-color: #973d3d; border-style: solid; background: #f0bebe !important; color: #a35959; }
+
+input.error:focus { border-color: #973d3d; color: #a35959; }
+
+
+
+input.erroruser { border-color: #973d3d; border-style: solid; background: #f0bebe url(../images/8bcLQqF.png) no-repeat !important;  background-position: 10px 10px !important; color: #a35959; }
+
+input.erroruser:focus { border-color: #973d3d; color: #a35959; }
+
+
+
+input.errorpass { border-color: #973d3d; border-style: solid; background: #f0bebe url(../images/8bcLQqF.png) no-repeat !important; background-position: 10px -53px !important; color: #a35959; }
+
+input.errorpass:focus { border-color: #973d3d; color: #a35959; }
+
+
+
+.btnregistro , .btnlogin{
+
+    padding: 8px 50px;
+
+    background: url(../images/bg_cuadriculaVerde.png);
+
+    border-radius: 5px;
+
+    border:1px solid rgba(0,0,0,0.1);
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+	font-family:Verdana, Geneva, sans-serif;
+
+	box-shadow:3px 3px 10px rgba(0,0,0,0.5);
+
+}
+
+
+
+.btnregistro:hover , btnlogin:hover{
+
+    padding: 8px 50px;
+
+    cursor: pointer;
+
+}
+
+
+
+#send { 
+
+color: #dee5f0;
+
+display: block;
+
+cursor: pointer;
+
+padding: 5px 30px;
+
+font-size: 1.2em;
+
+border: solid 1px #224983;
+
+border-radius: 5px;
+
+background: #1e4c99; 
+
+background: -webkit-gradient(linear, left top, left bottom, from(#2f52b7), to(#0e3a7d)); 
+
+background: -moz-linear-gradient(top, #2f52b7, #0e3a7d); 
+
+background: -webkit-linear-gradient(top, #2f52b7, #0e3a7d);
+
+background: -o-linear-gradient(top, #2f52b7, #0e3a7d);
+
+background: -ms-linear-gradient(top, #2f52b7, #0e3a7d);
+
+background: linear-gradient(top, #2f52b7, #0e3a7d);
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2f52b7', endColorstr='#0e3a7d'); 
+
+text-align:center;
+
+margin:0 auto;
+
+}
+
+#send:hover {
+
+background: #183d80; 
+
+background: -webkit-gradient(linear, left top, left bottom, from(#284f9d), to(#0c2b6b)); 
+
+background: -moz-linear-gradient(top,  #284f9d, #0c2b6b); 
+
+background: -webkit-linear-gradient(top, #284f9d, #0c2b6b);
+
+background: -o-linear-gradient(top, #284f9d, #0c2b6b);
+
+background: -ms-linear-gradient(top, #284f9d, #0c2b6b);
+
+background: linear-gradient(top, #284f9d, #0c2b6b);
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#284f9d', endColorstr='#0c2b6b');
+
+}
+
+#send:active {
+
+color: #8c9dc0; 
+
+background: -webkit-gradient(linear, left top, left bottom, from(#0e387d), to(#2f55b7)); 
+
+background: -moz-linear-gradient(top,  #0e387d,  #2f55b7);
+
+background: -webkit-linear-gradient(top, #0e387d, #2f55b7);
+
+background: -o-linear-gradient(top, #0e387d, #2f55b7);
+
+background: -ms-linear-gradient(top, #0e387d, #2f55b7);
+
+background: linear-gradient(top, #0e387d, #2f55b7);
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0e387d', endColorstr='#2f55b7');
+
+}
+
+
+#ModalWishList {
+  width: 550px;
+  z-index: 999;
+}
+#ModalWishList .wish_header {
+  padding: 0;
+  padding-bottom: 1em;
+}
+#ModalWishList h2 {
+  font-size: 1.4em;
+  display: inline-block;
+  vertical-align: middle;
+  width: 80%;
+  margin: 0px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+#ModalWishList h3 {
+  font-size: 1.1em;
+  font-family:LobsterTwo-Regular;
+}
+#ModalWishList .image_wish {
+  background: url(../images/list-restaurant/whish-list-active.png) no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+}
+#ModalWishList .image_restaurant {
+  display: inline-block;
+  vertical-align: top;
+  width: 180px;
+  height: 180px;
+  border: 5px solid #dfdfdf;
+}
+#ModalWishList .content_restaurant {
+  display: inline-block;
+  vertical-align: top;
+  width: 60%;
+  padding: 0 10px;
+}
+
+#ModalWishList .content_restaurant h3 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+#ModalWishList select,
+ #ModalWishList textarea{
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding:  10px;
+}
+
+#ModalWishList textarea {
+  width: 93%;
+}
+#ModalWishList button {
+  margin: 10px 0;
+}
+
+
+
+
+
+

@@ -1,0 +1,252 @@
+{% extends 'client_admin/../dashboard.html' %}
+{% load staticfiles %}
+{% load url from future %}
+{% block  libraries %}
+    <link href="{% static  'client_admin/css/lib/jquery.dataTables.css' %}" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static  'client_admin/css/compiled/datatables.css' %}" type="text/css"
+          media="screen"/>
+{% endblock %}
+{% block  content %}
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li>
+                <a href="{% url 'client_admin:rest_form' %}">
+                    <i class="icon-picture"></i>
+                    <span>Administrar Datos</span>
+                </a>
+            </li>
+            <li class="active">
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+
+                <a href="{% url 'client_admin:local_form' %}">
+                    <i class="icon-th-large"></i>
+                    <span>Administrar Locales</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'client_admin:product_form' %}">
+                    <i class="icon-code-fork"></i>
+                    <span>Administrar Cartas</span>
+                </a>
+            </li>
+            <li>
+                <a href="seguimiento-delivery.html">
+                    <i class="icon-cog"></i>
+                    <span>Seguimiento delivery</span>
+                </a>
+            </li>
+            <li>
+                <a href="seguimiento-delivery.html">
+                    <i class="icon-share-alt"></i>
+                    <span>Reportes</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+
+    <!-- main container -->
+    <div class="content">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="pad-wrapper" class="users-list">
+                    <h3>Locales</h3>
+                    <table class="table table-hover" id="locals">
+                        <thead>
+                        <tr>
+                            <th class="col-md-4 sortable">
+                                Nombre
+                            </th>
+                            <th class="col-md-4 sortable">
+                                Direccion
+                            </th>
+                            <th class="col-md-4 sortable">
+                                Telefono
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for local_t in locals %}
+                            <tr id="{{ local_t.id }}" class="first">
+                                <td>
+                                    {{ local_t }}
+                                </td>
+                                <td>
+                                    {{ local_t.district }}
+                                </td>
+                                <td>
+                                    {{ local_t.phone }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="border-left: 1px dashed #333">
+                <div id="pad-wrapper" class="user-profile">
+                    {% if is_new == False or not is_new %}
+                        <a href="{% url 'client_admin:local_form' %}" class="btn-flat success pull-right"><span>+</span>Nuevo
+                            Local</a>
+                    {% endif %}
+                    <div class="row header">
+                        <div class="col-md-8">
+                            <h3 class="name">Local >> {{ form.name.value }}</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pad-wrapper" class="form-page">
+                    <div class="row form-wrapper">
+                        <!-- left column -->
+                        <div class="col-md-12 column">
+                            <form action="client_admin/local_form/" method="post">
+                                <input type="hidden" name="id" value="{{ form.initial.id }}"/>
+                                <input type="hidden" name="restaurant" value="{{ restaurant.id }}"/>
+
+                                <div class="field-box">
+                                    <label>Nombre:</label>
+
+                                    <div class="col-md-9">
+                                        <input class="form-control inline-input" type="text" name="name"
+                                               placeholder="Nombre del restaurant" value="{{ form.name.value }}">
+                                    </div>
+                                </div>
+                                <div class="field-box">
+                                    <label>Telefono:</label>
+
+                                    <div class="col-md-9">
+                                        <input class="form-control inline-input" placeholder="Telefono de la empresa"
+                                               type="text" name="phone"
+                                               value="{{ form.phone.value }}">
+                                    </div>
+                                </div>
+
+                                <div class="field-box">
+                                    <label>Dirección:</label>
+
+                                    <div class="col-md-9">
+                                        <div class="row">
+                                            <div class="col-md-4 column">
+                                                <input class="form-control inline-input" name="city"
+                                                       placeholder="cuidad" type="text"
+                                                       value="{{ form.data.city }}">
+                                            </div>
+                                            <div class="col-md-4 column">
+                                                <input class="form-control inline-input" name="district"
+                                                       placeholder="distrito" type="text"
+                                                       value="{{ form.data.distrito }}">
+                                            </div>
+                                            <div class="col-md-4 column">
+                                                <input class="form-control inline-input" name="street"
+                                                       placeholder="calle, numero"
+                                                       type="text" {{ local.data.street }}>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="map_canvas" style="width: 100%; height: 300px;"></div>
+
+                                <br/>
+                                <input type="submit" class="btn-glow primary"
+                                       value="{% if is_new %}Guardar nuevo{% else %}Actualizar{% endif %}">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form id="form_aux" action="{% url 'client_admin:local_load' %}" method="post">
+        <input type="hidden" name="id" id="id"/>
+
+    </form>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static  'client_admin/js/jquery.dataTables.js' %}"></script>
+    <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC4UrcnTFCmOixZfXq4CcJsn1zEPrHDRVI&sensor=true"></script>
+    <script>
+        var geocoder;
+        var map;
+
+        $(function () {
+            $('#locals').dataTable({
+                "sPaginationType": "full_numbers"
+            });
+            initialize();
+        });
+
+        $('#locals tbody tr').click(function (e) {
+            id = $(e.target).parent().attr('id');
+            $('#form_aux #id').val(id);
+            $('#form_aux').submit();
+        });
+
+        function initializeMap() {
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(-34.397, 150.644);
+
+            var mapOptions = {
+                center: new google.maps.LatLng(latlng),
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        }
+
+        var address = "San Diego, CA";
+        function initialize() {
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(-34.397, 150.644);
+            var myOptions = {
+                zoom: 8,
+                center: latlng,
+                mapTypeControl: true,
+                mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+                navigationControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+            if (geocoder) {
+                geocoder.geocode({ 'address': address}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+                            map.setCenter(results[0].geometry.location);
+
+                            var infowindow = new google.maps.InfoWindow(
+                                    { content: '<b>' + address + '</b>',
+                                        size: new google.maps.Size(150, 50)
+                                    });
+
+                            var marker = new google.maps.Marker({
+                                position: results[0].geometry.location,
+                                map: map,
+                                title: address
+                            });
+                            google.maps.event.addListener(marker, 'click', function () {
+                                infowindow.open(map, marker);
+                            });
+
+                        } else {
+                            alert("No results found");
+                        }
+                    } else {
+                        alert("Geocode was not successful for the following reason: " + status);
+                    }
+                });
+            }
+        }
+    </script>
+{% endblock %}

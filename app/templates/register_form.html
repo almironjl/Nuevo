@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block scripts %}
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="{% static 'app/tmp_css/registerrestaurant.css' %}?15355">
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="form_delivery">
+            <h1>¿Registra tu Restaurante?</h1>
+
+            <form class="form-horizontal" role="form" method="post">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Restaurant</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEmail3" placeholder="nombre del restaurant"
+                               name="restaurant_name" value="{{ form.restaurant_name.value | default_if_none:""}}">
+                    </div>
+                    <p>{{ form.restaurant_name.errors.as_text }}</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEmail3"
+                               placeholder="nombre del representante legal" name="name" value="{{ form.name.value | default_if_none:""}}">
+                    </div>
+                    <p>{{ form.name.errors.as_text }}</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Correo</label>
+
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3"
+                               placeholder="correo electronico de contacto" name="email"  value="{{ form.email.value | default_if_none:"" }}">
+                    </div>
+                    <p>{{ form.email.errors.as_text }}</p>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Telefono</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputPassword3" placeholder="telefono de contacto"
+                               name="phone"  value="{{ form.phone.value | default_if_none:"" }}">
+                    </div>
+                    <p>{{ form.phone.errors.as_text }}</p>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Direccion</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputPassword3" placeholder="direccion"
+                               name="address"  value="{{ form.address.value | default_if_none:"" }}">
+                    </div>
+                    <p>{{ form.address.errors.as_text }}</p>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Pagina Web</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputPassword3" placeholder="pagina web"
+                               name="website"  value="{{ form.website.value | default_if_none:"" }}">
+                    </div>
+                    <p>{{ form.website.errors.as_text }}</p>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Registrar</button>
+                        <button type="reset" class="btn btn-default">Limpiar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

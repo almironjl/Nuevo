@@ -1,0 +1,1385 @@
+body {
+background:rgba(255,255,255,1)!important;
+}
+
+#ContainerGeneral {
+border:1px solid rgba(0,0,0,0.1);
+width: 1082px;
+height:auto;
+position:relative;
+border-radius:6px 4px 4px 4px;
+margin:-10px auto 0;
+}
+
+.TituloPrinc {
+color:rgba(102,102,102,0.8);
+font-family:LobsterTwo-Regular;
+font-size:20px;
+padding:14px 14px 14px 30px !important;
+display: inline-block;
+width: 200px;
+}
+
+.TituloPrinc span {
+color:#000;
+font-size:30px;
+}
+
+.TituloPrinc span.rating {
+background:url(../images/list-restaurant/estrella2.png) no-repeat;
+display:inline-block;
+vertical-align:middle;
+height:35px;
+width:35px;
+margin-left: 18px;
+}
+
+#ContainerPrinc {
+background-color:rgba(204,204,204,0.2);
+border:1px solid rgba(0,0,0,0.1);
+border-radius:4px;
+height:500px;
+position:absolute;
+width: 662px;
+left:14px;
+}
+
+.ContainerRestSim {
+background-image:url(../images/fondo-mapa_entero_trasp.png);
+border:1px solid rgba(0,0,0,0.1);
+border-radius:4px;
+height:600px;
+position:absolute;
+right:14px;
+width: 370px;
+top:490px;
+}
+
+.ContainerRestSim .titResSim {
+color:rgba(102,102,102,1);
+font-family:LobsterTwo-Regular;
+font-size:20px;
+position:absolute;
+width:100%;
+padding:10px 20px;
+}
+
+.ContainerRestSim .listRes {
+background:rgba(255,255,255,1);
+border:1px solid rgba(0,0,0,0.1);
+border-radius:4px;
+position:absolute;
+height: 535px;
+width: 100%;
+overflow-y:auto;
+padding: 7px;
+margin-top: 49px;
+}
+
+.ContainerRestSim .listRes .restaurante {
+border-bottom:1px solid rgba(0,0,0,0.1);
+width:100%;
+height:100px;
+padding:5px 0;
+}
+
+.ContainerRestSim .listRes .restaurante:hover {
+background:#fafafa;
+cursor:pointer;
+}
+
+.ContainerRestSim .listRes .restaurante img {
+border:4px solid #ccc;
+display:inline-block;
+width:86px;
+vertical-align:middle;
+}
+
+.ContainerRestSim .listRes .restaurante .desc {
+display:inline-block;
+width:auto;
+vertical-align:middle;
+}
+
+.ContainerRestSim .listRes .restaurante h3 {
+font-size:1em;
+color:#ccc;
+font-family:LobsterTwo-Regular;
+width:142px;
+display:block;
+margin:4px;
+}
+
+.ContainerRestSim .listRes .restaurante span {
+font-size:.9em;
+color:#888;
+margin-left:6px;
+}
+
+#other_restaurants {
+margin-top:20px;
+font-family:LobsterTwo-Regular;
+font-size:1.1em;
+color:#888;
+}
+
+.menuprincipal li {
+/*background:url(images/header_tabs.png) repeat-x;*/
+background-position:214px 0;
+display:block;
+float:left;
+width:215px;
+height:34px;
+cursor:pointer;
+}
+
+.current span {
+color:rgba(51,51,51,1);
+}
+
+.content ul {
+width:598px;
+height:100%;
+list-style:none;
+position:absolute;
+}
+
+.content li {
+float:left;
+margin-top:30px;
+width:595px;
+height:390px;
+display:block;
+position:absolute;
+margin-left:-20px;
+border:1px solid rgba(0,0,0,0.05);
+border-radius:4px!important;
+}
+
+.content li .img-dish {
+z-index:9;
+position:relative;
+}
+
+.info {
+float:left;
+width:300px;
+height:auto;
+margin:20px 0;
+}
+
+.info p {
+font:bold 24px Verdana, Geneva, sans-serif;
+color:#999;
+display:block;
+line-height:34px;
+text-align:center;
+}
+
+.clear {
+clear:both;
+}
+
+#ContainerDescCont {
+background-color:rgba(204,204,204,0.2);
+border:1px solid rgba(0,0,0,0.1);
+border-radius:4px;
+height:400px;
+position:absolute;
+right:14px;
+width: 370px;
+}
+
+.menuDescCont {
+width: 100%;
+height:34px;
+}
+
+.menuDescCont ul {
+list-style:none;
+height:34px;
+margin:0;
+width: 100%;
+}
+
+.menuDescCont li {
+background-position:214px 0;
+display: inline-block;
+float:left;
+width: 125px;
+height:34px;
+cursor:pointer;
+margin-top: 15px;
+}
+
+.menuDescCont span {
+font-family:LobsterTwo-Regular;
+font-size:14px;
+color:#FFE;
+display:block;
+line-height:34px;
+text-align:center;
+letter-spacing:4px;
+background:url(../images/fondo-mapa_entero_oscuro.png);
+position:relative;
+border:1px solid rgba(0,0,0,0.05);
+border-bottom:none;
+}
+
+.contentDescCont {
+background:url(../images/fondo-mapa_entero_trasp.png);
+margin-top:6px!important;
+width: 100%;
+height:89%;
+border-radius:4px 4px 4px 4px;
+position:absolute;
+border:1px solid rgba(0,0,0,0.05);
+border-top:none!important;
+top: 45px;
+padding: 15px;
+}
+
+.contentDescCont ul {
+width:258px;
+height:100%;
+list-style:none;
+position:absolute;
+top:-16px;
+}
+
+.contentDescCont li {
+float:left;
+margin-top:7px;
+width:287px;
+height:337px;
+display:block;
+position:absolute;
+margin-left:-35px;
+border:1px solid rgba(0,0,0,0.05);
+border-radius:5px!important;
+background:rgba(255,255,255,1);
+}
+
+.contentDescCont li .description_restaurant {
+padding:14px;
+}
+
+.contentDescCont span {
+font-family:LobsterTwo-Regular;
+margin-left:12px;
+font-weight:700;
+color:#888;
+}
+
+.contentDescCont label {
+display:block;
+font-size:1em;
+color:#888;
+margin-left:20px;
+}
+
+.contentDescCont hr {
+border:none;
+border-top:1px dashed #ccc;
+background:none;
+width:90%;
+margin:10px auto;
+}
+
+.description_restaurant p {
+text-align:justify;
+font-size:1em;
+color:#888;
+height:240px;
+overflow:auto;
+overflow-x:hidden;
+}
+
+#ContainerCartServ {
+background-color:rgba(204,204,204,0.2);
+border:1px solid rgba(0,0,0,0.1);
+border-radius:4px;
+height:500px;
+position:absolute;
+width: 662px;
+left:14px;
+top:600px;
+}
+
+.contentCarSer ul {
+width:598px;
+height:100%;
+list-style:none;
+position:absolute;
+top:-15px;
+margin: 0px !important;  padding: 0px !important;
+}
+
+.contentCarSer li.content_list {
+float:left;
+background-color:rgba(255,255,255,1);
+margin-top:8px;
+width:620px;
+height:435px;
+display:block;
+position:absolute;
+border:1px solid rgba(0,0,0,0.05);
+border-radius:4px!important;
+margin: 7px;
+}
+
+.contentCarSer li.content_list .services {
+font-family:LobsterTwo-Regular;
+font-size:1em;
+color:#888;
+margin:35px 10px;
+}
+
+.contentCarSer li.content_list .services li {
+display:inline-block;
+width:49%;
+vertical-align:middle;
+margin:5px;
+}
+
+.contentCarSer li.content_list .services li span {
+display:inline-block;
+vertical-align:middle;
+width:33px;
+height:33px;
+background:url(../images/check_buena.png) no-repeat;
+}
+
+.listcarta {
+background:rgba(255,255,255,1);
+width:100%;
+height:100%;
+border-radius:4px;
+overflow-y:hidden;
+}
+
+.itemscarta {
+background:rgba(255,255,255,1);
+height:86px;
+width:100%;
+float:left;
+border-bottom:1px solid rgba(153,153,153,0.4);
+position:relative;
+}
+
+.listcarta a {
+cursor:pointer;
+}
+
+.listcarta a:hover .itemscarta {
+background:#efefef;
+}
+
+.photo-plato {
+background:rgba(204,204,204,0.3);
+height:72px;
+width:72px;
+border-radius:4px;
+box-shadow:inset 0 0 2px #FFF;
+float:left;
+}
+
+.photo-plato img {
+width:100%;
+}
+
+.precio-plat {
+border-left:1px solid rgba(204,204,204,03);
+float:right;
+font-size:20px;
+width:95px;
+height:65px;
+text-align:center;
+color:rgba(102,102,102,1);
+font-family:LobsterTwo-Regular;
+padding-top:5%;
+}
+
+.name-plato {
+float:left;
+font-size:1.2em;
+text-align:left;
+color:rgba(102,102,102,1);
+font-family:LobsterTwo-Regular;
+width:390px;
+display:block;
+margin: 25px;
+}
+
+.calif-plato {
+position:relative;
+margin-left: 72%;
+margin-top:58px;
+color:rgba(153,153,153,1);
+font-family:shruti;
+padding-left:30px;
+font-size:13px;
+}
+
+.calif-plato-star {
+background:url(../images/list-restaurant/estrella2.png) no-repeat;
+width:27px;
+height:28px;
+position:absolute;
+margin-top:-13px;
+padding-left:7px;
+padding-top:4px;
+font-size:12px;
+}
+
+.comen-plato {
+font-family:shruti;
+position:relative;
+margin-left:64%;
+margin-top:-23px;
+color:rgba(153,153,153,1);
+padding-left:40px;
+font-size:13px;
+}
+
+.comen-plato-star {
+background:url(../images/list-restaurant/comentario-list.png) no-repeat;
+width:37px;
+height:33px;
+position:absolute;
+margin-left:-30px;
+margin-top:5px;
+padding-left:19px;
+font-size:12px;
+}
+
+.btn-ver-mas-platos {
+color:rgba(0,0,255,1);
+width:96%;
+text-align:center;
+float:right;
+margin:0 auto;
+padding:10px;
+}
+
+.ContainerCompartir {
+width: 189px;
+color:rgba(102,102,102,1);
+height: 24px;
+display: inline-block;
+margin-left: 60%;
+}
+
+.flecha-compartir {
+float:right;
+right:10px;
+}
+
+.ContainerCompartir hr {
+color:rgba(153,153,153,1);
+background-color:rgba(153,153,153,1);
+height:1px;
+border:none;
+}
+
+#contcomp {
+width: 150px;
+margin-right:20px;
+}
+
+#contcomp div {
+float:right;
+cursor:pointer;
+padding:2px;
+}
+
+.comp-facebook {
+background-image:url(../images/redes/facebook.png);
+width:40px;
+height:40px;
+border:1px solid green;
+}
+
+.comp-twitter {
+background-image:url(../images/redes/twitter.png);
+width:40px;
+height:40px;
+border:1px solid blue;
+}
+
+.comp-youtube {
+background-image:url(../images/redes/youtube.png);
+width:40px;
+height:40px;
+border:1px solid #FF0;
+}
+
+#ContainerComentarios {
+background:url(../images/fondo-mapa_entero_trasp.png);
+border:1px solid rgba(0,0,0,0.1);
+border-radius:4px;
+position:absolute;
+width:640px;
+left:14px;
+top:1230px;
+}
+
+.titcomen {
+font-family:LobsterTwo-Regular;
+font-size:22px;
+float:left;
+color:rgba(102,102,102,1);
+margin:10px;
+}
+
+.btnComenta {
+float:right;
+background:url(../images/bg_cuadriculaVerde.png);
+color:rgba(255,255,255,1);
+font-family:shruti;
+font-weight:700;
+font-size:18px;
+border-radius:4px;
+box-shadow:5px 5px 10px rgba(0,0,0,0.5);
+cursor:pointer;
+margin:10px;
+padding:0 30px;
+}
+
+.cont-env-coment {
+background:rgba(255,255,255,1);
+width:96%;
+height:280px;
+border-radius:4px;
+float:left;
+margin:0 2%;
+}
+
+.tit-vot-comen {
+color:rgba(51,51,51,0.8);
+font-family:LobsterTwo-Regular;
+float:left;
+font-size:18px;
+margin:12px;
+}
+
+.start-coment {
+position:relative;
+clear:both;
+padding:2px 20px;
+}
+
+.textarea-comentario {
+border:1px dashed rgba(153,153,153,0.7);
+border-radius:4px;
+width:95%;
+max-width:95%;
+margin-left:2%;
+margin-right:2%;
+margin-top:0;
+height:80px!important;
+padding:5px;
+}
+
+.textarea-comentario.empty {
+border:1px dashed red;
+background:#F8E0E0;
+}
+
+.btn-enviar-coment {
+float:right;
+background:url(../images/bg_cuadriculaVerde.png);
+color:rgba(255,255,255,1);
+font-family:shruti;
+font-weight:700;
+font-size:18px;
+border-radius:4px;
+box-shadow:5px 5px 10px rgba(0,0,0,0.5);
+cursor:pointer;
+margin:10px;
+padding:0;
+}
+
+.btn-enviar-coment button {
+background:none;
+border:none;
+cursor:pointer;
+color:#FFF;
+font-weight:700;
+font-size:1.2em;
+height:34px;
+width:170px;
+display:inline-block;
+position:relative;
+margin:0;
+padding:0;
+}
+
+.item-coment {
+width:96%;
+float:left;
+margin:2%;
+}
+
+.conten-coment {
+background:rgba(255,255,255,1);
+float:right;
+width:83%;
+border:1px solid rgba(153,153,153,0.3);
+border-radius:4px;
+height:auto;
+font-style:italic;
+color:#777;
+padding:1em;
+}
+
+.conten-coment b {
+font-size:.8em;
+font-style:normal;
+color:#000;
+}
+
+.photo-coment {
+background:rgba(204,204,204,1);
+float:left;
+width:55px;
+height:55px;
+margin-right:10px;
+border-radius:4px;
+overflow:hidden;
+}
+
+.photo-coment img {
+height:55px;
+width:55px;
+}
+
+.rest_image {
+height:300px;
+}
+
+.result_box {
+display:block;
+}
+
+.menuDescCont a{
+padding: 0px 0px !important;
+}
+
+.menuprincipal a{
+padding: 0px 0px !important;
+}
+
+.menuprincipal,.MenuCarSer {
+width: 100%;
+height: 38px;
+}
+
+.menuprincipal ul,.MenuCarSer ul {
+list-style:none;
+width: 100%;
+height: 25px;
+margin: 0;
+padding: 0;
+}
+
+.menuprincipal li.current,.menuDescCont li.current,.MenuCarSer li.current {
+background-position:0 0;
+}
+
+.menuprincipal span,.MenuCarSer span {
+font-family:LobsterTwo-Regular;
+font-size:17px;
+color:#FFE;
+display:block;
+line-height:34px;
+text-align:center;
+letter-spacing:4px;
+background:url(../images/fondo-mapa_entero_oscuro.png);
+position:relative;
+border-radius:4px 4px 0 0;
+border:1px solid rgba(0,0,0,0.05);
+border-bottom:none;
+}
+
+.menuprincipal span img,.menuDescCont span img,.MenuCarSer span img {
+position:static;
+margin-left:-35px;
+margin-bottom:-6px;
+}
+
+.content,.contentCarSer {
+background:url(../images/fondo-mapa_entero_trasp.png);
+margin-top:6px!important;
+width: 100%;
+height:91%;
+border-radius:4px 4px 4px 4px;
+position:absolute;
+border:1px solid rgba(0,0,0,0.05);
+border-top:none!important;
+top:39px;
+}
+
+.margen-img-center{
+background:rgba(255,255,255,1);
+width: 100%;
+height:79px;
+border-radius:2px;
+position:relative;
+text-align:center;
+background-size: 100% auto;
+}
+
+/* MAP */
+
+
+.listing-outer {
+
+    float: left;
+
+    width: 96.7%;
+
+    background: rgba(255, 255, 255, 1);
+
+    border-bottom: 1px solid rgba(204, 204, 204, 1);
+
+    padding: 2px 10px;
+
+    height: 116px;
+
+}
+
+.listing-outer:hover {
+
+    cursor: pointer;
+
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.margen-img {
+
+    background: rgba(204, 204, 204, 0.3);
+
+    width: 90px;
+
+    height: 89px;
+
+    border-radius: 2px;
+
+    position: relative;
+
+    /*border:1px solid rgba(0,0,0,0.1);*/
+
+}
+
+.margen-img-center {
+
+    background: rgba(255, 255, 255, 1);
+
+    height: 79px;
+
+    border-radius: 2px;
+
+    position: relative;
+
+    text-align: center;
+
+    /*border:1px solid rgba(0,0,0,0.1);*/
+    background-size: 100% auto;
+
+}
+
+.marg-tit-rest {
+
+    font-family: LobsterTwo-Regular;
+
+    margin-top: -90px;
+
+    margin-left: 115px;
+
+    font-size: 20px;
+
+    color: rgba(153, 153, 153, 1);
+
+}
+
+.marg-tit-neg {
+
+    color: rgba(51, 51, 51, 1);
+
+    font-weight: bolder;
+
+}
+
+.name-restaurant {
+    font-size: .8em;
+}
+
+.list_dish_restaurant {
+    height: 121px;
+    display: block;
+    position: relative;
+}
+
+.list_dish_restaurant:hover .icon_wish {
+    display: block;
+}
+
+.icon_wish {
+    width: 40px;
+    height: 40px;
+    float: right;
+    right: 12px;
+    top: 4px;
+    z-index: 666;
+    display: none;
+    position: absolute;
+}
+
+.wishlist_icon_active {
+    display: block;
+    background: url(../images/list-restaurant/whish-list-active.png) no-repeat;
+}
+
+.wishlist_icon {
+    background: url(../images/list-restaurant/whish-list-hover.png) no-repeat;
+}
+
+.wishlist_icon:hover {
+    background: url(../images/list-restaurant/whish-list-active.png) no-repeat;
+}
+
+.load_wish {
+    color: green;
+    display: none;
+    margin-left: 30px;
+}
+
+.place-marg {
+
+    background: url(../images/list-restaurant/icono1.png) no-repeat;
+
+    margin-left: 115px;
+
+    font-family: shruti;
+
+    padding-left: 20px;
+
+    color: rgba(102, 102, 102, 1);
+
+    font-weight: bolder;
+
+}
+
+.phone-marg {
+
+    background: url(../images/list-restaurant/icono2.png) no-repeat;
+
+    margin-left: 111px;
+
+    font-family: shruti;
+
+    padding-left: 20px;
+
+    color: rgba(102, 102, 102, 1);
+
+    font-weight: bolder;
+
+}
+
+.list-deseado {
+
+    background: url(../images/list-restaurant/whish-list-gold.png) no-repeat;
+
+    background-position: 0 0;
+
+    width: 43px;
+
+    height: 43px;
+
+    margin-top: -92px;
+
+    position: absolute;
+
+    margin-left: 85% !important;
+
+    cursor: pointer;
+
+}
+
+.list-deseado:hover {
+
+    background: url(../images/list-restaurant/whish-list-gold.png) no-repeat;
+
+    background-position: 0 -45px;
+
+    cursor: pointer;
+
+}
+
+.list-deseado:active {
+
+    background: url(../images/list-restaurant/whish-list-gold.png) no-repeat;
+
+    background-position: 0 -90px;
+
+    cursor: pointer;
+
+}
+
+.list-deseado-activate {
+
+    background: url(../images/list-restaurant/whish-list-gold.png) no-repeat;
+
+    background-position: 0 -90px;
+
+    width: 43px;
+
+    height: 43px;
+
+    margin-top: -92px;
+
+    position: absolute;
+
+    margin-left: 85% !important;
+
+    cursor: pointer;
+
+}
+
+.list-deseado-activate:active {
+
+    background: url(../images/list-restaurant/whish-list-gold.png) no-repeat;
+
+    background-position: 0 -45px;
+
+    cursor: pointer;
+
+}
+
+.pt-calif {
+
+    position: relative;
+
+    margin-left: 75%;
+
+    margin-top: -22px;
+
+    color: rgba(153, 153, 153, 1);
+
+    font-family: shruti;
+
+    padding-left: 30px;
+
+    font-size: 13px;
+
+}
+
+.pt-calif-star {
+
+    background: url(../images/list-restaurant/estrella2.png) no-repeat;
+
+    width: 27px;
+
+    height: 28px;
+
+    position: absolute;
+
+    margin-left: -7px;
+
+    margin-top: -8px;
+
+    padding-left: 9px;
+    font-weight: bold;
+
+    padding-top: 4px;
+
+    font-size: 12px;
+
+}
+
+.pt-coment {
+
+    font-family: shruti;
+
+    position: relative;
+
+    margin-left: 84%;
+
+    margin-top: -23px;
+
+    color: rgba(153, 153, 153, 1);
+
+    padding-left: 40px;
+
+    font-size: 13px;
+
+}
+
+.pt-coment-star {
+
+    background: url(../images/list-restaurant/comentario-list.png) no-repeat;
+
+    width: 14px;
+
+    height: 33px;
+
+    position: absolute;
+
+    margin-left: 1px;
+
+    margin-top: -14px;
+
+    padding-left: 21px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+.list-paginacion {
+
+    height: 50px;
+
+    text-align: center;
+
+}
+
+.list-paginacion:hover {
+
+    box-shadow: none;
+
+}
+
+.list-paginacion div {
+
+    display: inline-block
+
+}
+
+.numer-pag {
+
+    background: rgba(204, 204, 204, 1);
+
+    border-radius: 4px;
+
+    width: 55px;
+
+    margin: 3px;
+
+    padding: 4px;
+
+    font-size: 12px;
+
+    border: 1px solid rgba(153, 153, 153, 1);
+
+    color: rgba(102, 102, 102, 1);
+
+    box-shadow: inset 0px 0px 5px #FFFFFF;
+
+    text-align: center
+
+}
+
+.numer-pag:hover {
+
+    color: rgba(255, 255, 255, 1);
+
+    cursor: pointer;
+
+    background: rgba(153, 153, 153, 1)
+
+}
+
+.numer-width {
+
+    width: 14px;
+
+}
+
+.active-pag {
+
+    background: rgba(204, 153, 255, 1);
+
+}
+
+#filtrox-list {
+
+    margin-top: -48px;
+
+    position: relative;
+
+    margin-left: 130px;
+
+    z-index: 1;
+
+    height: 40px;
+
+}
+
+.ErrorBuscar {
+
+    color: #393c3d;
+
+    font-size: 18px;
+
+    font-weight: bolder;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    padding: 80px 30px;
+
+}
+
+/*.listing-outer{width:350px}*/
+
+/*.listing{position:relative;margin:0 20px 20px 0;background:#fff;-moz-border-radius:3px 3px 0 0;-webkit-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0}*/
+
+@media all and (max-width: 1550px) {
+    .listing-outer {
+        width: 95%;
+    }
+}
+
+@media all and (max-width: 1100px) {
+    .listing-outer {
+        width: 93%;
+    }
+}
+
+@media all and (max-width: 800px) {
+    .listing-outer {
+        width: 90%;
+    }
+}
+
+/*@media all and (max-width: 980px){.listing-outer{width:100%}}*/
+
+/*@media all and (min-width: 981px) and (max-width: 1600px){.listing-outer{width:50%}} */
+
+/*@media all and (min-width: 1601px){.listing-outer{width:33.333%}}*/
+
+.priv-button {
+    position: relative;
+    min-width: 130px;
+    -moz-box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+    cursor: pointer;
+    text-align: left;
+    padding: 0.6em 1.0em;
+    font-size: 12px
+}
+
+.priv-button.btn {
+    font-weight: bold;
+    color: #393c3d
+}
+
+.filtro {
+
+    background: url(../images/fondo-mapa_entero_trasp.jpg);
+
+    width: 39.8%;
+
+    top: 180px;
+
+    position: absolute;
+
+    right: 2%;
+
+    height: 60px;
+
+    border-top: 1px solid rgba(153, 153, 153, 0.2);
+
+    border-right: 1px solid rgba(153, 153, 153, 0.2);
+
+    border-radius: 0 5px 0 0;
+
+    position: fixed;
+
+}
+
+.btnWish,
+.btnfiltro {
+
+    color: rgba(255, 255, 255, 1);
+
+    background: url(../images/bg_cuadriculaVerde.jpg);
+
+    border: none;
+
+    font-size: 17px;
+
+    padding: 8px 35px;
+
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+    border-radius: 4px;
+
+    margin: 10px;
+
+    cursor: pointer;
+
+}
+
+.btnmasfiltro {
+
+    color: rgba(255, 255, 255, 1);
+
+    background: url(../images/bg_cuadriculaVerde.jpg);
+
+    border: none;
+
+    font-size: 17px;
+
+    padding: 4px 25px;
+
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+    border-radius: 4px;
+
+    margin: 10px;
+
+    cursor: pointer;
+
+    float: right;
+
+}
+
+.space {
+
+    padding: 10px 20px;
+
+}
+
+#filtro-hiden {
+
+    margin-top: 15px;
+
+    margin-left: 2%;
+
+    margin-right: 2%;
+
+}
+
+.btn-ver-mas {
+
+    color: rgba(0, 51, 255, 1);
+
+    border: none;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    float: right;
+
+    margin-right: -10px;
+
+    margin-top: -35px;
+
+}
+
+.control-group {
+
+    font-size: 11px;
+
+    font-family: shruti;
+
+    font-weight: 500;
+
+    display: table-row;
+
+}
+
+.titfilt {
+
+    color: rgba(153, 153, 153, 1);
+
+    font-family: shruti;
+
+    font-weight: bolder;
+
+}
+
+#filters-columns .check {
+
+    float: left;
+
+    padding: 2px 5px;
+
+    width: 127px;
+
+}
+
+.filthid {
+
+    margin: 0 auto;
+
+    width: 90%;
+
+}
+
+.fil-h {
+
+    float: left;
+
+    width: 94.5%;
+
+    background: rgba(255, 255, 255, 1);
+
+    padding: 2px 10px;
+
+    height: 70px;
+
+    border-top: 1px solid rgba(204, 204, 204, 1);
+
+    border-left: 1px solid rgba(204, 204, 204, 1);
+
+    border-right: 1px solid rgba(204, 204, 204, 1);
+
+    margin-left: 1%;
+
+    margin-right: 1%;
+
+    z-index: 1;
+
+}
+
+.bor-rad-1 {
+
+    border-radius: 4px 4px 0 0;
+
+}
+
+.bor-rad-2 {
+
+    border-radius: 0 0 4px 4px;
+
+    border-bottom: 1px solid rgba(204, 204, 204, 1);
+
+}
+
+.bor-rad-3 {
+
+}
+
+.bor-rad-4 {
+
+}
+
+#results {
+    background: #f7f7f7;
+    display: block;
+    padding: 10px 0 20px 10px;
+    height: 100%;}
+
+#map_canvas {
+    width: 97%;
+    height: 650px;
+    padding: 12px;
+    float: right;
+}

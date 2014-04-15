@@ -1,0 +1,96 @@
+{% extends 'client_admin/../dashboard.html' %}
+{% load url from future %}
+{% block  content %}
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li class = "active">
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+                <a href="{% url 'client_admin:manage_orders' %}">
+                    <i class="icon-picture"></i>
+                    <span>Administrar Solicitudes(Ordenes)</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'client_admin:create_point' %}">
+                    <i class="icon-th-large"></i>
+                    <span>Crear Punto publicitario</span>
+                </a>
+            </li>
+            <li>
+
+                <a href="{% url 'client_admin:manage_orders' %}">
+                    <i class="icon-code-fork"></i>
+                    <span>Agregar Informacion al PP</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+
+    <!-- main container -->
+    <div class="content">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="pad-wrapper" class="users-list">
+                    <h3>Lista de solicitudes</h3>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="col-md-5 sortable">
+                                EMPRESA SOLICITANTE
+                            </th>
+                            <th class="col-md-5 sortable">
+                                REPRESENTANTE
+                            </th>
+                            <th class="col-md-5 sortable">
+                                FECHA DE SOLICITUD
+                            </th>
+                            <th class="col-md-5 sortable">
+                                ESTADO DE RESPUESTA
+                            </th>
+                            <th class="col-md-5 sortable">
+
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for m in orders %}
+                            <tr class="first">
+                                <td>
+                                    {{ m.type_point.company.commercial_name }}
+                                </td>
+                                <td>
+                                    {{ m.type_point.company.representative_name }}
+                                </td>
+                                <td>
+                                    {{ m.order.date }}
+                                </td>
+                                <td>
+                                    {{ m.order.state }}
+                                </td>
+                                <td>
+                                    {% if m.order.state != 'pendiente' %}
+                                         <a href="{% url 'client_admin:order_response' %}" >Ver</a>
+                                    {% else %}
+                                         <a href="{% url 'client_admin:order_response' %}" >Responder</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+{% endblock %}

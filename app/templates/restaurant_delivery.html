@@ -1,0 +1,538 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <main>
+        <section id="restaurant_header">
+            <div id="restaurant_header_container">
+                <div id="restaurant_logo">
+                    <img src="{% static 'app/images/restaurante_delivery.png' %}" alt="Imágen"/>
+                </div>
+                <div id="restaurant_info">
+                    <h2>{{ restaurant.name }}</h2>
+                    {{ local.direccion }}
+                </div>
+                <div id="restaurant_estrella">
+                    <img src="{% static 'app/images/estrella.png' %}" alt="Estrella"/>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="restaurant_carta">
+            <h3>Carta</h3>
+
+            <div id="restaurant_accordion">
+                {% for category in local_categories %}
+                    <h3>{{ category.name }}</h3>
+
+                    <div>
+                        <ul>
+                            <li id="category_{{ category.id }}">{{ category.name }}</li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div id="restaurant_table_container">
+
+            </div>
+        </section>
+
+
+        <section id="restaurant_pedido">
+
+            <div id="restaurant_pedido_title">
+                <h3>Arma tu pedido</h3>
+            </div>
+            <div id="restaurant_pedido_orders">
+
+            </div>
+            <div id="restaurant_pedido_price">
+                <table>
+                    <tr>
+                        <td>Subtotal:</td>
+                        <td><span id="subtotal">S/. 0</span></td>
+                    </tr>
+                    <tr>
+                        <td>IGV:</td>
+                        <td><span id="igv">S/. 0</span></td>
+                    </tr>
+                    <tr>
+                        <td>Total por consumo:</td>
+                        <td><span id="total">S/. 0</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="restaurant_pedido_facturacion">
+                <div>
+                    <input id="boleta_radio" type="radio" name="facturacion"/>
+                    <label for="boleta_radio"></label>
+                    Boleta
+                </div>
+                <div>
+                    <input id="factura_radio" type="radio" name="facturacion"/>
+                    <label for="factura_radio"></label>
+                    Factura
+                </div>
+                <input id="razon_social" type="text" placeholder="Razón social"/> <br/>
+                <input id="ruc" type="text" placeholder="RUC"/>
+            </div>
+            <div id="restaurant_pedido_modoPago">
+                <table>
+                    <tr>
+                        <td id="excepcion">
+                            <div id="efectivo">
+                                <input id="efectivo_radio" type="radio" name="modoPago"/>
+                                <label for="efectivo_radio"></label>
+
+                                <div>
+                                    <img src="{% static 'app/images/btn_pay_cash.png' %}" alt="Imágen"/> <br/>
+                                    Efectivo
+                                </div>
+                            </div>
+                            <div id="tarjeta">
+                                <input id="tarjeta_radio" type="radio" name="modoPago"/>
+                                <label for="tarjeta_radio"></label>
+
+                                <div>
+                                    <img src="{% static 'app/images/btn_pay_cash.png' %}" alt="Imágen"/> <br/>
+                                    Tarjeta
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="visa" type="radio" name="tarjetas"/><label for="visa"></label> VISA
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="master_card" type="radio" name="tarjetas"/><label for="master_card"></label>
+                            Master Card
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="american_express" type="radio" name="tarjetas"/><label
+                                for="american_express"></label> American Express
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="restaurant_pedido_submit">
+                <input id="save_list" type="button" value="Guardar lista"/> <br/>
+                <input id="confirm_delivery" type="button" value="Confirma tu pedido"/>
+            </div>
+
+
+        </section>
+
+
+        <section id="container_ver">
+        </section>
+
+    </main>
+
+{% endblock %}
+{% block scripts %}
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+    <script type="text/javascript">
+    $(function () {
+        $("#restaurant_accordion").accordion();
+    });
+
+    function Plato(nombre, precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+    ;
+
+    function PedidoUnitario(plato) {
+        this.plato = plato;
+        this.cantidad = 1;
+        this.precio = plato.precio * this.cantidad;
+        this.eq = function (pedido_unitario) {
+            var nombre1 = this.plato.nombre;
+            var nombre2 = pedido_unitario.plato.nombre;
+
+            if (nombre1 === nombre2)
+                return true;
+            else
+                return false;
+        }
+        this.aumentarCantidadEnUno = function () {
+            this.cantidad++;
+            this.precio = this.cantidad * this.plato.precio;
+        }
+
+        this.disminuirCantidadEnUno = function () {
+            this.cantidad--;
+            this.precio = this.cantidad * this.plato.precio;
+        }
+    }
+    ;
+
+    function Pedido() {
+        this.pedidosUnitarios = new Array();
+        this.facturacion = '';
+        this.modoPago = '';
+        this.company = '';
+        this.ruc = 0;
+        this.nombresDePedidosUnitarios = function () {
+            return this.pedidosUnitarios.map(function (pedido_unitario) {
+                return pedido_unitario.plato.nombre;
+            });
+        };
+
+        this.buscarPedidoUnitarioPorNombre = function (nombre) {
+            var len = this.pedidosUnitarios.length;
+
+            for (i = 0; i < len; i++) {
+                if (this.pedidosUnitarios[i].plato.nombre === nombre)
+                    return this.pedidosUnitarios[i]
+            }
+
+            return null;
+        };
+
+        this.anadirPedidoUnitario = function (pedidoUnitario) {
+            if (pedidoUnitario.nombre in this.nombresDePedidosUnitarios()) {
+                var pedido_unitario = this.buscarPedidoUnitarioPorNombre(pedidoUnitario.nombre);
+                pedido_unitario.cantidad += 1;
+            } else {
+                this.pedidosUnitarios.push(pedidoUnitario);
+            }
+
+        };
+
+        this.has = function (pedido_unitario) {
+            var len = this.pedidosUnitarios.length;
+
+            for (i = 0; i < len; i++) {
+                if (this.pedidosUnitarios[i].eq(pedido_unitario))
+                    return true;
+            }
+
+            return false;
+        };
+
+        this.removerPedidoUnitario = function (pedido_unitario) {
+            var len = this.pedidosUnitarios.length;
+            var index;
+
+            for (i = 0; i < len; i++) {
+                console.log(i);
+                if (this.pedidosUnitarios[i].eq(pedido_unitario)) {
+                    index = i;
+                }
+            }
+
+            this.pedidosUnitarios.splice(index, 1);
+        };
+
+        this.getCostoTotal = function () {
+            var len = this.pedidosUnitarios.length;
+            var costo = 0;
+
+            for (i = 0; i < len; i++) {
+                costo += this.pedidosUnitarios[i].precio;
+            }
+
+            return costo;
+        };
+    };
+
+    function configurar_funcionalidad(carta) {
+        var restaurant_table = "<table id='restaurant_table'>";
+
+        for (i = 0; i < carta.length; i++) {
+            console.log(carta[i].name.replace(/[ \(\)]/g, "_"));
+            restaurant_table += "<tr> \
+                        <td>" + carta[i].name + "</td> \
+                        <td>S/. " + carta[i].price + "</td> \
+                        <td> \
+                            <input id='restaurant_table_btn_" + carta[i].name.replace(/[ \(\)]/g, '_') + "' type='button' value='Agregar' /> \
+                        </td> \
+                    </tr>"
+        }
+        restaurant_table += "</table>";
+
+        $("#restaurant_table_container").html(restaurant_table);
+
+        $.each(carta, function (index, element) {
+            var nombre_plato = element.name;
+
+            $("#restaurant_table_btn_" + nombre_plato.replace(/[ \(\)]/g, '_')).click(function () {
+                var precio = element.price;
+
+                //precio = precio.replace('S/. ', '');
+                precio = parseInt(precio);
+
+                var plato = new Plato(nombre_plato, precio);
+                var pedido_unitario = new PedidoUnitario(plato);
+
+                var id = nombre_plato.replace(/ /g, '_');
+
+                var text = "<div id='" + id + "' class='restaurant_pedido_order'> \
+								<div> \
+									<table> \
+										<tr> \
+											<td> \
+												" + nombre_plato + " \
+											</td> \
+											<td> \
+												S/. " + precio + " \
+											</td> \
+										</tr> \
+									</table> \
+								</div> \
+								<div> \
+									<table> \
+										<tr> \
+											<td> \
+												<img src='images/notepad.png' alt='Imágen' /> \
+											</td> \
+											<td> \
+												<input id='order_btn_mas_" + id + "' class='order_btn_mas order_btn' type='button' /> \
+												<span id='order_contador_" + id + "'>1</span> \
+												<input id='order_btn_menos_" + id + "' class='order_btn_menos order_btn' type='button' /> \
+											</td> \
+										</tr> \
+									</table> \
+								</div> \
+							</div>"
+
+
+                if (!( pedido.has(pedido_unitario) )) {
+                    $("#restaurant_pedido_orders").append(text);
+                    pedido.anadirPedidoUnitario(pedido_unitario);
+                    var costo_total = pedido.getCostoTotal();
+                    var igv = Math.round(10 * 0.18 * costo_total) / 10;
+                    var subtotal = Math.round(10 * 0.82 * costo_total) / 10;
+                    $("#subtotal").html("S/. " + subtotal);
+                    $("#igv").html("S/. " + igv);
+                    $("#total").html("S/. " + costo_total);
+                } else {
+                    var pedidoUnitario = pedido.buscarPedidoUnitarioPorNombre(pedido_unitario.plato.nombre);
+                    pedidoUnitario.aumentarCantidadEnUno();
+                    $("#order_contador_" + id).html(pedidoUnitario.cantidad);
+                    console.log(pedido);
+                    var costo_total = pedido.getCostoTotal();
+                    var igv = Math.round(10 * 0.18 * costo_total) / 10;
+                    var subtotal = Math.round(10 * 0.82 * costo_total) / 10;
+                    $("#subtotal").html("S/. " + subtotal);
+                    $("#igv").html("S/. " + igv);
+                    $("#total").html("S/. " + costo_total);
+
+                }
+
+                // Las dos lineas que siguen son importantes para no poner el handler del evento click dos o más veces
+                $("#order_btn_mas_" + id).off("click");
+                $("#order_btn_menos_" + id).off("click");
+
+                // Asignando el handler para el evento click en los boton + y -
+                $("#order_btn_mas_" + id).click(function () {
+                    var pedidoUnitario = pedido.buscarPedidoUnitarioPorNombre(pedido_unitario.plato.nombre);
+                    pedidoUnitario.aumentarCantidadEnUno();
+                    var costo_total = pedido.getCostoTotal();
+                    var igv = Math.round(10 * 0.18 * costo_total) / 10;
+                    var subtotal = Math.round(10 * 0.82 * costo_total) / 10;
+                    $("#subtotal").html("S/. " + subtotal);
+                    $("#igv").html("S/. " + igv);
+                    $("#total").html("S/. " + costo_total);
+                    $("#order_contador_" + id).html(pedidoUnitario.cantidad);
+                });
+
+
+                $("#order_btn_menos_" + id).click(function () {
+                    var pedidoUnitario = pedido.buscarPedidoUnitarioPorNombre(pedido_unitario.plato.nombre);
+                    pedidoUnitario.disminuirCantidadEnUno();
+
+                    if (pedidoUnitario.cantidad === 0) {
+                        pedido.removerPedidoUnitario(pedidoUnitario);
+                        $("#" + id).remove();
+                    }
+                    else
+                        $("#order_contador_" + id).html(pedidoUnitario.cantidad);
+
+                    var costo_total = pedido.getCostoTotal();
+                    var igv = Math.round(10 * 0.18 * costo_total) / 10;
+                    var subtotal = Math.round(10 * 0.82 * costo_total) / 10;
+                    $("#subtotal").html("S/. " + subtotal);
+                    $("#igv").html("S/. " + igv);
+                    $("#total").html("S/. " + costo_total);
+                });
+            });
+
+        });
+    }
+
+    var pedido = new Pedido();
+
+    $(document).ready(function () {
+
+        // Variable que almacena el id del local
+        var local_id = $( location ).attr("search").replace("?local_id=", "");
+
+        // Variable que almacena el id de la categoria que se va a cargar al inicio
+        var category_id_initial = $( "#restaurant_accordion li:nth-child(1)" ).attr("id").replace("category_", "");
+
+        // Obtención de datos para crear la tabla inicial
+        $.ajax({
+            url: "/restaurant_delivery_service/",
+            method: "POST",
+            data: {
+                local_id: local_id,
+                category_id: category_id_initial
+            },
+            success: function(data) {
+
+
+                configurar_funcionalidad(data);
+            }
+        });
+
+        $("#restaurant_accordion li").click(function() {
+
+            var category_id = $( this ).attr("id").replace("category_", "");
+
+            $.ajax({
+                url: "/restaurant_delivery_service/",
+                method: "POST",
+                data: {
+                    local_id: local_id,
+                    category_id: category_id
+                },
+                success: function(data) {
+                    configurar_funcionalidad(data);
+                }
+            });
+        });
+
+
+
+        $( "input[name=modoPago]" ).change(function () {
+            if ($(this).attr("id") === "tarjeta_radio") {
+                $("input[name=tarjetas]").attr('disabled', false);
+                pedido.modoPago = 'T';                
+            }
+            else {
+                $("input[name=tarjetas]").attr('disabled', true);
+                $("input[name=tarjetas]").attr('checked', false);
+                pedido.modoPago = 'E';
+            }
+
+            console.log(pedido.modoPago);
+        });
+
+        $( "input[name=facturacion]" ).change(function() {
+            if ( $( this ).attr("id") === "boleta_radio" ) {
+                $( "#razon_social" ).attr('disabled', true);
+                $( "#ruc" ).attr('disabled', true);
+                $( "#ruc" ).css("border", "1px solid rgb(224,224,224)");
+                pedido.facturacion = 'B';
+                pedido.company = '';
+                pedido.ruc = 0;
+            }
+            else {
+                $( "#razon_social" ).attr('disabled', false);
+                $( "#ruc" ).attr('disabled', false);
+                pedido.facturacion = 'F';
+                pedido.company = $( "#razon_social" ).val();
+                pedido.ruc = $( "#ruc" ).val();
+            }
+
+            console.log(pedido.facturacion);
+            console.log(pedido.company);
+            console.log(pedido.ruc);
+        });
+
+        $( "#ruc" ).keyup(function() {
+            var reg = RegExp("^[0-9]{1,11}$");
+            var value = $( this ).val();
+            var len = value.length;           
+
+            if ( !reg.test(value) ) {
+                $( this ).val(value.slice(0, len-1));
+            }
+            
+            if ( value.length !== 11 ) {
+                $( this ).css("border", "1px solid red");
+            }
+            else {
+                $( this ).css("border", "1px solid rgb(224,224,224)");
+            }            
+        });
+
+        $( "#razon_social" ).keyup(function() {
+            var value = $( this ).val();
+
+            if ( value === "" ) {
+                $( this ).css("border", "1px solid red");
+            }
+            else {
+                $( this ).css("border", "1px solid rgb(224,224,224)");
+            }
+        });
+    });
+
+
+    ///begin deliver
+    $(function () {
+        var local = {};
+        var created = {};
+        var user = {};
+        var type = {};
+
+        var order = {
+            local: local,
+            created: created,
+            user: user,
+            type: type
+        };
+        var local_has_product = {};
+        var quantity = {};
+
+        $('#save_list').click(function (event) {
+            var url = '/save_list/';
+            var user_id = '{{ user.id }}';
+            var voucher = pedido.facturacion; //B (boleta), F(factura)
+            var company = pedido.company;
+            var ruc = pedido.ruc;
+            var pay_type = pedido.modoPago; //E(efectivo), T(tarjeta)
+            var products = [
+                {
+                    id: '13523',
+                    quantity: '4'
+                },
+                {
+                    id: '74567',
+                    quantity: '6'
+                }
+            ];
+
+            var data = {
+                products: products,
+                voucher: voucher,
+                company: company,
+                ruc: ruc,
+                pay_type: pay_type,
+                user_id: user_id
+            };
+
+            $.post(url, data, callback);
+
+            function callback(data){
+                console.log(data)
+            }
+        });
+
+    });
+    ///end deliver
+
+    </script>
+
+{% endblock %}

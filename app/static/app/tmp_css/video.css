@@ -1,0 +1,125 @@
+
+#container{
+	background:rgba(255,255,255,1);
+	/*background-image:url(../images/banners/banner1.jpg);*/
+	background-repeat:no-repeat;
+	background-position:center;
+	/*border:1px solid black;*/
+	border-radius:10px;
+	margin:-10px auto;
+	padding:10px 0;
+	width:100%;
+}
+
+#conteinervideo{
+	margin:10px auto;
+	width:900px;
+	/*border: 1px solid black;	*/
+	padding:10px;
+}
+
+#containerExperiencia{
+	background-image:url(../images/borde_dentado1.png);
+	background-position:top;
+	background-repeat:repeat-x;
+	
+	border-radius:10px;
+	margin:0 auto;	
+	width:100%;
+}
+
+.borde-left{
+	border-right:1px solid rgba(102,102,102,1) !important;
+		border-left:1px solid rgba(102,102,102,1) !important;
+}
+
+.listVideo{
+	background:url(../images/bg_madera.jpg);
+	
+}
+
+.border-botton{
+	border-bottom:1px solid rgba(102,102,102,1) !important;
+}
+
+.listVideo td{
+	padding:0 2px;
+	cursor:pointer;	
+}
+
+.tablaExperiencia{
+	padding:20px;
+	margin:10px auto !important;
+}
+
+.titleExp{
+	color:rgba(204,51,102,1);
+	font-size:30px;
+	font-family:LobsterTwo-Bold, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding:20px;
+}
+
+.kunfood{
+	color:rgba(255,204,0,1);
+	font-size:35px;
+	font-family:LobsterTwo-Bold, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding:20px;
+}
+
+.titexp{
+	color:rgba(255,255,255,1);
+	font-size:28px;
+	font-family:LobsterTwo-Bold, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding:20px;
+	}
+	
+.titexp2{
+	color: rgba(102,102,102,1);
+	font-size:20px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	padding:20px;
+	text-shadow:5px 5px 10px rgba(0,0,0,0.5);
+	float:left;
+	height:30px;
+}
+
+.textexp{
+	padding:13px;
+	border:none;
+	border-radius:4px;
+	border: 1px solid rgba(0,0,0,0.3);
+	box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+	width:270px;
+}
+
+.btnexp{
+	background:url(../images/bg_cuadriculaVerde.jpg);
+	padding:14px 20px;
+	border-radius:10px;
+	border:1px solid rgba(0,0,0,0.2);
+	font-weight:bolder;
+	color:rgba(255,255,255,1);
+	text-shadow:5px 5px 10px rgba(0,0,0,0.5);
+}
+
+.btnexp{
+	cursor:pointer;
+}
+
+	.titlista{
+	color:rgba(255,255,255,1);
+	padding:10px;
+	font-size:20px;
+	}
+
+.titulo{
+	color:rgba(204,51,102,1);
+	font-weight:bold;
+}
+.tablaExperiencia{
+	background:url(../images/bg_bordeInferiorCabecera.png) repeat-y, rgba(204,204,204,0.2);
+}
+
+#fondocabecera{
+	background:rgba(255,255,255,1) !important;
+}

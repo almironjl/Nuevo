@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block content %}
+
+ <div id="pad-wrapper" class="users-list" align ="center">
+                    <h3>Ver mis solicitudes enviadas</h3>
+                    <table class="table table-hover" id="locals">
+                        <thead>
+                        <tr>
+                            <th class="col-md-4 sortable">
+                                Descripcion
+                            </th>
+                            <th class="col-md-4 sortable">
+                                Precio Unitario
+                            </th>
+                            <th class="col-md-4 sortable">
+                                Meses
+                            </th>
+                            <th class="col-md-4 sortable">
+                                Precio
+                            </th>
+                            <th class="col-md-4 sortable">
+                                Respuesta de Solicitud
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for order in my_orders %}
+                            <tr id="{{ order.id }}" class="first">
+                                <td>
+                                    {{ order.type_point.type.des }}
+                                </td>
+                                <td>
+                                    {{ order.type_point.price }}
+                                </td>
+                                <td>
+                                    {{ order.init_date.month }} - {{ order.end_date.month }}
+                                </td>
+                                <td>
+                                    {{ order.price }}
+                                </td>
+                                <td>
+                                    {{ order.order.state }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+{% endblock%}

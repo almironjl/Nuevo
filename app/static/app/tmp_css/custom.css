@@ -1,0 +1,448 @@
+body {
+    font-family: Arial, Tahoma, Geneva, sans-serif;
+}
+
+.container{
+    width: 100% !important;
+    padding: 0;
+}
+
+.container > .navbar-header, .container-fluid > .navbar-header {
+    margin-left: 90px
+}
+
+/*BEGIN HEAD*/
+.navbar-brand, .navbar-nav > li > a {
+    color: white;
+    text-align: center;
+    list-style: none;
+    background-image: url(../tmp_images/menu_division.png);
+    background-repeat: no-repeat;
+    background-position: 0px center;
+    height: 58px;
+    width: 140px;
+    min-width: 100px;
+    font-size: 13px;
+}
+
+.navbar-nav > li > a:hover {
+    color: #f778ae;
+    background-color: #000000;
+}
+
+.header_back {
+    width: 100%;
+    min-height: 58px;
+    padding-bottom: 11px;
+    background: url(../tmp_images/bg_cabecera.jpg) no-repeat, url(../tmp_images/bg_cabecera_continuo.png) repeat-x 0px bottom;
+    position: relative;
+    z-index: 5;
+}
+
+.header_logo {
+    text-indent: -9999px;
+    width: 106px;
+    height: 51px;
+    margin: 3px;
+    padding: 0px;
+    font-size: 30px;
+    background-image: url(../tmp_images/logo-kunfood.png);
+}
+
+/*END HEAD*/
+
+/*BEGIN FOOTER*/
+footer {
+    color: rgba(204, 204, 204, 1);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 0px;
+    height: 300px;
+    background-color: #000000;
+    -webkit-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+    z-index: 3;
+}
+
+footer .config {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.fTab {
+
+    background: url(../tmp_images/logo_descubre.png) no-repeat 4px -5px, url(../tmp_images/b_activar.png) no-repeat left top;
+    width: 200px;
+    height: 53px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 1em 10em;
+    cursor: pointer;
+     -webkit-transition: bottom 0.5s;
+    transition: bottom 0.5s;
+    z-index: 3;
+}
+
+.fTab.active {
+    bottom: 300px;
+}
+
+.fTab.active + footer {
+    max-height: 300px;
+}
+
+/*END FOOTER*/
+
+/*BEGIN DELIVERY*/
+
+main {
+    width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: white;
+}
+
+#restaurant_header {
+    overflow: hidden;
+}
+
+#restaurant_logo {
+    width: 100px;
+    float: left;
+}
+
+#restaurant_info {
+    float: left;
+    width: 420px;
+}
+
+#restaurant_info h2 {
+    margin: 0px;
+}
+
+#restaurant_carta {
+    width: 600px;
+    float: left;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+    padding: 0px 10px;
+}
+
+#restaurant_carta h3 {
+    background: rgb(242, 242, 242);
+    margin: 0px;
+    line-height: 40px;
+    padding: 0px 20px;
+}
+
+#restaurant_pedido {
+    width: 300px;
+    float: left;
+    border: 1px solid rgb(224, 224, 224);
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+}
+
+#restaurant_accordion {
+    width: 30%;
+    font-size: 1em;
+    float: left;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+    border: 1px solid rgb(225, 225, 225);
+}
+
+#restaurant_accordion .ui-accordion-header {
+    background: rgb(170, 160, 150);
+    border-radius: 0px;
+    color: white;
+    font-weight: bold;
+}
+
+#restaurant_accordion .ui-accordion-header .ui-accordion-header-icon {
+    left: 9.5em;
+}
+
+#restaurant_accordion .ui-accordion-content {
+    padding: 0.5em;
+    height: auto !important;
+    border: none;
+}
+
+#restaurant_accordion .ui-accordion-content ul {
+    padding: 0px;
+}
+
+#restaurant_accordion ul {
+    margin: 0px;
+}
+
+#restaurant_accordion ul li {
+    line-height: 30px;
+}
+
+#restaurant_accordion ul li:hover {
+    background: rgb(224, 224, 224);
+}
+
+#restaurant_table {
+    border-collapse: collapse;
+    float: left;
+    width: 70%;
+}
+
+#restaurant_table input[type="button"] {
+    height: 100%;
+    border: none;
+    width: 110px;
+    height: 50px;
+    background: rgb(120, 160, 40) url('../images/mas-button-normal@32x32.png') no-repeat;
+    background-position: 10% 50%;
+    color: white;
+    text-align: right;
+    padding: 0px 10px;
+}
+
+#restaurant_table input[type="button"]:active {
+    background-color: rgba(120, 160, 40, 0.5);
+}
+
+#restaurant_table tr td {
+    border: 1px solid rgb(224, 224, 224);
+    padding: 5px;
+}
+
+#restaurant_table tr td:nth-child(2) {
+    width: 60px;
+}
+
+#restaurant_table tr td:nth-child(3) {
+    padding: 0px;
+    width: 110px;
+}
+
+#restaurant_estrella {
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+    line-height: 80px;
+}
+
+#restaurant_header_container {
+    width: 600px;
+    overflow: hidden;
+    padding: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+
+}
+
+#restaurant_pedido input[type='radio'] {
+    display: none;
+}
+
+#restaurant_pedido_title {
+    text-align: center;
+    padding: 10px;
+    background: rgb(120, 160, 40);
+}
+
+#restaurant_pedido_title h3 {
+    margin: 0px;
+    color: white;
+    text-align: left;
+}
+
+#restaurant_pedido_price {
+    padding: 10px;
+    background: rgb(242, 242, 242);
+    border: 1px solid rgb(224, 224, 224)
+}
+
+#restaurant_pedido_price table {
+    width: 100%;
+}
+
+#restaurant_pedido_facturacion {
+    text-align: center;
+    padding: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+
+}
+
+#restaurant_pedido_facturacion input[type=text] {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid rgb(224, 224, 224);
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+
+}
+
+#restaurant_pedido_facturacion div {
+    width: 50%;
+    float: left;
+    text-align: left;
+    line-height: 32px;
+    padding-left: 15px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+
+}
+
+#restaurant_pedido_modoPago table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#efectivo, #tarjeta {
+    width: 100px;
+    margin: 0px 20px;
+    float: left
+}
+
+#efectivo div img, #tarjeta div img {
+    height: 32px;
+}
+
+.webkit #efectivo div img, .webkit #tarjeta div img {
+    height: 31px;
+}
+
+#efectivo input, #tarjeta input {
+    float: left;
+}
+
+#efectivo div, #tarjeta div {
+    float: left;
+}
+
+#restaurant_pedido_modoPago table td {
+    border: 1px solid rgb(224, 224, 224);
+    padding: 5px;
+}
+
+#restaurant_pedido_modoPago table td:not(#excepcion) {
+    line-height: 32px;
+}
+
+#restaurant_pedido_submit {
+    text-align: center;
+    padding: 20px;
+}
+
+#restaurant_pedido_submit input[type=button] {
+    margin-bottom: 5px;
+    width: 200px;
+    height: 40px;
+    color: white;
+}
+
+#restaurant_pedido input[type=button] {
+    border-radius: 5px;
+    border: 1px solid rgb(224, 224, 224);
+}
+
+#restaurant_pedido_submit input[value="Guardar lista"] {
+    background: rgb(255, 60, 50);
+}
+
+#restaurant_pedido_submit input[value="Guardar lista"]:active {
+    background: rgba(255, 60, 50, 0.5);
+}
+
+#restaurant_pedido_submit input[value="Confirma tu pedido"] {
+    background: rgb(102, 160, 40);
+}
+
+#restaurant_pedido_submit input[value="Confirma tu pedido"]:active {
+    background: rgba(102, 160, 40, 0.5);
+}
+
+.order_btn {
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none !important;
+
+}
+
+.order_btn_mas {
+    background-image: url('../images/mas-button-normal@32x32.png');
+}
+
+.order_btn_menos {
+    background-image: url('../images/menos-button-normal@32x32.png');
+}
+
+.order_btn_mas:active {
+    background-image: url('../images/mas-button-pressed@32x32.png');
+}
+
+.order_btn_menos:active {
+    background-image: url('../images/menos-button-pressed@32x32.png');
+}
+
+.restaurant_pedido_order table {
+    width: 100%;
+}
+
+.restaurant_pedido_order div:nth-child(1) table tr:nth-child(1) {
+    color: white;
+}
+
+.restaurant_pedido_order table td {
+    padding: 10px;
+}
+
+.restaurant_pedido_order table td:nth-child(1) {
+    width: 60%;
+}
+
+.restaurant_pedido_order table td:nth-child(2) {
+    text-align: right;
+}
+
+.restaurant_pedido_order div:nth-child(1) {
+    background-color: rgb(170, 160, 150);
+}
+
+.restinput[type="radio"] {
+    display: none;
+    margin: -10px;
+}
+
+input[type="radio"] + label {
+    background-image: url('../images/btn_radio_off.png');
+    background-size: 32px 32px;
+    float: left;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-bottom: 0px;
+    margin-right: 5px;
+}
+
+input[type="radio"]:checked + label {
+    background-image: url('../images/btn_radio_on.png');
+}
+
+/*END DELIVERY*/
+
+/*BEGIN SEARCH FROM*/
+
+/*END SEARCH FROM*/

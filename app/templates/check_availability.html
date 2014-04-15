@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block content %}
+<div style="height:6px;"></div>
+
+INTERFAZ
+
+<div class="row" style="margin: 0" align="center">
+        <div id="datepicker"></div>
+
+        <div class="checkbox-inline" >
+            <input id="month1" type="checkbox">
+            Mes 1
+        </div>
+        <div class="checkbox-inline">
+            <input id="month2" type="checkbox" >
+            Mes 2
+        </div>
+        <div class="checkbox-inline">
+            <input id="month3" type="checkbox" >
+            Mes 3
+        </div>
+        <div class="checkbox-inline">
+            <input id="month4" type="checkbox" value="">
+            Mes 4
+        </div>
+        <div class="checkbox-inline">
+            <input id="month5" type="checkbox" value="">
+            Mes 5
+        </div>
+    {% for m in scheduler %}
+  <div class="col-md-2">
+    <table class="table table-hover" width="125" cellspacing="1" cellpadding="3" border="2" >
+    <tbody>
+    <tr>
+        {{ m.init_date.day }}
+        {{ m.end_date.day }}
+        {{ m.state }}
+    </tr>
+    </tbody>
+    </table>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <p><a href="#" >Agregar al carrito publicista</a></p>
+    {% else %}
+        <p><a href="{% url 'client_admin:login' %}">Agregar al carrito publicista</a></p>
+    {% endif %}
+    <form  id="agregar" action="/addto_car/{{ point_type }}" method="post">
+    <input type="text" placeholder="Numero de meses" class="TxtLugar" name="months" id="months"
+                                       tabindex="2" autocomplete="off">
+    <input type="hidden" name = "point_type" id="point_type" value={{ point_type }}>
+                                <input type="submit" value="Buscar">
+   </form>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  unavailableDates = ['04-24-2014','04-28-2014'];
+  unavailableDates.push('04-30-2014');
+  function checking(month){
+      if(month.checked)
+        $('#datepicker').datepicker({numberOfMonths:3});
+  }
+  $(document).ready(function() {
+    //set initial state.
+    $('#month1').val($(this).is(':checked'));
+
+    $('#month2').change(function() {
+        $('#month1').val($(this).is(':checked'));
+    });
+
+    $('#month1').click(function() {
+        if (!$(this).is(':checked')) {
+            return confirm("Are you sure?");
+            $("#datepicker").clear();
+            $("#datepicker").datepicker({numberOfMonths: 4});
+        }
+    });
+});
+
+
+
+  $(function() {
+    $( "#datepicker" ).datepicker({
+        numberOfMonths: 5,
+         minDate: +0,
+        maxDate: "+5M",
+        onClick: function( selectedDate ) {
+        $( "#datepicker" ).datepicker( "option", "minDate", selectedDate )}
+{#        beforeShowDay: function(d) {#}
+{#            var dmy = (d.getMonth()+1);#}
+{#            if(d.getMonth()<9)#}
+{#                    dmy="0"+dmy;#}
+{#            dmy+= "-";#}
+{#            if(d.getDate()<10) dmy+="0";#}
+{#                dmy+=d.getDate() + "-" + d.getFullYear();#}
+{##}
+{#            console.log(dmy+' : '+($.inArray(dmy, unavailableDates)));#}
+{##}
+{#            if ($.inArray(dmy, unavailableDates) != -1) {#}
+{#                return [false, "","unAvailable"];#}
+{#            } else{#}
+{#                return [true,"","Available"];#}
+{#            }#}
+{#        },#}
+
+    });
+
+  })
+  </script>
+{% endblock %}
